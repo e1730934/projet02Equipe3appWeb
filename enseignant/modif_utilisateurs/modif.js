@@ -27,6 +27,13 @@ document.getElementById('ajouter').addEventListener('click', () => {
     tr.appendChild(mailuser);
     mailuser.innerHTML = mail;
 
+    const modif = document.createElement('td');
+    const modifbouton = document.createElement('a');
+    modifbouton.setAttribute('class', 'button is-link');
+    modifbouton.innerHTML = "Modifier"
+    modif.appendChild(modifbouton);
+    tr.appendChild(modif);
+
     const suppr = document.createElement('td');
     const supprbouton = document.createElement('a');
     supprbouton.setAttribute('class', 'button is-danger');
