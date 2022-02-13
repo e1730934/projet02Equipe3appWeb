@@ -6,8 +6,12 @@
   #menu {
     display: none;
     position : relative;
+    margin-top: -20px;
     
     
+  }
+  #button{
+    font-weight:100%;
   }
 
   
