@@ -1,18 +1,5 @@
-/*document.getElementById("IPPE").addEventListener("click", pageIPPE);
-
-
-function pageIPPE(){
-    
-    div = document.getElementById("pageHtml")
-
-    div += "Ceci est la page pour IPPE - Recherche de personnes"
-
-
-}*/
-
-
-
-function fonction(){
+//Fonction qui fait apparaitre et disparaitre le menu
+function menuBareNaviguation(){
     let x = document.getElementById("menu")
     if (x.style.display === "block") {
         x.style.display = "none";
@@ -20,4 +7,4 @@ function fonction(){
         x.style.display = "block";
   }
 }
-document.getElementById('button').addEventListener("click",fonction);
+document.getElementById('buttonMenuBareNaviguation').addEventListener("click",menuBareNaviguation);
