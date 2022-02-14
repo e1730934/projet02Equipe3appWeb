@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nav.css">
+    <title>Student Home Page</title>
+</head>
+
+<body>
+
+    <header>
+        <!-- bare de naviguation avec nom, matricule et le bouton pour afficher les 8 interrogations-->
+        <div class="container">
+            <div class="box" id='navBare'>
+                <div class="columns is-mobile ">
+                    <div class=" column is-2-tablet is-3-mobile">
+                        <img src="../logoSansText.png">
+                    </div>
+                    <div class="column">
+                        <br>
+
+                        <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-mobile">
+                            Centre de Renseignement Techniques Policière</p>
+                        <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-tablet">CRTP
+                        </p>
+
+                    </div>
+                    <div class="column has-text-right is-narrow">
+                        <br>
+                        <button id="buttonMenuBareNaviguation" class="button is-outlined">
+                            <img id="imageButton" src="../bars-solid.svg">
+
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--menu qui s'affiche lorseque le boutton est cliqué-->
+            <div id="menu" class="box">
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IPPE - Recherche de
+                        personnes </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> FPS - Recherce de
+                        personnes bertillonnées </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBOB - Recherche
+                        d’objets </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBAF - Recherche
+                        d’armes à feu </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBVA - Recherche de
+                        valeurs </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> SAAQ - Recherche de
+                        véhicule </p>
+                </a>
+
+            </div>
+        </div>
+
+
+
+    </header>
+
+
+</body>
+
+
+<script src="nav.js"></script>
+
+
+</html>
