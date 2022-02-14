@@ -13,22 +13,24 @@
     <header>
         <!-- bare de naviguation avec nom, matricule et le bouton pour afficher les 8 interrogations-->
         <div class="container">
-            <div class="box" style="background-color: #338cc5">
-                <div class="columns is-mobile">
-                    <div class=" column is-narrow">
-                        <img src="../CRTPmini.jpg">
+            <div class="box" id='navBare'>
+                <div class="columns is-mobile ">
+                    <div class=" column is-2-tablet is-3-mobile">
+                        <img src="../logoSansText.png">
                     </div>
-                    <div class="column ">
+                    <div class="column">
                         <br>
-                        <br>
-                        <p class="is-size-6 has-text-left">Nom d'utilisateur</p>
-                        <p class="is-size-6 has-text-left">matricule</p>
+
+                        <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-mobile">
+                            Centre de Renseignement Techniques Policière</p>
+                        <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-tablet">CRTP
+                        </p>
+
                     </div>
                     <div class="column has-text-right is-narrow">
                         <br>
-                        <button id="buttonMenuBareNaviguation" class="button is-outlined" style="background-color: #338cc5; border-color: #338cc5;">
-
-                            <img src="../bars-solid.svg" style="height: 100%; width: 100%;">
+                        <button id="buttonMenuBareNaviguation" class="button is-outlined">
+                            <img id="imageButton" src="../bars-solid.svg">
 
                         </button>
 
@@ -37,7 +39,7 @@
             </div>
 
             <!--menu qui s'affiche lorseque le boutton est cliqué-->
-            <div id="menu" class="box" style="background-color:#bce2e4;">
+            <div id="menu" class="box">
                 <a id="link">
                     <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IPPE - Recherche de
                         personnes </p>
@@ -77,6 +79,13 @@
                     <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> SAAQ - Recherche de
                         véhicule </p>
                 </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> Ajout de personne
+                    </p>
+                </a>
             </div>
         </div>
 
@@ -89,8 +98,6 @@
 
 
 <script src="StudentHp.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></script>
-
 
 
 </html>

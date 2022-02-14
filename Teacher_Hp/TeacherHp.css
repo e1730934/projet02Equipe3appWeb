@@ -1,16 +1,27 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
-@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
-
   
-  #menu {
+#menu {
     display: none;
     position : relative;
     margin-top: -20px;
-    
-    
-  }
-  #button{
-    font-weight:100%;
+    background-color:#bce2e4;
   }
 
-  
+#buttonMenuBareNaviguation{
+    background-color: #338cc5; 
+    border-color: #338cc5;
+  }
+
+#imageButton{
+    height: 100%; 
+    width: 100%;
+ }
+
+#motAcceuil{
+    margin-top: 10px; 
+    margin-bottom: 15px;
+}
+
+#navBare{
+    background-color: #338cc5
+}
