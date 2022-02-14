@@ -1,4 +1,4 @@
-document.getElementById('ajouter').addEventListener('click', () => {
+function Ajouter(){
     const user = document.getElementById('user').value;
     const prenom = document.getElementById('prenom').value;
     const nom = document.getElementById('nom').value;
@@ -40,4 +40,4 @@ document.getElementById('ajouter').addEventListener('click', () => {
     supprbouton.innerHTML = "Supprimer"
     suppr.appendChild(supprbouton);
     tr.appendChild(suppr);
-});
+};
