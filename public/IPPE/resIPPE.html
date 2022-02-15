@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="./reqIPPE.css">
     </head>
 <body>
-    <header>
+    <header class="is-centered">
         <!-- bare de naviguation avec nom, matricule et le bouton pour afficher les 8 interrogations-->
         <div class="container">
             <div class="box" id='navBare'>
@@ -82,22 +82,14 @@
 
 
     </header>
-    <!-- first section -->
+    <div class="container">
+      <div class="box">
+
     <div class="columns">
-        <!-- research button list -->
-        <div class="column">
-            <div class="box">
-                <button class="button is-light is-fullwidth is-large is-info is-outlined"><bold> IPPE </bold></button></br>
-                <button class="button is-light is-fullwidth is-large is-info is-outlined"><bold> IPPE </bold></button></br>
-                <button class="button is-light is-fullwidth is-large is-info is-outlined"><bold> IPPE </bold></button></br>
-                <button class="button is-light is-fullwidth is-large is-info is-outlined"><bold> IPPE </bold></button></br>
-                <button class="button is-light is-fullwidth is-large is-info is-outlined"><bold> IPPE </bold></button></br>
-
-            </div>
-        </div>
-
+      <!-- left space-->
+      <div class="column is-centered is-quarter"></div>
         <!-- middle section-->
-        <div class="column is-half spacing">
+        <div class="column is-centered is-half">
             <div class="box">
                 <h1 class="title">IPPE Interogation - Personne </h1><h1 class="subtitle">Page 01</h1>
                 <h2>Demande de verification pour : </h2>
@@ -129,32 +121,29 @@
                     </ul>
                   </nav>
               </div>
-            <!--page changer-->
 
-        </div>
-        <!-- end section-->
-        <div class="column">
-            <!-- information sur le policier-->
-            <div class="card spacing">
-                <div class="card-image">
-                  <figure class="image is-4by3">
-                    <img src="../image/logo.PNG" alt="Placeholder image">
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
-                      <p class="title is-4">nom du policier</p>
-                      <p class="subtitle is-6">code du policier</p>
-                    </div>
-                  </div>                  
-                  <div class="content">
-                    <time datetime="2022-02-09">12:09 PM - 10 Fev 2022</time>
-                  </div>
-                </div>
-              </div>
-        </div>
+            </div>
+            <div class="column is-quarter"></div>
       </div>
-      <script src="./reqIPPE.js"></script>
+    </div>
+  </div>
+    
+      <footer>
+        <div class="container">
+            <div class="box" id = "footer" style= 'background-color: #338cc5'>
+                <div class="columns is-mobile ">
+                    <div class="column">
+
+                        <p id="nom" class="is-size-7 has-text-right has-text-black">Nom d'utilisateur</p>
+                        <p id="matricule" class="is-size-7 has-text-right has-text-black">matricule</p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./reqIPPE.js"></script>
 </body>
 </html>
