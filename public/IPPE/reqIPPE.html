@@ -1,134 +1,172 @@
 <!DOCTYPE html>
-    <html lang="eng">
-        <head>
-            <meta charset="utf-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1">
-            <title>Interogation</title>
-            <link rel="stylesheet" href='./reqIPPE.css'>
-            <script src='./reqIPPE.css'></script>
-        </head>
-        <body>
-            <header>
-                <!-- bare de naviguation avec nom, matricule et le bouton pour afficher les 8 interrogations-->
-                <div class="container">
-                    <div class="box" id='navBare'>
-                        <div class="columns is-mobile ">
-                            <div class=" column is-2-tablet is-3-mobile">
-                                <img src="../logoSansText.png">
-                            </div>
-                            <div class="column">
-                                <br>
-        
-                                <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-mobile">
-                                    Centre de Renseignement Techniques Policière</p>
-                                <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-tablet">CRTP
-                                </p>
-        
-                            </div>
-                            <div class="column has-text-right is-narrow">
-                                <br>
-                                <button id="buttonMenuBareNaviguation" class="button is-outlined">
-                                    <img id="imageButton" src="../bars-solid.svg">
-        
-                                </button>
-        
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interogation</title>
+    <link rel="stylesheet" href='./reqIPPE.css'>
+    <script src='./reqIPPE.css'></script>
+<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+
+<body>
+    <header>
+        <!-- bare de naviguation avec nom, matricule et le bouton pour afficher les 8 interrogations-->
+        <div class="container">
+            <div class="box" id='navBare'>
+                <div class="columns is-mobile ">
+                    <div class=" column is-2-tablet is-3-mobile">
+                        <img src="../logoSansText.png">
+                    </div>
+                    <div class="column">
+                        <br>
+
+                        <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-mobile">
+                            Centre de Renseignement Techniques Policière</p>
+                        <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-tablet">CRTP
+                        </p>
+
+                    </div>
+                    <div class="column has-text-right is-narrow">
+                        <br>
+                        <button id="buttonMenuBareNaviguation" class="button is-outlined">
+                            <img id="imageButton" src="../bars-solid.svg">
+
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--menu qui s'affiche lorseque le boutton est cliqué-->
+            <div id="menu" class="box">
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IPPE - Recherche de
+                        personnes </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> FPS - Recherce de
+                        personnes bertillonnées </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBOB - Recherche
+                        d’objets </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBAF - Recherche
+                        d’armes à feu </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBVA - Recherche de
+                        valeurs </p>
+                </a>
+
+                <hr class="dropdown-divider">
+
+                <a id="link">
+                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> SAAQ - Recherche de
+                        véhicule </p>
+                </a>
+
+            </div>
+        </div>
+    </header>
+
+
+
+
+
+    <div class="container">
+
+        <div class="box" style="background-color: #f6f6f6;">
+            <h1 class="title has-text-centered-mobile">INTERR. PERSONNE IPPE</h1>
+            <br>
+            <div class="field">
+                <div class="control">
+                    <input class="input is-normal" type="text" placeholder="Nom"><br>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Prenom 1"><br>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Prenom 2"><br>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-half-tablet has-text-centered is-narrow-mobile">
+                    <div class="field">
+                        <label class="label">Sexe</label>
+                        <div class="control">
+                            <div class="select">
+                                <select>
+                                    <option>Homme</option>
+                                    <option>Femme</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-        
-                    <!--menu qui s'affiche lorseque le boutton est cliqué-->
-                    <div id="menu" class="box">
-                        <a id="link">
-                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IPPE - Recherche de
-                                personnes </p>
-                        </a>
-        
-                        <hr class="dropdown-divider">
-        
-                        <a id="link">
-                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> FPS - Recherce de
-                                personnes bertillonnées </p>
-                        </a>
-        
-                        <hr class="dropdown-divider">
-        
-                        <a id="link">
-                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBOB - Recherche
-                                d’objets </p>
-                        </a>
-        
-                        <hr class="dropdown-divider">
-        
-                        <a id="link">
-                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBAF - Recherche
-                                d’armes à feu </p>
-                        </a>
-        
-                        <hr class="dropdown-divider">
-        
-                        <a id="link">
-                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBVA - Recherche de
-                                valeurs </p>
-                        </a>
-        
-                        <hr class="dropdown-divider">
-        
-                        <a id="link">
-                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> SAAQ - Recherche de
-                                véhicule </p>
-                        </a>
-        
+                </div>
+                <div class="column has-text-centered">
+                    <div class="field">
+                        <label class="label">Date de naissance</label>
+                        <div class="control">
+                            <input id="date" type="date">
+                        </div>
                     </div>
                 </div>
-            </header>
-            
-            <div class="box" style="background-color: #f6f6f6;">
-            <h1 class="title">INTERR.PERSONNE IPPE</h1>
-            <br><br>
-            <div class="field">
-                <div class="control">
-                <input class="input is-normal" type="text" placeholder="Nom"><br>
+            </div>
+
+            <div class="columns">
+                <div class="column is-half-tablet has-text-right-tablet has-text-centered-mobile">
+                    <div class="field">
+                        <div class="control">
+                            <button class="button" style="background-color: #338cc5;">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-left-tablet has-text-centered-mobile">
+                    <div class="control">
+                        <button class="button is-link is-light">Cancel</button>
+                    </div>
                 </div>
             </div>
-            <div class="field">
-                <div class="control">
-                <input class="input" type="text" placeholder="Prenom 1"><br>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="box" id = "footer" style= 'background-color: #338cc5'>
+                <div class="columns is-mobile ">
+                    <div class="column">
+
+                        <p id="nom" class="is-size-7 has-text-right has-text-black">Nom d'utilisateur</p>
+                        <p id="matricule" class="is-size-7 has-text-right has-text-black">matricule</p>
+
+
+                    </div>
                 </div>
             </div>
-            <div class="field">
-                <div class="control">
-                <input class="input" type="text" placeholder="Prenom 2"><br>
-                </div>
-            </div>
-            
-            <div class="field">
-                <label class="label">Sexe</label>
-                <div class="control">
-                <div class="select">
-                    <select>
-                    <option>Homme</option>
-                    <option>Femme</option>
-                    </select>
-                </div>
-                </div>
-            </div>
-            <div class="field">
-                <label class="label">Date de naissance</label>
-                <div class="control">
-                    <input type="date">
-                </div>
-            </div>
-            
-            <div class="field is-grouped">
-                <div class="control">
-                <button class="button" style="background-color: #338cc5;">Submit</button>
-                </div>
-                <div class="control">
-                <button class="button is-link is-light">Cancel</button>
-                </div>
-            </div>
-            </div>
-            <script src="./reqIPPE.js"></script>
-        
-        </body>
-    </html>
+        </div>
+    </footer>
+
+
+<script type="text/javascript">(function(){window['__CF$cv$params']={r:'6de06b80387f4bd1',m:'l2T12GKTyPAdyAJaPUQAFxd48qeVlHvZR.vKemONhvg-1644947860-0-AZGzZJp37KZGW1ASF1zWHTSjiNvn8Xm69fhhI5NpXDIm0baYv28hJdqAjMyEJUAmPSZjyJzkigmlXk4TIWpPpYL/1qNpH+bV8PaKcwsu9A5BpWCDQamP9NspnAFZLO+zQbb/rpD9ayuSf/9f4VlzknIJt7h/eiTye+4C12o4JwXvchvQsDZhNP1JqIBaf9xUkQ==',s:[0xa79dce7498,0xb68fc2f9f9],}})();</script></body>
+<script src="./reqIPPE.js"></script>
+
+</html>
