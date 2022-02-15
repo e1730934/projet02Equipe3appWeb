@@ -8,6 +8,80 @@
             <script src='/IPPE/reqIPPE.css'></script>
         </head>
         <body>
+            <header>
+                <!-- bare de naviguation avec nom, matricule et le bouton pour afficher les 8 interrogations-->
+                <div class="container">
+                    <div class="box" id='navBare'>
+                        <div class="columns is-mobile ">
+                            <div class=" column is-2-tablet is-3-mobile">
+                                <img src="../logoSansText.png">
+                            </div>
+                            <div class="column">
+                                <br>
+        
+                                <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-mobile">
+                                    Centre de Renseignement Techniques Policière</p>
+                                <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-tablet">CRTP
+                                </p>
+        
+                            </div>
+                            <div class="column has-text-right is-narrow">
+                                <br>
+                                <button id="buttonMenuBareNaviguation" class="button is-outlined">
+                                    <img id="imageButton" src="../bars-solid.svg">
+        
+                                </button>
+        
+                            </div>
+                        </div>
+                    </div>
+        
+                    <!--menu qui s'affiche lorseque le boutton est cliqué-->
+                    <div id="menu" class="box">
+                        <a id="link">
+                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IPPE - Recherche de
+                                personnes </p>
+                        </a>
+        
+                        <hr class="dropdown-divider">
+        
+                        <a id="link">
+                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> FPS - Recherce de
+                                personnes bertillonnées </p>
+                        </a>
+        
+                        <hr class="dropdown-divider">
+        
+                        <a id="link">
+                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBOB - Recherche
+                                d’objets </p>
+                        </a>
+        
+                        <hr class="dropdown-divider">
+        
+                        <a id="link">
+                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBAF - Recherche
+                                d’armes à feu </p>
+                        </a>
+        
+                        <hr class="dropdown-divider">
+        
+                        <a id="link">
+                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBVA - Recherche de
+                                valeurs </p>
+                        </a>
+        
+                        <hr class="dropdown-divider">
+        
+                        <a id="link">
+                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> SAAQ - Recherche de
+                                véhicule </p>
+                        </a>
+        
+                    </div>
+                </div>
+            </header>
+            
             <div class="box" style="background-color: #f6f6f6;">
             <h1 class="title">INTERR.PERSONNE IPPE</h1>
             <br><br>
@@ -54,5 +128,7 @@
                 </div>
             </div>
             </div>
-        <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6dd775758e267150',m:'j3lo4bQ1sGDiEPg3VtZr1hCF5uURnoppcF9ZjpdvPHw-1644853896-0-AXBN0ZjAFk6oi2MjtISztTrSIZAP0oGSO7ZWzVrN+xjXDOwBAImeOFC4n4ByOg/9azCCFRSmPhb2U4plqKDbTa3gnc0hBZLSHY9x7CFBpKc9IJLdVlv53/cF0NZlK+rCAbni11blP9K3SroOEKxH0ElHGPlIPeSA3jWbhuZADs7HHtbuDbMIAW0Ia6bqxdtFgW91bev6IMMW8sxwoEJGISo=',s:[0x855dd38c62,0xd7f9ed845b],}})();</script></body>
+            <script src="./reqIPPE.js"></script>
+        
+        </body>
     </html>
