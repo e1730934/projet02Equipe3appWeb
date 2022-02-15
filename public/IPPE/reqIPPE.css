@@ -25,3 +25,10 @@
 #navBare{
     background-color: #338cc5
 }
+
+
+#date{
+  border-radius: 5px;
+  font: 15px Arial, sans-serif;
+  height: 35px;
+}
