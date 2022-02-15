@@ -1,9 +1,0 @@
-@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
-
-p#nom{
-    margin-top: 15px;
-}
-
-p#matricule{
-    margin-bottom: 15px;
-}
