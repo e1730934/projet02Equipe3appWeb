@@ -1,45 +1,5 @@
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
-#id02 {
-    visibility: hidden;
-    position: relative;
-  }
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
 
 
 
-
-  .button1 {
-    background-color: #338cc5;
-    border: none;
-    color: black;
-    padding: 5px 32px;
-    position: absolute;
-    left: 50px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-
-  }
-  .button2 {
-    background-color: #338cc5;
-    border: none;
-    color: black;
-    padding: 5px 25px;
-    position: absolute;
-    right: 50px;
- 
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-
-  }
-
-  .center {
-    text-align: center;
-    /* border: 3px solid rgb(5, 5, 5); */
-  }
