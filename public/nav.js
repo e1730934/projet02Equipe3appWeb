@@ -101,7 +101,7 @@ function navEtud() {
 
                         <a id="linkSAAQ">
                             <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> SAAQ - Recherche de
-                                véhicule </p>
+                                véhicule --></p>
                         </a>
 
                     </div>
@@ -109,7 +109,7 @@ function navEtud() {
                     <div id="menuSAAQ" class="box" style="background-color:#bce2e4; margin-top: -20px; position : relative; display: none;">
 
                         <a id="linkRetour">
-                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> < </p>
+                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> <-- Retour <-- </p>
                         </a>
 
                         <hr class="dropdown-divider">
@@ -276,7 +276,7 @@ function navProf() {
                     <div id="menuSAAQ" class="box" style="background-color:#bce2e4; margin-top: -20px; position : relative; display: none;">
 
                         <a id="linkRetour">
-                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> < </p>
+                            <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> <-- Retour <-- </p>
                         </a>
 
                         <hr class="dropdown-divider">
@@ -320,8 +320,8 @@ function navProf() {
 navProf()
 
 
-/*export {
+export {
     navEtud,
     navProf
   };
-*/
+

@@ -20,7 +20,7 @@ app.get("/ProfesseurAccueil",(req, res) =>{
 });
 
 app.get("/EtudiantAccueil",(req, res) =>{
-    res.sendFile(__dirname + "public/Student_Hp/StudentHp.html");
+    res.sendFile(__dirname + "/public/Student_Hp/StudentHp.html");
 });
 
 app.get("/IPPE",(req, res) =>{
@@ -34,5 +34,5 @@ app.get("/IPPEResponse",(req, res) =>{
 });
 
 app.listen(PORT, () => {
-    console.log(`Mon application roule sur le port ${PORT}`);
+    console.log(`Mon application roule sur le port ${PORT} : http://localhost:${PORT}/`);
 });
