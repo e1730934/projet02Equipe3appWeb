@@ -17,19 +17,6 @@
     width: 100%;
  }
 
-#motAcceuil{
-    margin-top: 10px; 
-    margin-bottom: 15px;
-}
-
 #navBare{
     background-color: #338cc5
-}
-
-p#nom{
-    margin-top: 15px;
-}
-
-p#matricule{
-    margin-bottom: 15px;
 }
