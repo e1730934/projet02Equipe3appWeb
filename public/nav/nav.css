@@ -7,6 +7,13 @@
     background-color:#bce2e4;
   }
 
+  #menuSAAQ {
+    display: none;
+    position : relative;
+    margin-top: -20px;
+    background-color:#bce2e4;
+  }
+
 #buttonMenuBareNaviguation{
     background-color: #338cc5; 
     border-color: #338cc5;
