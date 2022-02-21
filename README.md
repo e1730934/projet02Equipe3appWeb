@@ -1,4 +1,4 @@
-# TP HTML Client-Serveur
+# Projet 2 - Sprint 01 
 
 Réalisé par :
 Bilal Khendaf - E1730934
