@@ -13,7 +13,7 @@ Bastien Cambray - E1920614
 
 Travail présenté à Levasseur, Marc <br/>
 Dans le cardre du cours 420-4D1, Groupe 03 <br/>
-Projet 2 - Développement 
+Projet 2 - Développement d'applications
 
 
 ## Instruction
