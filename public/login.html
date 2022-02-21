@@ -10,9 +10,17 @@
 
     function change() {
       if (document.getElementById('etudiant').checked) {
-        window.location.href = "http://localhost:3000/etudiant/menu"
+        if (document.getElementById('code').value == 'e1234567' && document.getElementById('password').value == '12345') {
+          window.location.href = "http://localhost:3000/etudiant/menu";
+        } else {
+          alert('Mauvais identifiant ou mot de passe');
+        }
       } else if (document.getElementById('enseignant').checked) {
-        window.location.href = "http://localhost:3000/enseignant/menu"
+        if (document.getElementById('code').value == 'e12345' && document.getElementById('password').value == '12345') {
+          window.location.href = "http://localhost:3000/enseignant/menu"
+        } else {
+          alert('Mauvais identifiant ou mot de passe');
+        }
       }
     }
 
