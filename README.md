@@ -2,31 +2,30 @@
 
 Réalisé par :
 Bilal Khendaf - E1730934
+<br/>
 Truong Sang Mario Phung - E2066576
+<br/>
 Karim Amzert - E2069838
+<br/>
 Bastien Cambray - E1920614
-<br/>
-<br/>
 <br/>
 <br/>
 
 Travail présenté à Levasseur, Marc <br/>
-Dans le cardre du cours 420-3D2, Groupe 02 <br/>
-APPLICATIONS WEB 1
+Dans le cardre du cours 420-4D1, Groupe 03 <br/>
+Projet 2 - Développement 
 
 
 ## Instruction
 ### Serveur
 
- 1. `cd ./Serveur`
- 2. `npm i`
- 3. `npm start`
+ 1. `npm install`
+ 2. `npm run start`
 
 ### Client
 
- 1. `cd ./Client`
- 2. `npm i`
- 3. `npm start`
+ 1. `npm install`
+ 2. `npm run start`
 
 
 ### Acceuil
