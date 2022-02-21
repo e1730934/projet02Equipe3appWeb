@@ -20,7 +20,7 @@ app.get("/ProfesseurAccueil",(req, res) =>{
 });
 
 app.get("/EtudiantAccueil",(req, res) =>{
-    res.sendFile(__dirname + "/public/Student_Hp/Student.html");
+    res.sendFile(__dirname + "public/Student_Hp/StudentHp.html");
 });
 
 app.get("/IPPE",(req, res) =>{
