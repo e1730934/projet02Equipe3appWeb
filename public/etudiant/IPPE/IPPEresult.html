@@ -21,7 +21,7 @@
         <p class="subtitle has-text-white">Étudiant : (insert student number later)</p>
         <a class="button is-danger" href="./login.html">
           <strong>Se déconnecter</strong>
-      </a>
+        </a>
       </div>
     </div>
   </section>
@@ -35,45 +35,298 @@
           <div class="title has-text-grey is-5">Interr. personne - IPPE</div>
           <div class="box">
             <form>
-              <div class="field">
-                <label class="label is-large">Nom</label>
-                <div class="control">
-                  <input class="input is-large" id="Nom" type="text" placeholder="Nom" autofocus="">
-                </div>
-              </div>
-              <div class="field">
-                <label class="label is-large">Prénom 1</label>
-                <div class="control">
-                  <input class="input is-large" id="Prenom1" type="text" placeholder="Prénom 1">
-                </div>
-              </div>
-              <div class="field">
-                <label class="label is-large">Prénom 2</label>
-                <div class="control">
-                  <input class="input is-large" id="Prenom2" type="text" placeholder="Prénom 2">
-                </div>
-                <div class="field">
-                  <label class="label is-large" id="Sexe">Sexe</label>
-                  <div class="select">
-                    <select>
-                      <option value="">Choisir une option</option>
-                      <option>M</option>
-                      <option>F</option>
-                      <option>Autres</option>
-                    </select>
+              <!-- infos de la reqûete de base -->
+              <div class="columns">
+                <div class="column is-one-fifth">
+                  <label class="label is-large">Nom</label>
+                  <div class="control">
+                    <input class="input is-large" id="NomFamille" type="text" placeholder="Nom" autofocus="">
                   </div>
-                  <div class="field">
-                <label class="label is-large">Date</label>
-                <div class="control">
-                  <input class="input is-large" id="code" type="date" placeholder="Prénom 2" autofocus="">
                 </div>
+                <div class="column is-one-fifth">
+                  <label class="label is-large">Prénom 1</label>
+                  <div class="control">
+                    <input class="input is-large" id="Prenom1" type="text" placeholder="Prénom 1">
+                  </div>
+                </div>
+                <div class="column is-one-fifth">
+                  <label class="label is-large">Prénom 2</label>
+                  <div class="control">
+                    <input class="input is-large" id="Prenom2" type="text" placeholder="Prénom 2">
+                  </div>
+                </div>
+                <div class="column is-one-fifth">
+                  <label class="label is-large">Sexe</label>
+                  <div class="control">
+                    <input class="input is-large" id="Sexe" type="text" placeholder="Sexe">
+                  </div>
+                </div>
+                <div class="column is-one-fifth">
+                  <label class="label is-large">Naissance</label>
+                  <div class="control">
+                    <input class="input is-large" id="date" type="text" placeholder="Date Naissance">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 2 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Téléphone</label>
+                  <div class="control">
+                    <input class="input is-large" id="Telephone" type="text" placeholder="Telephone">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Numéro Permis</label>
+                  <div class="control">
+                    <input class="input is-large" id="NoPermis" type="text" placeholder="NoPermis">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Adresse 1</label>
+                  <div class="control">
+                    <input class="input is-large" id="Adresse1" type="text" placeholder="Adresse1">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 3 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Adresse 2</label>
+                  <div class="control">
+                    <input class="input is-large" id="Adresse2" type="text" placeholder="Adresse2">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Ville</label>
+                  <div class="control">
+                    <input class="input is-large" id="Ville" type="text" placeholder="Ville">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Province</label>
+                  <div class="control">
+                    <input class="input is-large" id="Province" type="text" placeholder="Province">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 4 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Code Postal</label>
+                  <div class="control">
+                    <input class="input is-large" id="CodePostal" type="text" placeholder="CodePostal">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Race</label>
+                  <div class="control">
+                    <input class="input is-large" id="Race" type="text" placeholder="Race">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Taille</label>
+                  <div class="control">
+                    <input class="input is-large" id="Taille" type="text" placeholder="Taille">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 5 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Poids</label>
+                  <div class="control">
+                    <input class="input is-large" id="Poids" type="text" placeholder="Poids">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Yeux</label>
+                  <div class="control">
+                    <input class="input is-large" id="Yeux" type="text" placeholder="RaYeuxce">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Cheveux</label>
+                  <div class="control">
+                    <input class="input is-large" id="Cheveux" type="text" placeholder="Cheveux">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 6 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Marques</label>
+                  <div class="control">
+                    <input class="input is-large" id="Marques" type="text" placeholder="Marques">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Toxicomanie ?</label>
+                  <div class="control">
+                    <input class="input is-large" id="Toxicomanie" type="text" placeholder="Toxicomanie">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Désorganisé ?</label>
+                  <div class="control">
+                    <input class="input is-large" id="Desorganise" type="text" placeholder="Desorganise">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 7 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Depressif ?</label>
+                  <div class="control">
+                    <input class="input is-large" id="Depressif" type="text" placeholder="Depressif">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Suicidaire ?</label>
+                  <div class="control">
+                    <input class="input is-large" id="Suicidaire" type="text" placeholder="Suicidaire">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Violent ?</label>
+                  <div class="control">
+                    <input class="input is-large" id="Violent" type="text" placeholder="Violent">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 8 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Gilet</label>
+                  <div class="control">
+                    <input class="input is-large" id="Gilet" type="text" placeholder="Gilet">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Pantalon</label>
+                  <div class="control">
+                    <input class="input is-large" id="Pantalon" type="text" placeholder="Pantalon">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Autre(s) Vêtements</label>
+                  <div class="control">
+                    <input class="input is-large" id="AutreVetement" type="text" placeholder="AutreVetement">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 9 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">ID Personne</label>
+                  <div class="control">
+                    <input class="input is-large" id="IdPersonne" type="text" placeholder="IdPersonne">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">No. Evenement</label>
+                  <div class="control">
+                    <input class="input is-large" id="NoEvenement" type="text" placeholder="NoEvenement">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Type Evenement</label>
+                  <div class="control">
+                    <input class="input is-large" id="TypeEvenement" type="text" placeholder="TypeEvenement">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 10 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Raison</label>
+                  <div class="control">
+                    <input class="input is-large" id="Raison" type="text" placeholder="Raison">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Dossier Enquête</label>
+                  <div class="control">
+                    <input class="input is-large" id="DossierEnquete" type="text" placeholder="DossierEnquete">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Cour</label>
+                  <div class="control">
+                    <input class="input is-large" id="Cour" type="text" placeholder="Cour">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 11 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">No. Cour</label>
+                  <div class="control">
+                    <input class="input is-large" id="NoCour" type="text" placeholder="NoCour">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Nature du crime</label>
+                  <div class="control">
+                    <input class="input is-large" id="NatureCrime" type="text" placeholder="NatureCrime">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Lieu de détention</label>
+                  <div class="control">
+                    <input class="input is-large" id="LieuDetention" type="text" placeholder="LieuDetention">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 12 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Fin de sentence</label>
+                  <div class="control">
+                    <input class="input is-large" id="FinSentence" type="text" placeholder="FinSentence">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Vu dernière fois</label>
+                  <div class="control">
+                    <input class="input is-large" id="VuDerniereFois" type="text" placeholder="VuDerniereFois">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Agent</label>
+                  <div class="control">
+                    <input class="input is-large" id="Agent" type="text" placeholder="Agent">
+                  </div>
+                </div>
+              </div>
+              <!-- ligne 13 -->
+              <div class="columns">
+                <div class="column is-one-third">
+                  <label class="label is-large">Poste</label>
+                  <div class="control">
+                    <input class="input is-large" id="Poste" type="text" placeholder="Poste">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">ID IPPE</label>
+                  <div class="control">
+                    <input class="input is-large" id="IdIPPE" type="text" placeholder="IdIPPE">
+                  </div>
+                </div>
+                <div class="column is-one-third">
+                  <label class="label is-large">Libelle</label>
+                  <div class="control">
+                    <input class="input is-large" id="Libelle" type="text" placeholder="Libelle">
+                  </div>
+                </div>
+              </div>
             </form>
             <br>
-            <button class="button is-block is-danger is-large is-fullwidth" type="submit" id="btnSubmit" onclick="submit">Soumettre</button>
           </div>
         </div>
       </div>
     </div>
   </section>
 </body>
+
 </html>
