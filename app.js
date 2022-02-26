@@ -10,8 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(express.static(path.join(__dirname, "/public")));
-
+app.use(express.static(path.join(__dirname, '/public')));
 
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/public/login.html`);
@@ -25,7 +24,6 @@ app.get('/enseignant/modif', (req, res) => {
   res.sendFile(`${__dirname}/public/enseignant/modif_utilisateurs/modif_utilisateurs.html`);
 });
 
-
 app.get('/etudiant/menu', (req, res) => {
   res.sendFile(`${__dirname}/public/etudiant/menu/menu_etudiant.html`);
 });
@@ -37,7 +35,6 @@ app.get('/etudiant/IPPE/requete', (req, res) => {
 app.get('/etudiant/IPPE/resultat', (req, res) => {
   res.sendFile(`${__dirname}/public/etudiant/IPPE/IPPEresult.html`);
 });
-
 
 app.listen(PORT, () => {
   console.log(`Mon application roule sur http://localhost:${PORT}`);
