@@ -24,7 +24,7 @@
                 window.location.href = "./public/Student_Hp/StudentHp.html";
             }
                 else {
-                sessionStorage.setItem('token', data.Enseignant)
+                sessionStorage.setItem('tokenEnsei', data.Enseignant)
                 sessionStorage.setItem('Matricule', data.Matricule)
                 sessionStorage.setItem('Nom', data.Nom)
                 window.location.href = "./public/Teacher_Hp/TeacherHp.html";

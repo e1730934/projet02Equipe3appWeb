@@ -1,8 +1,7 @@
-const exportation = require('../nav.js');
+import { nav } from '.././nav.js';
 
+nav()
 
-exportation.navEtud()
-exportation.navProf()
 
 
 

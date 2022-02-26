@@ -1,4 +1,4 @@
-import { navProf } from '../nav,js';
+import { nav } from '../nav,js';
 
-navProf()
+nav()
 

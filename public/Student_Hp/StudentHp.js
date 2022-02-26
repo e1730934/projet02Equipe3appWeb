@@ -1,3 +1,3 @@
-import { navEtud } from '.././nav.js';
+import { nav } from '.././nav.js';
 
-navEtud()
+nav()
