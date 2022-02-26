@@ -19,13 +19,15 @@ Projet 2 - Développement d'applications
 ## Instruction
 ### Serveur
 
- 1. `npm install`
- 2. `npm run start`
+ 1. `cd ./backend`
+ 2. `npm install`
+ 3. `npm run start`
 
 ### Client
 
- 1. `npm install`
- 2. `npm run start`
+ 2. `cd ./appWeb`
+ 2. `npm install`
+ 3. `npm run start`
 
 
 ### Acceuil
