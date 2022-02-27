@@ -1,38 +1,22 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="icon" href="https://i.pinimg.com/originals/cc/ef/a4/ccefa40bf3434c0f21f87594ce3dfe20.jpg">
+  <link rel="stylesheet" href="login.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script>
-
-    function change() {
-      if (document.getElementById('etudiant').checked) {
-        if (document.getElementById('code').value == 'e1234567' && document.getElementById('password').value == '12345') {
-          window.location.href = "http://localhost:3000/etudiant/menu";
-        } else {
-          alert('Mauvais identifiant ou mot de passe');
-        }
-      } else if (document.getElementById('enseignant').checked) {
-        if (document.getElementById('code').value == 'e12345' && document.getElementById('password').value == '12345') {
-          window.location.href = "http://localhost:3000/enseignant/menu"
-        } else {
-          alert('Mauvais identifiant ou mot de passe');
-        }
-      }
-    }
-
-  </script>
+  <title>Connexion</title>
+  <script src="login.js"></script>
 </head>
 
 <body>
-  <section class="hero is-3 is-3-fullhd is-3-desktop is-6-tablet is-12-mobile" style="background-color: #0F172B ">
+  <section class="hero" style="background-color: #0F172B ">
     <div class="hero-body">
       <div class="container has-text-centered">
         <a href="http://localhost:3000/">
-          <img src="https://i.pinimg.com/originals/cc/ef/a4/ccefa40bf3434c0f21f87594ce3dfe20.jpg">
+          <img src="https://i.pinimg.com/originals/cc/ef/a4/ccefa40bf3434c0f21f87594ce3dfe20.jpg" alt="CRPQ">
         </a>
         <p class="title has-text-white">Centre de renseignements policiers du Québec</p>
       </div>
@@ -42,16 +26,20 @@
   <section class="hero is-success is-halfheight is-3 is-3-fullhd is-3-desktop is-6-tablet is-12-mobile">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <h3 class="title has-text-white">Login</h3>
+        <h3 class="title has-text-white">Connexion</h3>
         <hr class="login-hr">
         <div class="box">
           <div class="title has-text-grey is-5">Veuillez entrer votre code d'identification et mot de passe.</div>
+          <div id="logErrorMsg-div">
+            <p id="logErrorMsg">Identification / Mot de passe<span id="logErrorMsg-2ndL"> Invalide</span>
+            </p>
+          </div>
           <div class="box">
             <!-- formulaire de login -->
             <form>
               <div class="control">
                 <label class="radio">
-                  <input type="radio" name="answer" id="etudiant" value="etudiant">
+                  <input type="radio" name="answer" id="etudiant" value="etudiant" checked>
                   Étudiant
                 </label>
                 <label class="radio">
@@ -62,13 +50,13 @@
               <div class="field">
                 <label class="label is-large">Identification</label>
                 <div class="control">
-                  <input class="input is-large" id="code" type="text" placeholder="e1234567" autofocus="">
+                  <label for="code"></label><input class="input is-large" id="code" type="text" placeholder="e1234567" autofocus="">
                 </div>
               </div>
               <div class="field">
                 <label class="label is-large">Mot de passe</label>
                 <div class="control">
-                  <input class="input is-large" id="password" type="password" placeholder="********">
+                  <label for="password"></label><input class="input is-large" id="password" type="password" placeholder="********">
                 </div>
               </div>
             </form>

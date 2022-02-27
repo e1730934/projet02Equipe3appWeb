@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <script src="../modif_utilisateurs/modif.js"></script>
+  <script src="./modif_utilisateurs/modif.js"></script>
+  <title>Enseignant</title>
 </head>
 
 <body>
   <section class="hero is-3 is-3-fullhd is-3-desktop is-6-tablet is-12-mobile" style="background-color: #0F172B ">
     <div class="hero-body">
       <div class="container has-text-centered">
-        <a href="./login.html">
-          <img src="https://i.pinimg.com/originals/cc/ef/a4/ccefa40bf3434c0f21f87594ce3dfe20.jpg">
+        <a href="login.html">
+          <img src="https://i.pinimg.com/originals/cc/ef/a4/ccefa40bf3434c0f21f87594ce3dfe20.jpg" alt="CRPQ">
         </a>
         <p class="title has-text-white">Centre de renseignements policiers du Québec</p>
         <p class="subtitle has-text-white">Enseignant : (insert enseignant number later)</p>
       </div>
-    </div>
     </div>
   </section>
   <!-- navbar -->
@@ -45,7 +45,6 @@
         </div>
       </div>
     </div>
-    </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
@@ -57,7 +56,6 @@
         </div>
       </div>
     </div>
-    </div>
   </nav>
   <!-- fin navbar -->
 
@@ -67,28 +65,26 @@
       <div class="container has-text-centered">
         <div class="field">
           <label class="label is-large">Ajouter un utilisateur</label>
-          <input class="input is-large" placeholder="Numéro utilisateur" id="user">
-          </span>
+          <label for="user"></label><input class="input is-large" placeholder="Numéro utilisateur" id="user">
         </div>
         <div class="field">
-          <input class="input is-large" placeholder="Prénom" id="prenom">
-          </span>
+          <label for="prenom"></label><input class="input is-large" placeholder="Prénom" id="prenom">
+
         </div>
         <div class="field">
-          <input class="input is-large" placeholder="Nom" id="nom">
-          </span>
+          <label for="nom"></label><input class="input is-large" placeholder="Nom" id="nom">
+
         </div>
         <div class="field">
-          <input class="input is-large" type="email" placeholder="Email" id="mail">
-          </span>
+          <label for="mail"></label><input class="input is-large" type="email" placeholder="Email" id="mail">
+
         </div>
         <div class="field">
-          <input class="input is-large" type="password" placeholder="Mot de passe" id="mdp">
-          </span>
+          <label for="mdp"></label><input class="input is-large" type="password" placeholder="Mot de passe" id="mdp">
+
         </div>
         <div class="field">
           <button class="button" id="ajouter" onclick="Ajouter()">Ajouter</button>
-          </span>
         </div>
       </div>
     </div>
@@ -109,6 +105,7 @@
       </thead>
       <tbody id="tbody">
       </tbody>
+    </table>
   </section>
 
 </body>
