@@ -1,3 +1,9 @@
+import { nav,piedPage } from '../commun.js';
+
+nav()
+piedPage()
+
+
 const bdChoice = document.getElementById('BdChoice')
 const inputField = document.getElementById('inputField')
 const submitBtn = document.getElementById('submitBtn')

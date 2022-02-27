@@ -5,13 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <script src="index.js"></script>
     <title>Login</title>
 </head>
 
 <body>
     <section class="section">
-        
+
 
         <div class="has-text-centered">
             <span class="title has-text-weight-bold is-hidden-mobile ">
@@ -22,13 +21,13 @@
             </span>
         </div>
 
-    </div><br><br>
-        
-        
+        <br><br>
+
+
         <!-- Mise en place de l'image de la page -->
         <div class="columns is-centered">
             <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                <div class="box"style="background-color: #f6f6f6;">
+                <div class="box" style="background-color: #f6f6f6;">
                     <div class="field has-text-centered">
                         <img src="3.png">
 
@@ -36,16 +35,17 @@
                     <div class="field is-grouped is-grouped-centered ">
                         <div class="field is-inline-block-mobile">
                             <div class="control ">
-            
-                                <button id = BtnEtudiant class="button has-text-weight-bold" style="background-color: #338cc5;  width: 120px">
+
+                                <button id=BtnEtudiant class="button has-text-weight-bold"
+                                    style="background-color: #338cc5;  width: 120px">
                                     Étudiant</button>
-            
-            
-            
-                                <button id = BtnEnseignant class="button has-text-weight-bold" style="background-color: #338cc5; width: 120px"
-                                    >Enseignant</button>
+
+
+
+                                <button id=BtnEnseignant class="button has-text-weight-bold"
+                                    style="background-color: #338cc5; width: 120px">Enseignant</button>
                             </div>
-            
+
                         </div>
                     </div>
                 </div>
@@ -53,58 +53,67 @@
         </div>
 
         <!-- Création de bouton pour étudiant et enseignant -->
+
         
-        </div>
         <!-- 2. Création de l'interface login de l'étudiant ainsi que de l'enseignant -->
         <!-- a) Étudiant -->
-            <div class="columns is-centered">
-                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-                    <div class="field has-text-centered">
-                    </div>
-                    <form action="" class="box"style="background-color: #f6f6f6;">
-                        <div class="field">
-                            <label for="id" id="id" class="label">Identification étudiant</label>
-                            <div class="control has-icons-left">
-                                <input  id="username" type="text" placeholder="123456" class="input" required>
-                                <span class="icon is-small is-left">
-                                    <i class="fa fa-user has-text-info"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <label for="" class="label">Mot de passe</label>
-                            <div id="error"></div>
-                            <div class="control has-icons-left">
-                                <input id="password" type="password" placeholder="*******" class="input" required>
-                                <span class="icon is-small is-left">
-                                    <i class="fa fa-lock has-text-info"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <div class="field">
-                            <button id="connection"class="button has-text-weight-bold" style="background-color: #338cc5;">Connexion</button>
-                        </div>
-                        <div class="columns is-mobile is-centered is-size-6 has-text-weight-bold ">
-                            <h1 class="has-text-weight-semibold" style="color:red;">Confidentialité des informations de CRTP</h1>
-                        </div>
-                        <div class="columns is-mobile is-centered has-text-centered has-text-weight-semibold">
-                            <ul>
-                                <h5> Les informations accessibles par le CRTP sont confidentielles</h5> <br>
-                                <h5>Le CRTP doit être utilisé par les étudiants uniquement lors</h5>
-                                <h5>de simulation et sous la supervision d'un enseignant.</h5><br>
-                                <h5>Tout étudiant qui déroge à ces règles s'expose à un échec</h5>
-                                <h5>dans le cadre de ses cours.</h5>
-            
-                            </ul>
+        <div class="columns is-centered">
+            <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                <div class="field has-text-centered">
+                
+                <div action="" class="box" style="background-color: #f6f6f6;">
+                    <div class="field">
+                        <label for="username" class="label">Identification étudiant</label>
+                        <div class="control has-icons-left">
+                            <input id="username" type="text" placeholder="123456" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-user has-text-info"></i>
+                            </span>
                         </div>
                     </div>
-            
+                    <div class="field">
+                        <label for="password" class="label">Mot de passe</label>
+                        <div id="error"></div>
+                        <div class="control has-icons-left">
+                            <input id="password" type="password" placeholder="*******" class="input" required>
+                            <span class="icon is-small is-left">
+                                <i class="fa fa-lock has-text-info"></i>
+                            </span>
+                        </div>
                     </div>
-                    </form>
+                
+                    
+
+                    <div class="field">
+                        <button  class="button has-text-weight-bold"
+                            id="connection" style="background-color: #338cc5;">Connexion</button>
+                    </div>
                 </div>
+
+                    <div class="columns is-mobile is-centered is-size-6 has-text-weight-bold ">
+                        <h1 class="has-text-weight-semibold" style="color:red;">Confidentialité des informations de CRTP
+                        </h1>
+                    </div>
+                    <div class="columns is-mobile is-centered has-text-centered has-text-weight-semibold">
+                        <ul>
+                            <h5> Les informations accessibles par le CRTP sont confidentielles</h5> <br>
+                            <h5>Le CRTP doit être utilisé par les étudiants uniquement lors</h5>
+                            <h5>de simulation et sous la supervision d'un enseignant.</h5><br>
+                            <h5>Tout étudiant qui déroge à ces règles s'expose à un échec</h5>
+                            <h5>dans le cadre de ses cours.</h5>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+        
 
 
     </section>
 </body>
+<script src="index.js"></script>
 
 </html>

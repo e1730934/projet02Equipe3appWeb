@@ -31,9 +31,9 @@ function nav() {
     }
     document.getElementById('linkSAAQ').addEventListener("click", menuBareNaviguationSAAQ);
 
-    let tokenProf = sessionStorage.getItem('tokenEnsei');
+    let token = sessionStorage.getItem('token');
 
-    if (tokenProf){
+    if (token === "false"){
         document.getElementById("linkDBProf").classList.remove("is-hidden")
     }
 
@@ -165,10 +165,37 @@ function nav() {
                 </header>`
     }
 }
-nav()
+
+
+function piedPage(){
+
+    document.getElementById("pied").innerHTML = `
+    <div class = "container"
+        <div class="box">
+        <br>
+        <br>
+            <div class="columns is-mobile ">
+                <div class="column">
+    
+                    <p id="nom" class="is-size-7 has-text-right has-text-grey" >${Matricule}</p> 
+                    <p id="matricule" class="is-size-7 has-text-right has-text-grey" >${Nom}</p>
+    
+    
+                </div>
+            </div>
+        </div>
+        </div>
+    `
+}
+
+let Matricule = sessionStorage.getItem('Matricule');
+let Nom = sessionStorage.getItem('Nom');
 
 
 export {
-    nav
+    nav,
+    piedPage,
+    Matricule,
+    Nom
   };
 
