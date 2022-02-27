@@ -2,6 +2,7 @@ function Soumettre(event) {
   event.preventDefault();
   const test = new FormData(event.target);
   console.log(test.get('NomFamille'));
+
   const NomFamille = document.getElementById('NomFamille').value;
   const Prenom1 = document.getElementById('Prenom1').value;
   const Prenom2 = document.getElementById('Prenom2').value;
