@@ -8,6 +8,7 @@ function Soumettre(event) {
   })
     .then((res) => res.json())
     .then((resJson) => {
+      console.log(resJson);
       localStorage.setItem('infoIPPE', JSON.stringify(resJson.data));
       window.location.href = 'http://localhost:3000/etudiant/IPPE/resultat';
     })
