@@ -46,7 +46,7 @@ function nav() {
                     <div class="box" id='navBare' style="background-color: #338cc5">
                         <div class="columns is-mobile ">
                             <div class=" column is-2-tablet is-3-mobile">
-                                <img src="../logoSansText.png">
+                                <img src="../image/logoSansText.png">
                             </div>
                             <div class="column">
                                 <br>
@@ -60,7 +60,7 @@ function nav() {
                             <div class="column has-text-right is-narrow">
                                 <br>
                                 <button id="buttonMenuBareNaviguation" class="button is-outlined" style="background-color:#338cc5; border-color: #338cc5;" >
-                                    <img id="imageButton" src="../bars-solid.svg" style="height: 100%;width: 100%;">
+                                    <img id="imageButton" src="../image/bars-solid.svg" style="height: 100%;width: 100%;">
 
                                 </button>
 

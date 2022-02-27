@@ -31,13 +31,7 @@ window.onload = async function(){
         else{
            document.getElementById('error').innerText = 'Matricule ou mot de passe incorrect!'
       }
-
-//         // Redirige vers la page pour l'enseignant
-
-//         // Redirige vers la page pour l'étudiant
-
-   
-       
+ 
        
    }
    
