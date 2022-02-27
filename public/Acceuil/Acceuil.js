@@ -1,7 +1,8 @@
-import { nav,piedPage,Matricule,Nom } from '../commun.js';
+import { nav,piedPage,Matricule,Nom,connection } from '../commun.js';
 
 nav()
-piedPage()
+piedPage(),
+connection
 
 document.getElementById("nom").innerHTML=Matricule
 document.getElementById("matricule").innerHTML=Nom

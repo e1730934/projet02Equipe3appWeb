@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app.js ",
     "lint": "npx eslint *.js",
-    "fix": "npx eslint *.js --fix"
+    "fix": "npx eslint *.js --fix",
+    "test": "jest --env=jsdom"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,7 @@
   "dependencies": {
     "express": "^4.17.2",
     "jest": "^27.5.1",
+    "node-fetch": "^3.2.0",
     "path": "^0.12.7"
   },
   "devDependencies": {

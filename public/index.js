@@ -1,24 +1,23 @@
-window.onload = async function(){
-    var c = document.getElementById("connection");
-       c.addEventListener("click", someFunction);
-   }
- async function connexion () {
+ 
+ 
+ async function connexion() {
     
     
-     const username = document.getElementById('username').value;
+    const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
+
     
 
    const connection = { username: username, password: password };
 
       const response = await fetch('http://localhost:3000/login', {
-         method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(connection),
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(connection),
        });
 
         if (response.ok) {
-          let data = await response.json();
+            let data = await response.json();
 
            
             sessionStorage.setItem('token', data.Etudiant)
@@ -29,22 +28,25 @@ window.onload = async function(){
 
       }
         else{
-           document.getElementById('error').innerText = 'Matricule ou mot de passe incorrect!'
+            document.getElementById('error').innerText = 'Matricule ou mot de passe incorrect!'
       }
  
        
    }
    
-   window.onload =   function bouton  () {
+    window.onload = function bouton  () {
        
-      const BtnEt = document.getElementById('BtnEtudiant');
-       const BtnEn = document.getElementById('BtnEnseignant');
-       
-       
-       
+        const BtnEt = document.getElementById('BtnEtudiant');
+        const BtnEn = document.getElementById('BtnEnseignant');
+        
+        
+        
         BtnEt.addEventListener('click',()=>{document.getElementById("id").innerText = "Identification étudiant";})
-      BtnEn.addEventListener('click',()=>{document.getElementById("id").innerText = "Identification enseignant";})
-      document.getElementById('connection').addEventListener('click', async() => {await connexion();});
+        BtnEn.addEventListener('click',()=>{document.getElementById("id").innerText = "Identification enseignant";})
+        document.getElementById('connection').addEventListener('click', async() => {await connexion();});
+
    }
-      
+   
+   
+
    
