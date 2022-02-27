@@ -2,15 +2,12 @@ const express = require('express');
 const path = require('path');
 const cors = require('cors');
 
-const app = express();
-// const db = require("./database/requete.js");
-
 const PORT = process.env.PORT || 3000;
-
+const app = express();
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
 
 app.use(express.static(path.join(__dirname, '/public')));
+// app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/public/login.html`);
