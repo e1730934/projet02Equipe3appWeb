@@ -11,7 +11,7 @@ app.use(express.static(path.join(__dirname + '/public/IPPE')));
 
 //passer d'index a la page de détail d'articles
 app.get('/',(req, res) =>{
-	res.sendFile(__dirname + '/public/index.html');
+	res.sendFile(__dirname + '/index.html');
 
 });
 
