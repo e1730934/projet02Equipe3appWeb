@@ -1,9 +1,9 @@
-import { nav,piedPage,Matricule,Nom,connection } from '../commun.js';
+import { nav,piedPage,Matricule,Nom,connection,Deconnection } from '../commun.js';
 connection()
 nav()
 piedPage()
 btn()
-
+document.getElementById("déconnection").addEventListener('click',Deconnection)
 document.getElementById("nom").innerHTML=Matricule
 document.getElementById("matricule").innerHTML=Nom
 
@@ -22,8 +22,14 @@ submit.addEventListener("click",()=>{
     const prenom2 = document.getElementById("prenom2").value;
     const sexe = document.getElementById("sexe").value;
     const date = document.getElementById("date").value;
+
+    if(nom, prenom1, sexe,date === ""){
+        document.getElementById('erreur').innerHTML="Les champs ne peuvent pas être vide"
+    }else{
+
     console.log (" nom "+nom +" 1 "+ prenom1 + " 2 "+prenom2 + " sexe "+sexe + " date "+date);
     window.location = `http://localhost:5000/IPPEResponse?nom=${nom}&prenom1=${prenom1}&prenom2=${prenom2}&sexe=${sexe}&date=${date}`;
+}
 });
 cancel.addEventListener("click",()=>{
     window.location.reload(true);

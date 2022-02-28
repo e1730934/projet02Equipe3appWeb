@@ -1,8 +1,9 @@
-import { nav,piedPage,Matricule,Nom,connection } from '../commun.js';
+import { nav,piedPage,Matricule,Nom,connection,Deconnection } from '../commun.js';
 
 connection()
 nav()
 piedPage()
+document.getElementById("déconnection").addEventListener('click',Deconnection)
 
 
 

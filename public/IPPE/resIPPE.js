@@ -1,7 +1,9 @@
-import { nav,piedPage } from '../commun.js';
+import { nav,piedPage,Deconnection } from '../commun.js';
 
 nav();
 piedPage();
+document.getElementById("déconnection").addEventListener('click',Deconnection)
+
 Personne();
 Pagination();
 function GetParam(){

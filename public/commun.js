@@ -188,14 +188,17 @@ function piedPage(){
     
                 <div class="container">
                     <div class="box">
-                        <br>
-                        <br>
+                        
                         <div class="columns is-mobile ">
-                            <div class="column">
+                        
+                        <div class="column">
 
                                 <p id="nom" class="is-size-7 has-text-right has-text-grey">${Matricule}</p>
                                 <p id="matricule" class="is-size-7 has-text-right has-text-grey">${Nom}</p>
-
+                                <a> <p id="déconnection" class="is-size-5 has-text-right has-text-danger">déconnection</p></a>
+                                
+                                   
+                                    
 
                             </div>
                         </div>
@@ -204,17 +207,24 @@ function piedPage(){
 
     `
 }
-
 let Matricule = sessionStorage.getItem('Matricule');
 let Nom = sessionStorage.getItem('Nom');
+ 
+function Deconnection() {
+    
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('Matricule');
+    sessionStorage.removeItem('Nom');
 
-
+    window.location.href ="http://localhost:5000/"
+}
 export {
     nav,
     piedPage,
     connection,
     Matricule,
     Nom,
-    token
+    token,
+    Deconnection
   };
 
