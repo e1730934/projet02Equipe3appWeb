@@ -20,7 +20,10 @@ submit.addEventListener("click",()=>{
     const nom = document.getElementById('nom').value;
     const prenom1 = document.getElementById("prenom1").value;
     const prenom2 = document.getElementById("prenom2").value;
-    const sexe = document.getElementById("sexe").value;
+    let sexe = document.getElementById("sexe").value;
+    if(sexe == "Femme"){
+        sexe = 0;
+    }else{sexe=1}
     const date = document.getElementById("date").value;
 
     if(nom, prenom1, sexe,date === ""){

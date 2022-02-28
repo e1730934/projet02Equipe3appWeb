@@ -11,32 +11,32 @@ function GetParam(){
    const nom = params.get("nom");
    const prenomUn = params.get("prenom1");
    const prenomDeux = params.get("prenom2");
-   const sexe = params.get("sexe");
+   const sexe = params.get("sexe"); // egale 0 ou 1
    const date = params.get("date");
    let data = {nom: nom, prenomUn: prenomUn, prenomDeux: prenomDeux, sexe: sexe, date: date};
    console.log("this is the url param "+ data);
    return data;
 }
+
 async function Data(){
-   let param = GetParam();
-   let sexeNum;
-   if (param.sexe){sexeNum="1";}else{sexeNum="0";}
+   let param = GetParam()
+   //let sexeNum;
+   //if (param.sexe){sexeNum="1";}else{sexeNum="0";}
    let stringDate = param.date.toString();
    const words = stringDate.split('-');
    const trueDate = (words[0]+words[1]+words[2]).toString();
    console.log(`http://localhost:3000/ippeInfo?nom=Hébert&sexe=1&prenomUn=Francis&ddn=19921019&prenomDeux=`);
 
-   const api = await fetch(`http://localhost:3000/ippeInfo?nom=${param.nom}&sexe=${sexeNum}&prenomUn=${param.prenomUn}&ddn=${trueDate}&prenomDeux=${param.prenomDeux}`);
+   const api = await fetch(`http://localhost:3000/ippeInfo?nom=${param.nom}&sexe=${param.sexe}&prenomUn=${param.prenomUn}&ddn=${trueDate}&prenomDeux=${param.prenomDeux}`);
+   console.log(`http://localhost:3000/ippeInfo?nom=${param.nom}&sexe=${param.sexe}&prenomUn=${param.prenomUn}&ddn=${trueDate}&prenomDeux=${param.prenomDeux}`);
    //const api = await fetch(`http://localhost:3000/ippeInfo?nom=Michaud&sexe=0&prenomUn=Noemie&ddn=20020708&prenomDeux=`);
    //const api = await fetch(`http://localhost:3000/ippeInfo?nom=Hébert&sexe=1&prenomUn=Francis&ddn=19921019&prenomDeux=`);
    // traiter la réponse
    let data = await api.json();
    if (api.ok) {
-      console.log(data);
-     if(data[0]== undefined){data=[]};
+      //works
    } else {
    console.error('ERROR');
-      
    }
    return(data);
 }
@@ -48,7 +48,7 @@ function GetFunction(data){
       case 'Recherché':
          Rechercher(data);
         break;
-      case 'Sous-observation':
+      case 'Sous Observation':
          Observation(data);
         break;
       case 'Accusé':
@@ -92,26 +92,26 @@ async function Pagination(){
     }
 
     // if there is an fps
+    if(obj[navlength-1].titre == "FPS"){
       for(let i= 0 ; i < navlength-1;i++){
-         // creation autre boutonj
-         let li = document.createElement("li");
-         divPagination.appendChild(li);
-         let a = document.createElement("a");
-         a.setAttribute("class","pagination-link");
-         a.setAttribute("id",`page${i+1}`);
-         a.setAttribute("aria-label",`Goto page ${i+1}`);
-         a.innerHTML= `${i+1}`;
-         li.appendChild(a);
-         // function btn
-         document.getElementById(`page${i+1}`).addEventListener('click', function(){
-               GetFunction(obj[i]);
-            });
-            if(document.getElementById("page1")){
-               GetFunction(obj[0]);
-            }
+      let li = document.createElement("li");
+      divPagination.appendChild(li);
+      let a = document.createElement("a");
+      a.setAttribute("class","pagination-link");
+      a.setAttribute("id",`page${i+1}`);
+      a.setAttribute("aria-label",`Goto page ${i+1}`);
+      a.innerHTML= `${i+1}`;
+      li.appendChild(a);
+      // function btn
+      document.getElementById(`page${i+1}`).addEventListener('click', function(){
+
+            GetFunction(obj[i]);
+            
+         });
+         if(document.getElementById("page1")){
+            GetFunction(obj[0]);
+         }
       }
-      // bouton fps
-      if(obj[navlength-1].titre =="FPS"){
       let lastli = document.createElement("li");
         divPagination.appendChild(lastli);
         let fps = document.createElement("a");
@@ -123,7 +123,28 @@ async function Pagination(){
         fps.addEventListener('click',function(){
          PageFps(obj[navlength-1]);
         });
+   
+   }else{
+      for(let i= 0 ; i < navlength;i++){
+         let li = document.createElement("li");
+      divPagination.appendChild(li);
+      let a = document.createElement("a");
+      a.setAttribute("class","pagination-link");
+      a.setAttribute("id",`page${i+1}`);
+      a.setAttribute("aria-label",`Goto page ${i+1}`);
+      a.innerHTML= `${i +1}`;
+      li.appendChild(a);
+      // function btn
+      document.getElementById(`page${i+1}`).addEventListener('click', function(){
+
+            GetFunction(obj[i+1]);
+            
+         });
+         if(document.getElementById("page1")){
+            GetFunction(obj[0]);
+         }
       }
+   }
 }
 
 
@@ -135,7 +156,7 @@ async function Personne(){
    let Matricule = sessionStorage.getItem('Matricule');
    let Nom = sessionStorage.getItem('Nom');
    let sexeNum;
-   if (obj.sexe){sexeNum="Homme";}else{sexeNum="Femme";}
+   if (obj.sexe == "1"){sexeNum="Homme";}else{sexeNum="Femme";}
     const affichage = `
     <table class="table">
          <tr>
@@ -582,8 +603,3 @@ function PageFps(obj){
    let printing = document.getElementById("detail");
    printing.innerHTML = affichage;
 }
-
-export {
-   GetParam,
-   Data,
- };
