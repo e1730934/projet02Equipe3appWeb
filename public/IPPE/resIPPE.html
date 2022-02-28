@@ -1,89 +1,15 @@
-<html>
-<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="ang">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Response</title> 
         <link rel="stylesheet" href="./reqIPPE.css">
-        <script src="./resIPPE.js"></script>
+        <script src="./resIPPE.js" type="module"></script>
     </head>
-<body  onload='Printing(); Pagination()'>
-    <header class="is-centered">
-        <!-- bare de naviguation avec nom, matricule et le bouton pour afficher les 8 interrogations-->
-        <div class="container">
-            <div class="box" id='navBare'>
-                <div class="columns is-mobile ">
-                    <div class=" column is-2-tablet is-3-mobile">
-                        <img src="../logoSansText.png">
-                    </div>
-                    <div class="column">
-                        <br>
-
-                        <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-mobile">
-                            Centre de Renseignement Techniques Policière</p>
-                        <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-tablet">CRTP
-                        </p>
-
-                    </div>
-                    <div class="column has-text-right is-narrow">
-                        <br>
-                        <button id="buttonMenuBareNaviguation" class="button is-outlined">
-                            <img id="imageButton" src="../bars-solid.svg">
-
-                        </button>
-
-                    </div>
-                </div>
-            </div>
-
-            <!--menu qui s'affiche lorseque le boutton est cliqué-->
-            <div id="menu" class="box">
-                <a id="link">
-                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IPPE - Recherche de
-                        personnes </p>
-                </a>
-
-                <hr class="dropdown-divider">
-
-                <a id="link">
-                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> FPS - Recherce de
-                        personnes bertillonnées </p>
-                </a>
-
-                <hr class="dropdown-divider">
-
-                <a id="link">
-                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBOB - Recherche
-                        d'objets </p>
-                </a>
-
-                <hr class="dropdown-divider">
-
-                <a id="link">
-                    <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBAF - Recherche
-                        d'armes à feu </p>
-                </a>
-=======
->>>>>>> Dev
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Response</title>
-    <link rel="stylesheet" href="./reqIPPE.css">
-</head>
-
-<body>
-    <header id = "NavProf">
-    
-
+        <body>
+    <header id = "Nav">
     </header>
-
-
-
-<<<<<<< HEAD
-    </header>
-
     <div class="columns">
       <!-- left space-->
       <div class="column is-centered is-quarter"></div>
@@ -92,85 +18,24 @@
             <div class="box">
                 <h1 class="title">IPPE Interogation - Personne </h1><br>
                 <h2>Demande de verification pour : </h2><br>
-                <p id="infoPersonne"></p><br><br>
-                <p id="detail"></p><br>
+                <div id="infoPersonne" class="table-container"></div><br><br>
+                <div id="detail" class="table-container"></div><br>
 
                     <!-- pagination -->
-                </ul class="pagination-list" id="pagination">
+                <nav class="pagination" role="navigation" aria-label="pagination">
+                    <ul class="pagination-list" id="pagination">
 
-                </ul>
-=======
-    <div class="container">
-        <div class="box">
-
-            <div class="columns">
-
-                <!-- middle section-->
-                <div class="column is-centered">
-
-                    <div class="box">
-                        <h1 class="title">IPPE Interogation - Personne </h1>
-                        <h1 class="subtitle">Page 01</h1>
-                        <h2>Demande de verification pour : </h2>
-                        <p>Nom : Laporte P1: Benoit P2: </p>
-                        <p>Sexe : Masculin DDN: 1977-07-09 </p>
-                        <p>REM : AGT COUTU 48-128923-028 </p>
-                        <br>
-                        <h1 class="subtitle">*** Recherche***</h1>
-                        <p>
-                            Mandat: Arestation<br>
-                            Cours: Municipale de Longueuil<br>
-                            Numéro de mandat : CM-LGL-A-26840<br>
-                            Nature du crime : Agression armée<br>
-                            Numéro d'événement : 108-220208-0031<br>
-                        </p>
-                    </div>
-                    <nav class="pagination" role="navigation" aria-label="pagination">
-                        <a class="pagination-previous is-disabled" title="This is the first page">Previous</a>
-                        <a class="pagination-next">Next page</a>
-                        <ul class="pagination-list">
-                            <li>
-                                <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
-                            </li>
-                            <li>
-                                <a class="pagination-link" aria-label="Goto page 2">2</a>
-                            </li>
-                            <li>
-                                <a class="pagination-link" aria-label="Goto page 3">3</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
->>>>>>> Dev
+                    </ul>
+                </nav>
             </div>
-
         </div>
-<<<<<<< HEAD
             <div class="column is-quarter"></div>
         </div>
-      <footer>
-          <div class="box">
-              <div class="columns is-mobile ">
-                  <div class="column">
-      
-                      <p id="nom" class="is-size-7 has-text-right has-text-grey" >Nom d'utilisateur</p> 
-                      <p id="matricule" class="is-size-7 has-text-right has-text-grey" >matricule</p>
-      
-      
-                  </div>
-              </div>
-          </div>
-      </footer>
-=======
-    </div>
 
     <footer id="pied">
-        
     </footer>
 >>>>>>> Dev
 
-      <script src="./reqIPPE.js"></script>
+    <script type="module" src="./reqIPPE.js"></script>
 </body>
-
 </html>

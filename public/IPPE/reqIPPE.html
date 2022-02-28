@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+
+
+    <!DOCTYPE html>
 <html lang="eng">
 
 <head>
@@ -11,7 +13,7 @@
 
 
 <body>
-    <header id="NavProf">
+    <header id="Nav">
         
     </header>
 
@@ -22,17 +24,17 @@
             <br>
             <div class="field">
                 <div class="control">
-                    <input class="input is-normal" type="text" placeholder="Nom"><br>
+                    <input class="input is-normal" type="text" placeholder="Nom" id="nom"><br>
                 </div>
             </div>
             <div class="field">
                 <div class="control">
-                    <input class="input" type="text" placeholder="Prenom 1"><br>
+                    <input class="input" type="text" placeholder="Prenom 1" id="prenom1"><br>
                 </div>
             </div>
             <div class="field">
                 <div class="control">
-                    <input class="input" type="text" placeholder="Prenom 2"><br>
+                    <input class="input" type="text" placeholder="Prenom 2" id="prenom2"><br>
                 </div>
             </div>
             <div class="columns">
@@ -41,7 +43,7 @@
                         <label class="label">Sexe</label>
                         <div class="control">
                             <div class="select">
-                                <select>
+                                <select id="sexe">
                                     <option>Homme</option>
                                     <option>Femme</option>
                                 </select>
@@ -53,7 +55,7 @@
                     <div class="field">
                         <label class="label">Date de naissance</label>
                         <div class="control">
-                            <input id="date" type="date">
+                            <input type="date" id="date">
                         </div>
                     </div>
                 </div>
@@ -63,13 +65,13 @@
                 <div class="column is-half-tablet has-text-right-tablet has-text-centered-mobile">
                     <div class="field">
                         <div class="control">
-                            <button class="button" style="background-color: #338cc5;">Submit</button>
+                            <button class="button" style="background-color: #338cc5;" id="submit">Submit</button>
                         </div>
                     </div>
                 </div>
                 <div class="column has-text-left-tablet has-text-centered-mobile">
                     <div class="control">
-                        <button class="button is-link is-light">Cancel</button>
+                        <button class="button is-link is-light" id="cancel">Cancel</button>
                     </div>
                 </div>
             </div>
@@ -84,6 +86,6 @@
 
 </body>
 
-<script src="./reqIPPE.js"></script>
+<script type="module" src="./reqIPPE.js"></script>
 
 </html>
