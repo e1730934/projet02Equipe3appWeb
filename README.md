@@ -14,9 +14,12 @@ Phung, Truong Sang Mario - E2066576
 
 1. `npm install`
 2. `npm run start`
+3. Pour se connecter il ne faut pas mettre de nom d'utilisateur ni de mot de passe et cliquer sur login.
+4. Pour tester l'IPPE les infos de l'individu sont déjà mis de base il suffit juste de cliquer sur soumettre pour accéder au résultat.
 
 ### Accueil
 Notre frontend roule sur *http://localhost:3000*
+
 
 <br/>
 <hr/>
