@@ -2,10 +2,10 @@ let token = sessionStorage.getItem('token');
 
 function connection(){
     if(token === null){
-        window.location.href = 'index.html';
-
+        window.location.href = '../index.html';
+  
     }
-}
+  }
 
 function nav() {
     header();
@@ -214,6 +214,7 @@ export {
     piedPage,
     connection,
     Matricule,
-    Nom
+    Nom,
+    token
   };
 
