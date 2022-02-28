@@ -4,11 +4,10 @@ function load() {
   document.getElementById('NomFamille').value = infoIPPE.NomFamille;
   document.getElementById('Prenom1').value = infoIPPE.Prenom1;
   document.getElementById('Prenom2').value = infoIPPE.Prenom2;
-  if (infoIPPE.Masculin == true){
-    infoIPPE.Masculin = "Masculin"
-  }
-  else {
-    infoIPPE.Masculin = "Féminin"
+  if (infoIPPE.Masculin === true) {
+    infoIPPE.Masculin = 'Masculin';
+  } else {
+    infoIPPE.Masculin = 'Féminin';
   }
   document.getElementById('Sexe').value = infoIPPE.Masculin;
   document.getElementById('DateNaissance').value = (infoIPPE.DateNaissance.substr(0, 10));
@@ -48,7 +47,6 @@ function load() {
   document.getElementById('Poste').value = infoIPPE.Poste;
   document.getElementById('IdIPPE').value = infoIPPE.IdIPPE;
   document.getElementById('Libelle').value = infoIPPE.Libelle;
-
 }
 
 window.addEventListener('load', load);
