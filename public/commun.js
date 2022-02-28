@@ -2,7 +2,7 @@ let token = sessionStorage.getItem('token');
 
 function connection(){
     if(token === null){
-        window.location.href = '../index.html';
+        window.location.href = 'http://localhost:5000/';
   
     }
   }
@@ -57,7 +57,7 @@ function nav() {
                                     <div class="column">
                                         <br>
 
-                                        <a id="link" href="/Acceuil/Acceuil.html">
+                                        <a id="link" href="http://localhost:5000/Acceuil">
                                             <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-mobile">
                                                 Centre de Renseignement Techniques Policière</p>
                                             <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-tablet">
@@ -81,7 +81,7 @@ function nav() {
                             <!--menu qui s'affiche lorseque le boutton est cliqué-->
                             <div id="menu" class="box"
                                 style="background-color:#bce2e4; margin-top: -20px; position : relative; display: none;">
-                                <a id="link" href="/IPPE/reqIPPE.html">
+                                <a id="link" href="http://localhost:5000/IPPE">
                                     <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IPPE - Recherche de
                                         personnes </p>
                                 </a>
