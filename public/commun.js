@@ -1,51 +1,14 @@
-let token = sessionStorage.getItem('token');
+const token = sessionStorage.getItem('token');
 
-function connection(){
-    if(token === null){
+function connection() {
+    if (token === null) {
         window.location.href = 'http://localhost:5000/';
-  
     }
-  }
+}
 
 function nav() {
-    header();
-
-    //Fonction qui fait apparaitre et disparaitre le menu Principale
-    function menuBareNaviguationPrincipale() {
-        let x = document.getElementById("menu")
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-            document.getElementById("menuSAAQ").style.display = "none"
-        }
-    }
-    document.getElementById('buttonMenuBareNaviguation').addEventListener("click", menuBareNaviguationPrincipale);
-    document.getElementById('linkRetour').addEventListener("click", menuBareNaviguationPrincipale);
-
-
-    //Fonction qui fait apparaitre et disparaitre le menu SAAQ
-    function menuBareNaviguationSAAQ() {
-        let x = document.getElementById("menuSAAQ")
-        if (x.style.display === "block") {
-            x.style.display = "none";
-        } else {
-            x.style.display = "block";
-            document.getElementById("menu").style.display = "none"
-
-        }
-    }
-    document.getElementById('linkSAAQ').addEventListener("click", menuBareNaviguationSAAQ);
-
-
-    if (token === "false"){
-        document.getElementById("linkDBProf").classList.remove("is-hidden")
-    }
-
-    //La bare de naviguation etudiante complete
     function header() {
-
-        document.getElementById("Nav").innerHTML = `
+        document.getElementById('Nav').innerHTML = `
                 <header>
                     <!-- bare de naviguation avec nom, matricule et le bouton pour afficher les 8 interrogations-->
                         <div class="container">
@@ -177,14 +140,45 @@ function nav() {
 
 
                 </header>
-        `
+        `;
     }
+
+    header();
+
+    // Fonction qui fait apparaitre et disparaitre le menu Principale
+    function menuBareNaviguationPrincipale() {
+        const x = document.getElementById('menu');
+        if (x.style.display === 'block') {
+            x.style.display = 'none';
+        } else {
+            x.style.display = 'block';
+            document.getElementById('menuSAAQ').style.display = 'none';
+        }
+    }
+    document.getElementById('buttonMenuBareNaviguation').addEventListener('click', menuBareNaviguationPrincipale);
+    document.getElementById('linkRetour').addEventListener('click', menuBareNaviguationPrincipale);
+
+    // Fonction qui fait apparaitre et disparaitre le menu SAAQ
+    function menuBareNaviguationSAAQ() {
+        const x = document.getElementById('menuSAAQ');
+        if (x.style.display === 'block') {
+            x.style.display = 'none';
+        } else {
+            x.style.display = 'block';
+            document.getElementById('menu').style.display = 'none';
+        }
+    }
+    document.getElementById('linkSAAQ').addEventListener('click', menuBareNaviguationSAAQ);
+
+    if (token === 'false') {
+        document.getElementById('linkDBProf').classList.remove('is-hidden');
+    }
+
+    // La bare de naviguation etudiante complete
 }
 
-
-function piedPage(){
-
-    document.getElementById("pied").innerHTML = `
+function piedPage() {
+    document.getElementById('pied').innerHTML = `
     
                 <div class="container">
                     <div class="box">
@@ -205,18 +199,17 @@ function piedPage(){
                     </div>
                 </div>
 
-    `
+    `;
 }
-let Matricule = sessionStorage.getItem('Matricule');
-let Nom = sessionStorage.getItem('Nom');
- 
+const Matricule = sessionStorage.getItem('Matricule');
+const Nom = sessionStorage.getItem('Nom');
+
 function Deconnection() {
-    
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('Matricule');
     sessionStorage.removeItem('Nom');
 
-    window.location.href ="http://localhost:5000/"
+    window.location.href = 'http://localhost:5000/';
 }
 export {
     nav,
@@ -225,6 +218,5 @@ export {
     Matricule,
     Nom,
     token,
-    Deconnection
-  };
-
+    Deconnection,
+};

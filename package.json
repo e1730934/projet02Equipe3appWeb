@@ -1,29 +1,31 @@
 {
-  "name": "naviguation",
+  "name": "crtpclient",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon app.js ",
-    "lint": "npx eslint *.js",
-    "fix": "npx eslint *.js --fix",
-    "test": "jest --env=jsdom"
-  },
+  "description": "Client web de l'application CRTP",
+  "main": "app.js",
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Étudiants du cours 420-4D1, CM9",
+
   "dependencies": {
-    "express": "^4.17.2",
-    "jest": "^27.5.1",
+    "express": "^4.17.3",
     "node-fetch": "^3.2.0",
     "path": "^0.12.7"
   },
   "devDependencies": {
     "eslint": "^8.10.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jest": "^26.1.1",
+    "jest": "^27.5.1",
     "nodemon": "^2.0.15"
   },
   "nodemonConfig": {
     "ext": "js,html,json,css"
+  },
+  "scripts": {
+      "lint": "npx eslint *.js",
+      "fix": "npx eslint *.js --fix",
+      "test": "jest --env=jsdom",
+      "start": "nodemon app.js "
   }
 }
