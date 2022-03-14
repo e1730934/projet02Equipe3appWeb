@@ -1,5 +1,4 @@
- 
- 
+
  async function connexion() {
     
     
@@ -8,7 +7,7 @@
 
     
 
-   const connection = { username: username, password: password };
+   const connection = { identifiant: username, motDePasse: password };
 
       const response = await fetch('http://localhost:3000/login', {
             method: 'POST',
@@ -48,5 +47,8 @@
    }
    
    
+
+
+
 
    

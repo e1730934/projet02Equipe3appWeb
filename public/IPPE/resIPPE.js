@@ -3,7 +3,6 @@ import { nav,piedPage,Deconnection } from '../commun.js';
 nav();
 piedPage();
 document.getElementById("déconnection").addEventListener('click',Deconnection)
-
 Personne();
 Pagination();
 function GetParam(){
@@ -29,8 +28,6 @@ async function Data(){
 
    const api = await fetch(`http://localhost:3000/ippeInfo?nom=${param.nom}&sexe=${param.sexe}&prenomUn=${param.prenomUn}&ddn=${trueDate}&prenomDeux=${param.prenomDeux}`);
    console.log(`http://localhost:3000/ippeInfo?nom=${param.nom}&sexe=${param.sexe}&prenomUn=${param.prenomUn}&ddn=${trueDate}&prenomDeux=${param.prenomDeux}`);
-   //const api = await fetch(`http://localhost:3000/ippeInfo?nom=Michaud&sexe=0&prenomUn=Noemie&ddn=20020708&prenomDeux=`);
-   //const api = await fetch(`http://localhost:3000/ippeInfo?nom=Hébert&sexe=1&prenomUn=Francis&ddn=19921019&prenomDeux=`);
    // traiter la réponse
    let data = await api.json();
    if (api.ok) {

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./PersoModif.css">
+    <title> Modif/Ajout de personnes</title>
+</head>
+<body>
+    <header id="Nav"></header>
+
+    <div class="container mb-4 is-desktop">
+        <div class="box">
+            <div class="columns is is-centered">
+                <div class="column is-half">
+                    <div class="field">
+                        <label class="label">Nom de famille</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" placeholder="Text input">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <label class="label">Prénom 1</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" placeholder="Text input">
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="field">
+                        <label class="label">Prénom 2</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="text" placeholder="Text input">
+                            <span class="icon is-small is-left">
+                            <i class="fas fa-user"></i>
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <div class="control mt-2">
+                        <label class="label">Sexe</label>
+                        <div class="select">
+                            <select>
+                                <option>Masculin</option>
+                                <option>Féminin</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="control mt-2">
+                        <label class="label">Date de Naissance</label>
+                        <div class="control has-icons-left has-icons-right">
+                            <input class="input" type="date" placeholder="Text input" value="bulma">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-calendar-alt"></i>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="control mt-2">
+                        <label class="label">Catégorie</label>
+                        <div class="select">
+                            <select>
+                                <option>Étudiant</option>
+                                <option>Enseignant</option>
+                                <option>Comédien</option>
+                                <option>Personnage</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <section class="container ml-6">
+                        <!--Introduire le tableau ici-->
+                        <div id='TableauIPPE'>
+                            <table class="table is-bordered is-striped is-narrow is-hoverable mt-6">
+                                <thead>
+                                  <tr>
+                                    <th>Réponse</th>
+                                    <th>Numéro d'événement</th>
+                                  </tr>
+                                </thead>
+                                <tbody id="TabBody">
+                                    <tr>
+                                        <td>Accusé</td>
+                                        <td>123-220115-0015</td>
+                                    </tr>
+                                    <tr>
+                                        <td>interdit</td>
+                                        <td>123-220115-0015</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+
+                    <div class="field is-grouped is-grouped-centered mt-6 ">
+                        <div class="control">
+                            <button class="button is-link is-normal">Enregistrer</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-link is-normal">Effacer</button>
+                        </div>
+                        <div class="control">
+                            <button class="button is-link is-normal">Annuler</button>
+                        </div>                        
+                        <div class="control">
+                            <button class="button is-link is-normal">Return</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="pied"></footer>
+</body>
+<script  type="module" src="PersoModif.js"></script>
+</html>

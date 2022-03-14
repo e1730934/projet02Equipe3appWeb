@@ -5,6 +5,7 @@ const path = require('path');
 
 
 app.use(express.static(path.join('public')));
+app.use(express.static(path.join(__dirname + '/public/PersoModif')));
 app.use(express.static(path.join(__dirname + '/public/Teacher_Hp')));
 app.use(express.static(path.join(__dirname + '/public/Student_Hp')));
 app.use(express.static(path.join(__dirname + '/public/IPPE')));
@@ -27,6 +28,10 @@ app.get('/IPPE',(req, res) =>{
 
 app.get('/IPPEResponse',(req, res) =>{
 	res.sendFile(__dirname + '/public/IPPE/resIPPE.html');
+});
+
+app.get('/Personnes',(req, res) =>{
+	res.sendFile(__dirname + '/public/PersoModif/PersoModif.html');
 });
 
 app.listen(PORT, () => {
