@@ -4,8 +4,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="template.css">
-        <title>IBAF</title>
+        <link rel="stylesheet" href="../template.css">
+        <title>IBOB</title>
     </head>
 
     <body>
@@ -17,7 +17,7 @@
             </span>
                 <hr class="login-hr">
                 <span class="subtitle is-4 has-text-weight-bold is-hidden-mobile ">
-                MODIFICATION D'UNE RÉPONSE ARME À FEU
+                MODIFICATION D'UNE RÉPONSE D'OBJET
             </span>
             </div>
 
@@ -37,22 +37,27 @@
                         </div>
 
                         <div class="field">
-                            <label for="Calibre" class="label">Calibre</label>
-                            <input class="input" id="Calibre" type="text" required>
+                            <label for="Modele" class="label">Modèle</label>
+                            <input class="input" id="Modele" type="text" required>
                         </div>
 
-                        <label for="TypeArme" class="label">Type d'arme</label>
+                        <label for="TypeObjet" class="label">Type d'objet</label>
                         <div class="select">
-                            <select id="TypeArme" required>
+                            <select id="TypeObjet" required>
                                 <option value="" disabled selected></option>
-                                <option>Révolver</option>
-                                <option>Pistolet</option>
-                                <option>Carabine</option>
-                                <option>Fusil</option>
+                                <option>RA	Appareil de son / radio / haut-parleur</option>
+                                <option>BI	Bicyclette</option>
+                                <option>EB	Équipement de bureau</option>
+                                <option>EP	Équipement photo / vidéo</option>
+                                <option>MO	Machinerie / outils</option>
+                                <option>OR	Ordinateur / Équipement informatique</option>
+                                <option>TA	Tablette informatique (Ipad et autres)</option>
+                                <option>TL	Téléphone cellulaire</option>
+                                <option>AU	Autres articles</option>
                             </select>
                         </div>
 
-                        <label for="TypeEvenement" class="label">Réponse IBVA </label>
+                        <label for="TypeEvenement" class="label">Réponse IBOB</label>
                         <div class="select">
                             <select id="TypeEvenement" required>
                                 <option>***NÉGATIF***</option>
