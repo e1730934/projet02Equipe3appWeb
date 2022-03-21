@@ -26,6 +26,10 @@ app.get('/IPPEResponse', (req, res) => {
     res.sendFile(`${__dirname}/public/IPPE/resIPPE.html`);
 });
 
+app.get('/enseignant/reponse/IBVA', (req, res) => {
+    res.sendFile(`${__dirname}/public/enseignant/ajoutModificationReponse/IBVA/IBVA.html`);
+});
+
 app.listen(PORT, () => {
     console.log(`Mon application roule sur le port ${PORT} : http://localhost:${PORT}/`);
 });
