@@ -1,0 +1,63 @@
+.msg-div{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    animation: myAnim 4s ease 0s 1 normal forwards;
+}
+@keyframes myAnim {
+    0% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+        transform-origin: center center;
+    }
+
+    10% {
+        animation-timing-function: ease-in;
+        transform: scale(0.91);
+    }
+
+    17% {
+        animation-timing-function: ease-out;
+        transform: scale(0.98);
+    }
+
+    33% {
+        animation-timing-function: ease-in;
+        transform: scale(0.87);
+    }
+
+    45% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+    }
+}
+#msgSuccess-p{
+    width: 60%;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    font-size: 16pt;
+    font-weight: bold;
+    color: #03440f;
+    border: 4px outset #0d8327;
+    background-color: rgb(138, 218, 149);
+}
+
+#msgErreur-p, #msgErreurId-p{
+    width: 60%;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    font-size: 16pt;
+    font-weight: bold;
+    color: #8a0000;
+    border: 4px outset #8a0000;
+    background-color: rgb(236, 115, 115);
+}
+
+.msgSpan{
+    display: block;
+    font-size: small;
+}
