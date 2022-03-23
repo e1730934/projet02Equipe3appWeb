@@ -73,5 +73,7 @@ btnSupprimer.addEventListener('click', () => {
             });
     } else {
         msgErreurId.classList.remove('is-hidden');
+        msgSuccess.classList.add('is-hidden');
+        msgErreur.classList.add('is-hidden');
     }
 });
