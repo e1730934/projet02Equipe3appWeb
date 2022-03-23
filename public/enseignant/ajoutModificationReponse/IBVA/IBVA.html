@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/enseignant/ajoutModificationReponse/template.css">
+        <link rel="stylesheet" href="/enseignant/ajoutModificationReponse/IBVA/IBVA.css">
+        <script type="module" src="/enseignant/ajoutModificationReponse/IBVA/IBVA.js"></script>
+        <title>IBVA</title>
+    </head>
+
+    <body>
+        <section class="section">
+            <div class="has-text-centered">
+            <span class="title has-text-weight-bold is-hidden-mobile ">
+                Centre de renseignements - Techniques policières
+            </span>
+                <hr class="login-hr">
+                <span class="subtitle is-4 has-text-weight-bold is-hidden-mobile ">
+                MODIFICATION D'UNE RÉPONSE VALEUR
+            </span>
+            </div>
+            <br><br>
+            <div class="columns is-centered">
+                <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+                    <div class="field has-text-centered">
+                        <div class="msg-div is-hidden" id="msgSuccess-div">
+                            <p id="msgSuccess-p">
+                                Success
+                                <span class="msgSpan">L'action a bien été effectué</span>
+                            </p>
+
+                        </div>
+                        <div class="msg-div is-hidden" id="msgErreur-div">
+                            <p id="msgErreur-p">Erreur
+                                <span class="msgSpan">Une erreur est survenue, l'action n'a pas été effectué</span>
+                            </p>
+                        </div>
+                        <div class="msg-div is-hidden" id="msgErreurId-div">
+                            <p id="msgErreurId-p">Erreur
+                                <span class="msgSpan">Aucun identifiant n'a été inséré</span>
+                            </p>
+                        </div>
+                        <div class="field">
+                            <label for="Identifiant" class="label">Numéro de série, Nom de l'oeuvre ou numéro de
+                                carte </label>
+                            <input class="input" id="Identifiant" type="text" required>
+                        </div>
+
+                        <div class="field">
+                            <label for="Auteur" class="label">Auteur / Émetteur </label>
+                            <input class="input" id="Auteur" type="text" required>
+                        </div>
+
+                        <label for="TypeValeur" class="label">Type de valeur </label>
+                        <div class="select">
+                            <select id="TypeValeur" required>
+                                <option value="" disabled selected></option>
+                                <option>Devise</option>
+                                <option>Passeport</option>
+                                <option>Œuvre d'art</option>
+                                <option>Carte de crédit / débit</option>
+                            </select>
+                        </div>
+
+                        <label for="TypeEvenement" class="label">Réponse IBVA </label>
+                        <div class="select">
+                            <select id="TypeEvenement" required>
+                                <option>***NÉGATIF***</option>
+                                <option>***VOLÉ***</option>
+                                <option>***PERDU***</option>
+                            </select>
+                        </div>
+
+                        <label for="NoEvenement" class="label">Numéro d'évenement</label>
+                        <div class="field has-addons">
+                            <div class="select">
+                                <select id="NoEvenement" required>
+                                    <option value="" disabled selected></option>
+                                    <option>123</option>
+                                    <option>302</option>
+                                    <option>108</option>
+                                </select>
+                            </div>
+                            <p class="control">
+                                <input class="input" type="text" placeholder="AA">
+                            </p>
+                            <p class="control">
+                                <input class="input" type="text" placeholder="MM">
+                            </p>
+                            <p class="control">
+                                <input class="input" type="text" placeholder="JJ">
+                            </p>
+                            <p class="control">
+                                <input class="input" type="text" placeholder="4 chiffres">
+                            </p>
+                        </div>
+                        <br/>
+
+                        <div class="field">
+                            <button class="button has-text-weight-bold"
+                                    id="retour" style="background-color: #338cc5;">Retour
+                            </button>
+                            <button class="button has-text-weight-bold"
+                                    id="modifier" style="background-color: #338cc5;">Modifier
+                            </button>
+                            <button class="js-modal-trigger button has-text-weight-bold is-danger" data-target="modal-js-example">
+                                Supprimer
+                            </button>
+                            <button class="button has-text-weight-bold"
+                                    id="annuler" style="background-color: #338cc5;">Annuler
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="modal" id="modal-js-example">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Comfirmation de suppresion</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    Voulez-vous vraiment supprimer cette entrée?
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button has-text-weight-bold is-danger"
+                            id="supprimer">Supprimer
+                    </button>
+                    <button class="button">Retour</button>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

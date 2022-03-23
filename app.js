@@ -36,6 +36,14 @@ app.get('/etudiant/IPPE/resultat', (req, res) => {
   res.sendFile(`${__dirname}/public/etudiant/IPPE/IPPEresult.html`);
 });
 
+app.get('/enseignant/reponse/IBAF', (req, res) => {
+    res.sendFile(`${__dirname}/public/enseignant/ajoutModificationReponse/IBAF/IBAF.html`);
+});
+
+app.get('/enseignant/reponse/IBOB', (req, res) => {
+    res.sendFile(`${__dirname}/public/enseignant/ajoutModificationReponse/IBOB/IBOB.html`);
+});
+
 app.listen(PORT, () => {
   console.log(`Mon application roule sur http://localhost:${PORT}`);
 });
