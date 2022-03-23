@@ -1,4 +1,4 @@
-function Ajouter(){
+function Ajouter() {
     const user = document.getElementById('user').value;
     const prenom = document.getElementById('prenom').value;
     const nom = document.getElementById('nom').value;
@@ -30,14 +30,14 @@ function Ajouter(){
     const modif = document.createElement('td');
     const modifbouton = document.createElement('a');
     modifbouton.setAttribute('class', 'button is-link');
-    modifbouton.innerHTML = "Modifier"
+    modifbouton.innerHTML = 'Modifier';
     modif.appendChild(modifbouton);
     tr.appendChild(modif);
 
     const suppr = document.createElement('td');
     const supprbouton = document.createElement('a');
     supprbouton.setAttribute('class', 'button is-danger');
-    supprbouton.innerHTML = "Supprimer"
+    supprbouton.innerHTML = 'Supprimer';
     suppr.appendChild(supprbouton);
     tr.appendChild(suppr);
-};
+}

@@ -1,0 +1,9 @@
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma-rtl.min.css";
+
+
+
+#date{
+  border-radius: 5px;
+  font: 15px Arial, sans-serif;
+  height: 35px;
+}

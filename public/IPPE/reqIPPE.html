@@ -1,0 +1,94 @@
+
+
+    <!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Interogation</title>
+    <link rel="stylesheet" href='./reqIPPE.css'>
+    <script src='./reqIPPE.css'></script>
+</head>
+
+
+<body>
+    <header id="Nav">
+        
+    </header>
+
+    <div class="container">
+
+        <div class="box" style="background-color: #f6f6f6;">
+            <h1 class="title has-text-centered-mobile">INTERR. PERSONNE IPPE</h1>
+            <br>
+            <div class="" id="erreur">
+                    <p class="is-normal"> </p><br>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input is-normal" type="text" placeholder="Nom" id="nom" ><br>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Prenom 1" id="prenom1" ><br>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input class="input" type="text" placeholder="Prenom 2" id="prenom2"><br>
+                </div>
+            </div>
+            <div class="columns">
+                <div class="column is-half-tablet has-text-centered is-narrow-mobile">
+                    <div class="field">
+                        <label class="label">Sexe</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="sexe" >
+                                    <option value="True">Homme</option>
+                                    <option>Femme</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-centered">
+                    <div class="field">
+                        <label class="label">Date de naissance</label>
+                        <div class="control">
+                            <input type="date" id="date" >
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="columns">
+                <div class="column is-half-tablet has-text-right-tablet has-text-centered-mobile">
+                    <div class="field">
+                        <div class="control">
+                            <button class="button" style="background-color: #338cc5;" id="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="column has-text-left-tablet has-text-centered-mobile">
+                    <div class="control">
+                        <button class="button is-link is-light" id="cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer id="pied">
+        
+    </footer>
+
+
+
+</body>
+
+<script type="module" src="./reqIPPE.js"></script>
+
+</html>

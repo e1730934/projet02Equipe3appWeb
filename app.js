@@ -1,39 +1,33 @@
 const express = require('express');
-const path = require('path');
-const cors = require('cors');
 
+const PORT = process.env.PORT || 5000;
 const app = express();
-// const db = require("./database/requete.js");
+const path = require('path');
 
-const PORT = process.env.PORT || 3000;
+app.use(express.static(path.join('public')));
+app.use(express.static(path.join(`${__dirname}/public/Teacher_Hp`)));
+app.use(express.static(path.join(`${__dirname}/public/Student_Hp`)));
+app.use(express.static(path.join(`${__dirname}/public/IPPE`)));
 
-app.use(cors());
-app.use(express.urlencoded({ extended: false }));
-
-app.use(express.static(path.join(__dirname, '/public')));
-
+// passer d'index a la page de détail d'articles
 app.get('/', (req, res) => {
-  res.sendFile(`${__dirname}/public/login.html`);
+    res.sendFile(`${__dirname}/index.html`);
 });
 
-app.get('/enseignant/menu', (req, res) => {
-  res.sendFile(`${__dirname}/public/enseignant/menu/menu_enseignant.html`);
+app.get('/Acceuil', (req, res) => {
+    res.sendFile(`${__dirname}/public/Acceuil/Acceuil.html`);
 });
 
-app.get('/enseignant/modif', (req, res) => {
-  res.sendFile(`${__dirname}/public/enseignant/modif_utilisateurs/modif_utilisateurs.html`);
+app.get('/IPPE', (req, res) => {
+    res.sendFile(`${__dirname}/public/IPPE/reqIPPE.html`);
 });
 
-app.get('/etudiant/menu', (req, res) => {
-  res.sendFile(`${__dirname}/public/etudiant/menu/menu_etudiant.html`);
+app.get('/IPPEResponse', (req, res) => {
+    res.sendFile(`${__dirname}/public/IPPE/resIPPE.html`);
 });
 
-app.get('/etudiant/IPPE/requete', (req, res) => {
-  res.sendFile(`${__dirname}/public/etudiant/IPPE/IPPErequest.html`);
-});
-
-app.get('/etudiant/IPPE/resultat', (req, res) => {
-  res.sendFile(`${__dirname}/public/etudiant/IPPE/IPPEresult.html`);
+app.get('/enseignant/reponse/IBVA', (req, res) => {
+    res.sendFile(`${__dirname}/public/enseignant/ajoutModificationReponse/IBVA/IBVA.html`);
 });
 
 app.get('/enseignant/reponse/IBAF', (req, res) => {
@@ -45,5 +39,5 @@ app.get('/enseignant/reponse/IBOB', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Mon application roule sur http://localhost:${PORT}`);
+    console.log(`Mon application roule sur le port ${PORT} : http://localhost:${PORT}/`);
 });
