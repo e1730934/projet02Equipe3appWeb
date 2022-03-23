@@ -4,7 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../template.css">
+        <link rel="stylesheet" href="/enseignant/ajoutModificationReponse/IBAF/IBAF.css">
+        <link rel="stylesheet" href="/enseignant/ajoutModificationReponse/template.css">
+        <script type="module" src="/enseignant/ajoutModificationReponse/IBAF/IBAF.js"></script>
         <title>IBAF</title>
     </head>
 
@@ -26,6 +28,23 @@
             <div class="columns is-centered">
                 <div class="column is-5-tablet is-4-desktop is-3-widescreen">
                     <div class="field has-text-centered">
+                        <div class="msg-div is-hidden" id="msgSuccess-div">
+                            <p id="msgSuccess-p">
+                                Success
+                                <span class="msgSpan">L'action a bien été effectuée</span>
+                            </p>
+
+                        </div>
+                        <div class="msg-div is-hidden" id="msgErreur-div">
+                            <p id="msgErreur-p">Erreur
+                                <span class="msgSpan">Une erreur est survenue, l'action n'a pas été effectuée</span>
+                            </p>
+                        </div>
+                        <div class="msg-div is-hidden" id="msgErreurId-div">
+                            <p id="msgErreurId-p">Erreur
+                                <span class="msgSpan">Aucun numéro de série n'a été inséré</span>
+                            </p>
+                        </div>
                         <div class="field">
                             <label for="NoSerie" class="label">Numéro de série</label>
                             <input class="input" id="NoSerie" type="text" required>
@@ -92,8 +111,8 @@
                             <button class="button has-text-weight-bold"
                                     id="modifier" style="background-color: #338cc5;">Modifier
                             </button>
-                            <button class="button has-text-weight-bold"
-                                    id="supprimer" style="background-color: #338cc5;">Supprimer
+                            <button class="js-modal-trigger button has-text-weight-bold is-danger" data-target="modal-js-example">
+                                    Supprimer
                             </button>
                             <button class="button has-text-weight-bold"
                                     id="annuler" style="background-color: #338cc5;">Annuler
@@ -103,7 +122,22 @@
                 </div>
             </div>
         </section>
+        <div class="modal" id="modal-js-example">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Confirmation de suppression</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    Voulez-vous vraiment supprimer cette entrée?
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button has-text-weight-bold is-danger"
+                            id="supprimer">Supprimer
+                    </button>
+                    <button class="button">Retour</button>
+                </footer>
+            </div>
     </body>
-    <script type="module" src="index.js"></script>
-
 </html>

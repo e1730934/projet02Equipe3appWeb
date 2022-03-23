@@ -30,6 +30,14 @@ app.get('/enseignant/reponse/IBVA', (req, res) => {
     res.sendFile(`${__dirname}/public/enseignant/ajoutModificationReponse/IBVA/IBVA.html`);
 });
 
+app.get('/enseignant/reponse/IBAF', (req, res) => {
+    res.sendFile(`${__dirname}/public/enseignant/ajoutModificationReponse/IBAF/IBAF.html`);
+});
+
+app.get('/enseignant/reponse/IBOB', (req, res) => {
+    res.sendFile(`${__dirname}/public/enseignant/ajoutModificationReponse/IBOB/IBOB.html`);
+});
+
 app.listen(PORT, () => {
     console.log(`Mon application roule sur le port ${PORT} : http://localhost:${PORT}/`);
 });
