@@ -1,4 +1,6 @@
 const btnSupprimer = document.getElementById('supprimer');
+const formInfo = document.getElementById('formInfo');
+const btnRetour = document.getElementById('retour');
 const msgSuccess = document.getElementById('msgSuccess-div');
 const msgErreur = document.getElementById('msgErreur-div');
 const msgErreurId = document.getElementById('msgErreurId-div');
@@ -76,4 +78,25 @@ btnSupprimer.addEventListener('click', () => {
         msgSuccess.classList.add('is-hidden');
         msgErreur.classList.add('is-hidden');
     }
+});
+
+formInfo.addEventListener('submit', (event) => {
+    event.preventDefault();
+    const formData = new URLSearchParams(new FormData(event.target));
+
+    fetch('http://localhost:3000/IBAF', { method: 'POST', body: formData })
+        .then((res) => res.json())
+        .then((resJson) => {
+            if (resJson.success) {
+                localStorage.setItem('userData', JSON.stringify(resJson.data));
+                resJson.status(200).json({ message: 'Information ajoutée avec succès' });
+            }
+        })
+        .catch((err) => {
+            alert(`Erreur: ${err}`);
+        });
+});
+
+btnRetour.addEventListener('click', () => {
+    window.location.href = '/Acceuil';
 });
