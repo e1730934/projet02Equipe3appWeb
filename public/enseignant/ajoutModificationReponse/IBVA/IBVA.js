@@ -82,38 +82,6 @@ btnSupprimer.addEventListener('click', () => {
         msgErreur.classList.add('is-hidden');
     }
 });
-//
-// btnAjouter.addEventListener('submit', (event) => {
-//     event.preventDefault();
-//     const formData = new URLSearchParams(new FormData(event.target));
-//
-//     fetch('http://localhost:3000/enseignant/reponse/IBVA', { method: 'POST', body: formData })
-//         .then((res) => res.json())
-//         .then((resJson) => {
-//             if (resJson.success) {
-//                 resJson.status(200).json({ message: 'Information ajoutée avec succès' });
-//             }
-//         })
-//         .catch((err) => {
-//             alert(`Erreur: ${err}`);
-//         });
-// });
-//
-// btnModifier.addEventListener('submit', (event) => {
-//     event.preventDefault();
-//     const formData = new URLSearchParams(new FormData(event.target));
-//
-//     fetch('http://localhost:3000/enseignant/reponse/IBVA', { method: 'PUT', body: formData })
-//         .then((res) => res.json())
-//         .then((resJson) => {
-//             if (resJson.success) {
-//                 resJson.status(200).json({ message: 'Information modifiée avec succès' });
-//             }
-//         })
-//         .catch((err) => {
-//             alert(`Erreur: ${err}`);
-//         });
-// });
 form.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new URLSearchParams(new FormData(event.target));
@@ -126,13 +94,21 @@ form.addEventListener('submit', (event) => {
     fetch('http://localhost:3000/IBVA', { method, body: formData })
         .then((res) => res.json())
         .then((resJson) => {
+            console.log(resJson);
             if (resJson.success) {
-                console.log('sucess');
-                // TODO IMPLEMENTER MESSAGE SUCCES
+                msgSuccess.classList.remove('is-hidden');
+                msgErreurId.classList.add('is-hidden');
+                msgErreur.classList.add('is-hidden');
+            } else {
+                msgSuccess.classList.add('is-hidden');
+                msgErreurId.classList.add('is-hidden');
+                msgErreur.classList.remove('is-hidden');
             }
         })
-        .catch((err) => {
-            alert(`Erreur: ${err}`);
+        .catch(() => {
+            msgSuccess.classList.add('is-hidden');
+            msgErreurId.classList.add('is-hidden');
+            msgErreur.classList.remove('is-hidden');
         });
 });
 
