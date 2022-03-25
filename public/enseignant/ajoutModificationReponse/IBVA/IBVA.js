@@ -2,6 +2,7 @@ const btnSupprimer = document.getElementById('supprimer');
 const btnAjouter = document.getElementById('ajouter');
 const btnRetour = document.getElementById('retour');
 const btnModifier = document.getElementById('modifier');
+const btnReset = document.getElementById('annuler');
 const form = document.getElementById('formulaire');
 
 const msgSuccess = document.getElementById('msgSuccess-div');
@@ -118,6 +119,11 @@ btnAjouter.addEventListener('click', () => {
 
 btnModifier.addEventListener('click', () => {
     btnCliquee = 'modifier';
+});
+btnReset.addEventListener('click', () => {
+    msgSuccess.classList.add('is-hidden');
+    msgErreurId.classList.add('is-hidden');
+    msgErreur.classList.add('is-hidden');
 });
 
 btnRetour.addEventListener('click', () => {
