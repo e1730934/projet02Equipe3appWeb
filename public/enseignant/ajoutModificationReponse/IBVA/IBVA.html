@@ -42,6 +42,7 @@
                                 <span class="msgSpan">Aucun identifiant n'a été inséré</span>
                             </p>
                         </div>
+<<<<<<< Updated upstream
                         <div class="field">
                             <label for="Identifiant" class="label">Numéro de série, Nom de l'oeuvre ou numéro de
                                 carte </label>
@@ -72,15 +73,46 @@
                                 <option>***PERDU***</option>
                             </select>
                         </div>
+=======
+                        <form id="formInfo">
+                            <div class="field">
+                                <label for="Identifiant" class="label">Numéro de série, Nom de l'oeuvre ou numéro de
+                                    carte </label>
+                                <input class="input" id="Identifiant" name="Identifiant" type="text" required>
+                            </div>
+
+                            <div class="field">
+                                <label for="Auteur" class="label">Auteur / Émetteur </label>
+                                <input class="input" id="Auteur" name="Auteur" type="text" required>
+                            </div>
+
+                            <label for="TypeValeur" class="label">Type de valeur </label>
+                            <div class="select">
+                                <select id="TypeValeur" name="TypeValeur" required>
+                                    <option value="" disabled selected></option>
+                                    <option id="Devise">Devise</option>
+                                    <option id="Passeport">Passeport</option>
+                                    <option id="Art">Œuvre d'art</option>
+                                    <option id="Carte">Carte de crédit / débit</option>
+                                </select>
+                            </div>
+>>>>>>> Stashed changes
 
                         <label for="NoEvenement" class="label">Numéro d'évenement</label>
                         <div class="field has-addons">
                             <div class="select">
+<<<<<<< Updated upstream
                                 <select id="NoEvenement" required>
                                     <option value="" disabled selected></option>
                                     <option>123</option>
                                     <option>302</option>
                                     <option>108</option>
+=======
+                                <select id="TypeEvenement" name="TypeEvenement" required>
+                                    <option id="Négatif" value="Négatif">***NÉGATIF***</option>
+                                    <option id="Volé" value="Volé">***VOLÉ***</option>
+                                    <option id="Perdu" value="Volé">***PERDU***</option>
+>>>>>>> Stashed changes
                                 </select>
                             </div>
                             <p class="control">
@@ -98,6 +130,7 @@
                         </div>
                         <br/>
 
+<<<<<<< Updated upstream
                         <div class="field">
                             <button class="button has-text-weight-bold"
                                     id="retour" style="background-color: #338cc5;">Retour
@@ -112,6 +145,61 @@
                                     id="annuler" style="background-color: #338cc5;">Annuler
                             </button>
                         </div>
+=======
+                            <label for="NoEvenement" class="label">Numéro d'évenement</label>
+                            <div class="field has-addons">
+                                <div class="select">
+                                    <select id="NoEvenement" name="NoEvenement" required>
+                                        <option value="" disabled selected></option>
+                                        <option id="123">123</option>
+                                        <option id="302">302</option>
+                                        <option id="108">108</option>
+                                    </select>
+                                </div>
+                                <div class="control">
+                                    <label>
+                                        <input class="input" type="text" id="AA" name="AA" maxlength="2" placeholder="AA">
+                                    </label>
+                                </div>
+                                <div class="control">
+                                    <label>
+                                        <input class="input" type="text" id="MM" name="MM" maxlength="2" placeholder="MM">
+                                    </label>
+                                </div>
+                                <div class="control">
+                                    <label>
+                                        <input class="input" type="text" id="JJ" name="JJ" maxlength="2" placeholder="JJ">
+                                    </label>
+                                </div>
+                                <div class="control">
+                                    <label>
+                                        <input class="input" type="text" id="sequenceChiffres" name="sequenceChiffres" maxlength="4" placeholder="4 chiffres">
+                                    </label>
+                                </div>
+                            </div>
+                            </div>
+                            <br/>
+
+                            <div class="field">
+                                <button class="button has-text-weight-bold"
+                                        id="retour" style="background-color: #338cc5;">Retour
+                                </button>
+                                <button class="button has-text-weight-bold" type="submit"
+                                            id="ajouter" style="background-color: #338cc5;">Ajouter
+                                    </button>
+                                <button class="button has-text-weight-bold is-hidden"
+                                        id="modifier" style="background-color: #338cc5;">Modifier
+                                </button>
+                                <button class="js-modal-trigger button has-text-weight-bold is-danger" data-target="modal-js-example">
+                                    Supprimer
+                                </button>
+                                <button class="button has-text-weight-bold"
+                                        id="annuler" style="background-color: #338cc5;">Annuler
+                                </button>
+                            </div>
+                        </form>
+
+>>>>>>> Stashed changes
                     </div>
                 </div>
             </div>
