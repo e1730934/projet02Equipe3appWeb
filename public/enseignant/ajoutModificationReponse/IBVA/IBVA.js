@@ -1,7 +1,14 @@
 const btnSupprimer = document.getElementById('supprimer');
+const btnAjouter = document.getElementById('ajouter');
+const btnRetour = document.getElementById('retour');
+const btnModifier = document.getElementById('modifier');
+const btnReset = document.getElementById('annuler');
+const form = document.getElementById('formulaire');
+
 const msgSuccess = document.getElementById('msgSuccess-div');
 const msgErreur = document.getElementById('msgErreur-div');
 const msgErreurId = document.getElementById('msgErreurId-div');
+let btnCliquee;
 
 document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
@@ -23,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
         const modal = $trigger.dataset.target;
         const $target = document.getElementById(modal);
-        console.log($target);
 
         $trigger.addEventListener('click', () => {
             openModal($target);
@@ -77,82 +83,49 @@ btnSupprimer.addEventListener('click', () => {
         msgErreur.classList.add('is-hidden');
     }
 });
-<<<<<<< Updated upstream
-=======
-
-formInfo.addEventListener('submit', (event) => {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
-    let formData = new URLSearchParams(new FormData(event.target));
-
-    fetch('http://localhost:3000/IBVA', { method: 'POST', body:formData })
-    .then(res =>{
-        return res.json();
-    })
-    .then(resJson =>{
-        if(resJson.success){
-            alert("L'objet a été ajouté.")
-        }
-    })
-    .catch(err =>{
-        alert(`Erreur: ${err}`)
-    })
+    const formData = new URLSearchParams(new FormData(event.target));
+    let method;
+    if (btnCliquee === 'ajouter') {
+        method = 'POST';
+    } else if (btnCliquee === 'modifier') {
+        method = 'PUT';
+    }
+    fetch('http://localhost:3000/IBVA', { method, body: formData })
+        .then((res) => res.json())
+        .then((resJson) => {
+            console.log(resJson);
+            if (resJson.success) {
+                msgSuccess.classList.remove('is-hidden');
+                msgErreurId.classList.add('is-hidden');
+                msgErreur.classList.add('is-hidden');
+            } else {
+                msgSuccess.classList.add('is-hidden');
+                msgErreurId.classList.add('is-hidden');
+                msgErreur.classList.remove('is-hidden');
+            }
+        })
+        .catch(() => {
+            msgSuccess.classList.add('is-hidden');
+            msgErreurId.classList.add('is-hidden');
+            msgErreur.classList.remove('is-hidden');
+        });
 });
 
-async function Data() {
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("identifiant");
-    await fetch("http://localhost:3000/IBVA/" + id).then((reponse) => {
-        if (reponse.ok) {
-            // obtenir les données de la fonction asynchrone json()
-            reponse.json().then((data) => {
-                document.getElementById('Identifiant').setAttribute("value", data[0].Identifiant)
-                document.getElementById('Auteur').setAttribute("value", data[0].Auteur)
-                //vérificattion pour selectionner le bon champ de la valeur
-                if (data[0].TypeValeur == "Devise") {
-                document.getElementById('Devise').setAttribute('selected', 'selected')
-                }
-                    else if (data[0].TypeValeur == "Passeport") {
-                        document.getElementById('Passeport').setAttribute('selected', 'selected')
-                    }
-                    else if (data[0].TypeValeur == "Œuvre d'art") {
-                        document.getElementById('Art').setAttribute('selected', 'selected')
-                    }
-                    else if (data[0].TypeValeur == "Carte de crédit / débit") {
-                        document.getElementById('Carte').setAttribute('selected', 'selected')
-                    }
-                //vérificattion pour selectionner le bon champ du type d'evennement
-                if (data[0].TypeEvenement == "Négatif") {
-                    document.getElementById('Négatif').setAttribute('selected', 'selected')
-                    }
-                else if (data[0].TypeEvenement == "Volé") {
-                        document.getElementById('Volé').setAttribute('selected', 'selected')
-                    }
-                else if (data[0].TypeEvenement == "Perdu") {
-                        document.getElementById('Perdu').setAttribute('selected', 'selected')
-                    }
-                //vérification pour les 3 premiers chiffres du NoEvenement
-                if (data[0].NoEvenement.substr(0, 3) == "302") {
-                    document.getElementById('302').setAttribute('selected', 'selected')
-                    }
-                    else if (data[0].NoEvenement.substr(0, 3) == "108") {
-                        document.getElementById('108').setAttribute('selected', 'selected')
-                    }
-                    else if (data[0].NoEvenement.substr(0, 3) == "123") {
-                        document.getElementById('123').setAttribute('selected', 'selected')
-                    }
-                document.getElementById('AA').setAttribute("value", data[0].NoEvenement.substr(4, 2));
-                document.getElementById('MM').setAttribute("value", data[0].NoEvenement.substr(6, 2));
-                document.getElementById('JJ').setAttribute("value", data[0].NoEvenement.substr(8, 2));
-                document.getElementById('sequenceChiffres').setAttribute("value", data[0].NoEvenement.substr(11, 4));
+btnAjouter.addEventListener('click', () => {
+    btnCliquee = 'ajouter';
+});
 
-            }) 
-        }
-    })
-}
+btnModifier.addEventListener('click', () => {
+    btnCliquee = 'modifier';
+});
+btnReset.addEventListener('click', () => {
+    msgSuccess.classList.add('is-hidden');
+    msgErreurId.classList.add('is-hidden');
+    msgErreur.classList.add('is-hidden');
+});
 
 btnRetour.addEventListener('click', () => {
     window.location.href = '/Acceuil';
 });
-
-window.onload = Data();
->>>>>>> Stashed changes

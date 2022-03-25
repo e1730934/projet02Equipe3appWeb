@@ -31,13 +31,13 @@
                         <div class="msg-div is-hidden" id="msgSuccess-div">
                             <p id="msgSuccess-p">
                                 Success
-                                <span class="msgSpan">L'action a bien été effectué</span>
+                                <span class="msgSpan">L'action a bien été effectuée</span>
                             </p>
 
                         </div>
                         <div class="msg-div is-hidden" id="msgErreur-div">
                             <p id="msgErreur-p">Erreur
-                                <span class="msgSpan">Une erreur est survenue, l'action n'a pas été effectué</span>
+                                <span class="msgSpan">Une erreur est survenue, l'action n'a pas été effectuée</span>
                             </p>
                         </div>
                         <div class="msg-div is-hidden" id="msgErreurId-div">
@@ -45,79 +45,86 @@
                                 <span class="msgSpan">Aucun numéro de série n'a été inséré</span>
                             </p>
                         </div>
-                        <div class="field">
-                            <label for="NoSerie" class="label">Numéro de série</label>
-                            <input class="input" id="NoSerie" type="text" required>
-                        </div>
 
-                        <div class="field">
-                            <label for="Marque" class="label">Marque</label>
-                            <input class="input" id="Marque" type="text" required>
-                        </div>
+                        <form id="formInfo">
+                            <div class="field">
+                                <label for="NoSerie" class="label">Numéro de série</label>
+                                <input class="input" id="NoSerie" type="text" required>
+                            </div>
 
-                        <div class="field">
-                            <label for="Calibre" class="label">Calibre</label>
-                            <input class="input" id="Calibre" type="text" required>
-                        </div>
+                            <div class="field">
+                                <label for="Marque" class="label">Marque</label>
+                                <input class="input" id="Marque" type="text" required>
+                            </div>
 
-                        <label for="TypeArme" class="label">Type d'arme</label>
-                        <div class="select">
-                            <select id="TypeArme" required>
-                                <option value="" disabled selected></option>
-                                <option>Révolver</option>
-                                <option>Pistolet</option>
-                                <option>Carabine</option>
-                                <option>Fusil</option>
-                            </select>
-                        </div>
+                            <div class="field">
+                                <label for="Calibre" class="label">Calibre</label>
+                                <input class="input" id="Calibre" type="text" required>
+                            </div>
 
-                        <label for="TypeEvenement" class="label">Réponse IBVA </label>
-                        <div class="select">
-                            <select id="TypeEvenement" required>
-                                <option>***NÉGATIF***</option>
-                                <option>***VOLÉ***</option>
-                            </select>
-                        </div>
-
-                        <label for="NoEvenement" class="label">Numéro d'évenement</label>
-                        <div class="field has-addons">
+                            <label for="TypeArme" class="label">Type d'arme</label>
                             <div class="select">
-                                <select id="NoEvenement" required>
+                                <select id="TypeArme" required>
                                     <option value="" disabled selected></option>
-                                    <option>123</option>
-                                    <option>302</option>
-                                    <option>108</option>
+                                    <option>Révolver</option>
+                                    <option>Pistolet</option>
+                                    <option>Carabine</option>
+                                    <option>Fusil</option>
                                 </select>
                             </div>
-                            <p class="control">
-                                <input class="input" type="text" placeholder="AA">
-                            </p>
-                            <p class="control">
-                                <input class="input" type="text" placeholder="MM">
-                            </p>
-                            <p class="control">
-                                <input class="input" type="text" placeholder="JJ">
-                            </p>
-                            <p class="control">
-                                <input class="input" type="text" placeholder="4 chiffres">
-                            </p>
-                        </div>
-                        <br/>
 
-                        <div class="field">
-                            <button class="button has-text-weight-bold"
-                                    id="retour" style="background-color: #338cc5;">Retour
-                            </button>
-                            <button class="button has-text-weight-bold"
-                                    id="modifier" style="background-color: #338cc5;">Modifier
-                            </button>
-                            <button class="js-modal-trigger button has-text-weight-bold is-danger" data-target="modal-js-example">
-                                    Supprimer
-                            </button>
-                            <button class="button has-text-weight-bold"
-                                    id="annuler" style="background-color: #338cc5;">Annuler
-                            </button>
-                        </div>
+                            <label for="TypeEvenement" class="label">Réponse IBVA </label>
+                            <div class="select">
+                                <select id="TypeEvenement" required>
+                                    <option>***NÉGATIF***</option>
+                                    <option>***VOLÉ***</option>
+                                </select>
+                            </div>
+
+                            <label for="NoEvenement" class="label">Numéro d'évenement</label>
+                            <div class="field has-addons">
+                                <div class="select">
+                                    <select id="NoEvenement" required>
+                                        <option value="" disabled selected></option>
+                                        <option>123</option>
+                                        <option>302</option>
+                                        <option>108</option>
+                                    </select>
+                                </div>
+                                <p class="control">
+                                    <input class="input" type="text" maxlength="2" placeholder="AA">
+                                </p>
+                                <p class="control">
+                                    <input class="input" type="text" maxlength="2" placeholder="MM">
+                                </p>
+                                <p class="control">
+                                    <input class="input" type="text" maxlength="2" placeholder="JJ">
+                                </p>
+                                <p class="control">
+                                    <input class="input" type="text" maxlength="4" placeholder="4 chiffres">
+                                </p>
+                            </div>
+                            <br/>
+
+                            <div class="field">
+                                <button class="button has-text-weight-bold"
+                                        id="retour" style="background-color: #338cc5;">Retour
+                                </button>
+                                <button class="button has-text-weight-bold" type="submit"
+                                        id="ajouter" style="background-color: #338cc5;">Ajouter
+                                </button>
+                                <button class="button has-text-weight-bold is-hidden"
+                                        id="modifier" style="background-color: #338cc5;">Modifier
+                                </button>
+                                <button class="js-modal-trigger button has-text-weight-bold is-danger" data-target="modal-js-example">
+                                        Supprimer
+                                </button>
+                                <button class="button has-text-weight-bold"
+                                        id="annuler" style="background-color: #338cc5;">Annuler
+                                </button>
+                            </div>
+                        </form>
+                        
                     </div>
                 </div>
             </div>
@@ -126,7 +133,7 @@
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
-                    <p class="modal-card-title">Comfirmation de suppresion</p>
+                    <p class="modal-card-title">Confirmation de suppression</p>
                     <button class="delete" aria-label="close"></button>
                 </header>
                 <section class="modal-card-body">
