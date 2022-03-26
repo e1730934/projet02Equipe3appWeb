@@ -5,7 +5,7 @@ const btnModifier = document.getElementById('modifier');
 const btnReset = document.getElementById('annuler');
 const form = document.getElementById('formulaire');
 const params = new URLSearchParams(window.location.search);
-const id = params.get("identifiant");
+const id = params.get("idIBVA");
 
 const msgSuccess = document.getElementById('msgSuccess-div');
 const msgErreur = document.getElementById('msgErreur-div');
@@ -182,7 +182,6 @@ btnRetour.addEventListener('click', () => {
 });
 
 async function verifparams() {
-    console.log(id)
     if (id !== null) {
         Data();
         document.getElementById('title').innerHTML = "MODIFICATION D'UNE RÉPONSE VALEUR";
