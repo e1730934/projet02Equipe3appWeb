@@ -95,7 +95,6 @@ form.addEventListener('submit', (event) => {
     fetch('http://localhost:3000/IBAF', { method, body: formData })
         .then((res) => res.json())
         .then((resJson) => {
-            console.log(resJson);
             if (resJson.success) {
                 msgSuccess.classList.remove('is-hidden');
                 msgErreurId.classList.add('is-hidden');
