@@ -4,6 +4,8 @@ const btnRetour = document.getElementById('retour');
 const btnModifier = document.getElementById('modifier');
 const btnReset = document.getElementById('annuler');
 const form = document.getElementById('formulaire');
+const params = new URLSearchParams(window.location.search);
+const id = params.get("idibaf");
 
 const msgSuccess = document.getElementById('msgSuccess-div');
 const msgErreur = document.getElementById('msgErreur-div');
@@ -112,6 +114,47 @@ form.addEventListener('submit', (event) => {
         });
 });
 
+async function Data() {
+    await fetch("http://localhost:3000/IBAF/" + id).then((reponse) => {
+        if (reponse.ok) {
+            // obtenir les données de la fonction asynchrone json()
+            reponse.json().then((data) => {
+                console.log(data[0])
+                document.getElementById('NoSerie').setAttribute("value", data[0].NoSerie)
+                document.getElementById('Marque').setAttribute("value", data[0].Marque)
+                document.getElementById('Calibre').setAttribute("value", data[0].Calibre)
+                //vérificattion pour selectionner le bon champ du type d'arme
+                if (data[0].TypeArme == "Révolver") {
+                    document.getElementById('Revolver').setAttribute('selected', 'selected')
+                }
+                else if (data[0].TypeArme == "Pistolet") {
+                    document.getElementById('Pistolet').setAttribute('selected', 'selected')
+                }
+                else if (data[0].TypeArme == "Carabine") {
+                    document.getElementById('Carabine').setAttribute('selected', 'selected')
+                }
+                else if (data[0].TypeArme == "Fusil") {
+                    document.getElementById('Fusil').setAttribute('selected', 'selected')
+                }
+                //vérification pour les 3 premiers chiffres du NoEvenement
+                if (data[0].NoEvenement.substr(0, 3) == "302") {
+                    document.getElementById('302').setAttribute('selected', 'selected')
+                }
+                else if (data[0].NoEvenement.substr(0, 3) == "108") {
+                    document.getElementById('108').setAttribute('selected', 'selected')
+                }
+                else if (data[0].NoEvenement.substr(0, 3) == "123") {
+                    document.getElementById('123').setAttribute('selected', 'selected')
+                }
+                document.getElementById('AA').setAttribute("value", data[0].NoEvenement.substr(4, 2));
+                document.getElementById('MM').setAttribute("value", data[0].NoEvenement.substr(6, 2));
+                document.getElementById('JJ').setAttribute("value", data[0].NoEvenement.substr(8, 2));
+                document.getElementById('sequenceChiffres').setAttribute("value", data[0].NoEvenement.substr(11, 4));
+            })
+        }
+    })
+}
+
 btnAjouter.addEventListener('click', () => {
     btnCliquee = 'ajouter';
 });
@@ -128,3 +171,18 @@ btnReset.addEventListener('click', () => {
 btnRetour.addEventListener('click', () => {
     window.location.href = '/Acceuil';
 });
+
+async function verifparams() {
+    if (id !== null) {
+        Data();
+        document.getElementById('title').innerHTML = "MODIFICATION D'UNE RÉPONSE VALEUR";
+        document.getElementById('ajouter').setAttribute("class", "is-hidden");
+    }
+    else {
+        document.getElementById('modifier').setAttribute("class", "is-hidden");
+        document.getElementById('suppr').setAttribute("class", "is-hidden");
+    }
+};
+
+window.onload = verifparams();
+
