@@ -1,6 +1,8 @@
 const btnSupprimer = document.getElementById('supprimer');
 const formInfo = document.getElementById('formInfo');
 const btnRetour = document.getElementById('retour');
+const btnReset = document.getElementById('annuler');
+
 const msgSuccess = document.getElementById('msgSuccess-div');
 const msgErreur = document.getElementById('msgErreur-div');
 const msgErreurId = document.getElementById('msgErreurId-div');
