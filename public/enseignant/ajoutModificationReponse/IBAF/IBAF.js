@@ -1,9 +1,14 @@
 const btnSupprimer = document.getElementById('supprimer');
-const formInfo = document.getElementById('formInfo');
+const btnAjouter = document.getElementById('ajouter');
 const btnRetour = document.getElementById('retour');
+const btnModifier = document.getElementById('modifier');
+const btnReset = document.getElementById('annuler');
+const form = document.getElementById('formulaire');
+
 const msgSuccess = document.getElementById('msgSuccess-div');
 const msgErreur = document.getElementById('msgErreur-div');
 const msgErreurId = document.getElementById('msgErreurId-div');
+let btnCliquee;
 
 document.addEventListener('DOMContentLoaded', () => {
     // Functions to open and close a modal
@@ -25,7 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
     (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
         const modal = $trigger.dataset.target;
         const $target = document.getElementById(modal);
-        console.log($target);
 
         $trigger.addEventListener('click', () => {
             openModal($target);
@@ -79,22 +83,46 @@ btnSupprimer.addEventListener('click', () => {
         msgErreur.classList.add('is-hidden');
     }
 });
-
-formInfo.addEventListener('submit', (event) => {
+form.addEventListener('submit', (event) => {
     event.preventDefault();
     const formData = new URLSearchParams(new FormData(event.target));
-
-    fetch('http://localhost:3000/IBAF', { method: 'POST', body: formData })
+    let method;
+    if (btnCliquee === 'ajouter') {
+        method = 'POST';
+    } else if (btnCliquee === 'modifier') {
+        method = 'PUT';
+    }
+    fetch('http://localhost:3000/IBAF', { method, body: formData })
         .then((res) => res.json())
         .then((resJson) => {
             if (resJson.success) {
-                localStorage.setItem('userData', JSON.stringify(resJson.data));
-                resJson.status(200).json({ message: 'Information ajoutée avec succès' });
+                msgSuccess.classList.remove('is-hidden');
+                msgErreurId.classList.add('is-hidden');
+                msgErreur.classList.add('is-hidden');
+            } else {
+                msgSuccess.classList.add('is-hidden');
+                msgErreurId.classList.add('is-hidden');
+                msgErreur.classList.remove('is-hidden');
             }
         })
-        .catch((err) => {
-            alert(`Erreur: ${err}`);
+        .catch(() => {
+            msgSuccess.classList.add('is-hidden');
+            msgErreurId.classList.add('is-hidden');
+            msgErreur.classList.remove('is-hidden');
         });
+});
+
+btnAjouter.addEventListener('click', () => {
+    btnCliquee = 'ajouter';
+});
+
+btnModifier.addEventListener('click', () => {
+    btnCliquee = 'modifier';
+});
+btnReset.addEventListener('click', () => {
+    msgSuccess.classList.add('is-hidden');
+    msgErreurId.classList.add('is-hidden');
+    msgErreur.classList.add('is-hidden');
 });
 
 btnRetour.addEventListener('click', () => {
