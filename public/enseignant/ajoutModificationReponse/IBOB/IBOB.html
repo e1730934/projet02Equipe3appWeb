@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/enseignant/ajoutModificationReponse/template.css">
-    <link rel="stylesheet" href="/enseignant/ajoutModificationReponse/IBOB/IBOB.css">
     <script type="module" src="/enseignant/ajoutModificationReponse/IBOB/IBOB.js"></script>
     <title>IBOB</title>
 </head>
@@ -13,12 +12,12 @@
 <body>
     <section class="section">
         <div class="has-text-centered">
-            <span class="title has-text-weight-bold is-hidden-mobile ">
+            <span class="title has-text-weight-bold is-hidden-mobile">
                 Centre de renseignements - Techniques policières
             </span>
             <hr class="login-hr">
-            <span class="subtitle is-4 has-text-weight-bold is-hidden-mobile ">
-                MODIFICATION D'UNE RÉPONSE D'OBJET
+            <span class="subtitle is-4 has-text-weight-bold is-hidden-mobile" id="title">
+                AJOUT D'UNE RÉPONSE OBJET
             </span>
         </div>
         <br><br>
@@ -61,24 +60,15 @@
                     <div class="select">
                         <select id="TypeObjet" name="TypeObjet" required>
                             <option value="" disabled selected></option>
-                            <option value="RA">RA Appareil de son / radio / haut-parleur</option>
-                            <option value="BI">BI Bicyclette</option>
-                            <option value="EB">EB Équipement de bureau</option>
-                            <option value="EP">EP Équipement photo / vidéo</option>
-                            <option value="MO">MO Machinerie / outils</option>
-                            <option value="OR">OR Ordinateur / Équipement informatique</option>
-                            <option value="TA">TA Tablette informatique (Ipad et autres)</option>
-                            <option value="TL">TL Téléphone cellulaire</option>
-                            <option value="AU">AU Autres articles</option>
-                        </select>
-                    </div>
-
-                    <label for="TypeEvenement" class="label">Réponse IBOB</label>
-                    <div class="select">
-                        <select id="TypeEvenement" name="TypeEvenement" required>
-                            <option value="" disabled selected></option>
-                            <option>***NÉGATIF***</option>
-                            <option>***VOLÉ***</option>
+                            <option value="RA" id="RA">RA Appareil de son / radio / haut-parleur</option>
+                            <option value="BI" id="BI">BI Bicyclette</option>
+                            <option value="EB" id="EB">EB Équipement de bureau</option>
+                            <option value="EP" id="EP">EP Équipement photo / vidéo</option>
+                            <option value="MO" id="MO">MO Machinerie / outils</option>
+                            <option value="OR" id="OR">OR Ordinateur / Équipement informatique</option>
+                            <option value="TA" id="TA">TA Tablette informatique (Ipad et autres)</option>
+                            <option value="TL" id="TL">TL Téléphone cellulaire</option>
+                            <option value="AU" id="AU">AU Autres articles</option>
                         </select>
                     </div>
 
@@ -87,53 +77,51 @@
                         <div class="select">
                             <select id="NoEvenement" name="NoEvenement" required>
                                 <option value="" disabled selected></option>
-                                <option>123</option>
-                                <option>302</option>
-                                <option>108</option>
+                                <option id="123">123</option>
+                                <option id="302">302</option>
+                                <option id="108">108</option>
                             </select>
                         </div>
                         <div class="control">
                             <label>
-                                <input class="input" type="text" name="AA" maxlength="2" placeholder="AA">
+                                <input class="input" type="text" id="AA" name="AA" maxlength="2" placeholder="AA">
                             </label>
                         </div>
                         <div class="control">
                             <label>
-                                <input class="input" type="text" name="MM" maxlength="2" placeholder="MM">
+                                <input class="input" type="text" id="MM" name="MM" maxlength="2" placeholder="MM">
                             </label>
                         </div>
                         <div class="control">
                             <label>
-                                <input class="input" type="text" name="JJ" maxlength="2" placeholder="JJ">
+                                <input class="input" type="text" id="JJ" name="JJ" maxlength="2" placeholder="JJ">
                             </label>
                         </div>
                         <div class="control">
                             <label>
-                                <input class="input" type="text" name="sequenceChiffres" maxlength="4"
-                                    placeholder="4 chiffres">
+                                <input class="input" type="text" id="sequenceChiffres" name="sequenceChiffres" maxlength="4" placeholder="4 chiffres">
                             </label>
                         </div>
                     </div>
-                    <br />
+                    <br/>
 
                     <div class="field">
-                        <input type="submit" class="button has-text-weight-bold" id="retour"
-                            style="background-color: #338cc5;" value="Retour">
-                        <input class="button has-text-weight-bold" type="submit" id="ajouter"
-                            style="background-color: #338cc5;" value="Ajouter" onclick="btnCliquee= 'ajouter'">
-                        <input type="submit" class="button has-text-weight-bold" id="modifier"
-                            style="background-color: #338cc5;" value="Modifier" onclick="btnCliquee= 'modifier'">
-                        <button class="js-modal-trigger button has-text-weight-bold is-danger"
-                            data-target="modal-js-example">
+                        <input type="submit" class="button has-text-weight-bold is-link"
+                                id="retour" value="Retour">
+                        <input class="button has-text-weight-bold is-primary" type="submit"
+                                    id="ajouter" value="Ajouter" onclick="btnCliquee= 'ajouter'">
+                        <input  type="submit" class="button has-text-weight-bold is-primary"
+                                id="modifier" value="Modifier" onclick="btnCliquee= 'modifier'">
+                        <button class="js-modal-trigger button has-text-weight-bold is-danger" data-target="modal-js-example"
+                            id="suppr">
                             Supprimer
                         </button>
-                        <button type="reset" class="button has-text-weight-bold" id="annuler"
-                            style="background-color: #338cc5;">Annuler
+                        <button type="reset" class="button has-text-weight-bold is-warning"
+                                id="annuler">Annuler
                         </button>
                     </div>
                 </form>
             </div>
-        </div>
         </div>
     </section>
     <div class="modal" id="modal-js-example">
@@ -152,6 +140,7 @@
                 <button class="button">Retour</button>
             </footer>
         </div>
+    </div>
 </body>
 
 </html>

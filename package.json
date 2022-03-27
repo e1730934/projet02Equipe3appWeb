@@ -5,7 +5,6 @@
   "main": "app.js",
   "keywords": [],
   "author": "Étudiants du cours 420-4D1, CM9",
-
   "dependencies": {
     "express": "^4.17.3",
     "node-fetch": "^3.2.0",
@@ -23,9 +22,9 @@
     "ext": "js,html,json,css"
   },
   "scripts": {
-      "lint": "npx eslint *.js",
-      "fix": "npx eslint *.js --fix",
-      "test": "jest --env=jsdom",
-      "start": "nodemon app.js "
+    "lint": "npx eslint *.js",
+    "fix": "npx eslint *.js --fix",
+    "test": "jest --env=jsdom",
+    "start": "nodemon app.js "
   }
 }
