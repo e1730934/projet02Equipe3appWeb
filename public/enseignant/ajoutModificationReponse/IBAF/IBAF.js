@@ -10,6 +10,7 @@ const id = params.get('idIBAF');
 const msgSuccess = document.getElementById('msgSuccess-div');
 const msgErreur = document.getElementById('msgErreur-div');
 const msgErreurId = document.getElementById('msgErreurId-div');
+const msgErreurNumEvent = document.getElementById('msgErreurNumEvent-div');
 let btnCliquee;
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -93,31 +94,48 @@ btnSupprimer.addEventListener('click', () => {
 });
 form.addEventListener('submit', (event) => {
     event.preventDefault();
-    const formData = new URLSearchParams(new FormData(event.target));
-    let method;
-    if (btnCliquee === 'ajouter') {
-        method = 'POST';
-    } else if (btnCliquee === 'modifier') {
-        method = 'PUT';
-    }
-    fetch('http://localhost:3000/IBAF', { method, body: formData })
-        .then((res) => res.json())
-        .then((resJson) => {
-            if (resJson.success) {
-                msgSuccess.classList.remove('is-hidden');
-                msgErreurId.classList.add('is-hidden');
-                msgErreur.classList.add('is-hidden');
-            } else {
+    const regexJJ = /^([1-9]|[12][0-9]|3[01])$/;
+    const regexMM = /^(0[1-9]|1[012])$/;
+    const regexAA = /^(0[1-9]|[1-9][0-9])$/;
+    const regexSChiffres = /^[0-9]{4}$/;
+    const JJ = document.getElementById('JJ').value;
+    const MM = document.getElementById('MM').value;
+    const AA = document.getElementById('AA').value;
+    const sequenceChiffres = document.getElementById('sequenceChiffres').value;
+    const validation = regexJJ.test(JJ) && regexMM.test(MM) && regexAA.test(AA)
+        && regexSChiffres.test(sequenceChiffres);
+    if (validation === true) {
+        const formData = new URLSearchParams(new FormData(event.target));
+        let method;
+        if (btnCliquee === 'ajouter') {
+            method = 'POST';
+        } else if (btnCliquee === 'modifier') {
+            method = 'PUT';
+        }
+        fetch('http://localhost:3000/IBAF', { method, body: formData })
+            .then((res) => res.json())
+            .then((resJson) => {
+                if (resJson.success) {
+                    msgSuccess.classList.remove('is-hidden');
+                    msgErreurId.classList.add('is-hidden');
+                    msgErreur.classList.add('is-hidden');
+                } else {
+                    msgSuccess.classList.add('is-hidden');
+                    msgErreurId.classList.add('is-hidden');
+                    msgErreur.classList.remove('is-hidden');
+                }
+            })
+            .catch(() => {
                 msgSuccess.classList.add('is-hidden');
                 msgErreurId.classList.add('is-hidden');
                 msgErreur.classList.remove('is-hidden');
-            }
-        })
-        .catch(() => {
-            msgSuccess.classList.add('is-hidden');
-            msgErreurId.classList.add('is-hidden');
-            msgErreur.classList.remove('is-hidden');
-        });
+            });
+    } else {
+        msgErreurId.classList.add('is-hidden');
+        msgSuccess.classList.add('is-hidden');
+        msgErreur.classList.add('is-hidden');
+        msgErreurNumEvent.classList.remove('is-hidden');
+    }
 });
 
 async function Data() {
@@ -125,7 +143,6 @@ async function Data() {
         if (reponse.ok) {
             // obtenir les données de la fonction asynchrone json()
             reponse.json().then((data) => {
-                console.log(data[0]);
                 document.getElementById('NoSerie').setAttribute('value', data[0].NoSerie);
                 document.getElementById('Marque').setAttribute('value', data[0].Marque);
                 document.getElementById('Calibre').setAttribute('value', data[0].Calibre);
