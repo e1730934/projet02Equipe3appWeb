@@ -9,7 +9,6 @@
 </head>
 <body>
     <header id="Nav"></header>
-
     <div class="container mb-4 is-desktop">
         <div class="box">
             <div class="columns is is-centered">
@@ -17,7 +16,8 @@
                     <div class="field">
                         <label class="label">Nom de famille</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Text input">
+                            <input id = "nom" class="input" type="text" 
+                            pattern="[-0-9a-zÀ-ÿ]" placeholder="Nom de famille">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -27,7 +27,8 @@
                     <div class="field">
                         <label class="label">Prénom 1</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Text input">
+                            <input id = "prenom1" class="input" type="text" 
+                            pattern="[-0-9a-zÀ-ÿ]" placeholder="Prénom 1">
                             <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                             </span>
@@ -37,7 +38,8 @@
                     <div class="field">
                         <label class="label">Prénom 2</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="text" placeholder="Text input">
+                            <input id = "prenom2" class="input" type="text" 
+                            pattern="[-0-9a-zÀ-ÿ]" placeholder="Prénom 2">
                             <span class="icon is-small is-left">
                             <i class="fas fa-user"></i>
                             </span>
@@ -47,77 +49,86 @@
                     <div class="control mt-2">
                         <label class="label">Sexe</label>
                         <div class="select">
-                            <select>
-                                <option>Masculin</option>
-                                <option>Féminin</option>
+                            <select id="sexe">
+                                <option id="masc">Masculin</option>
+                                <option id="fem">Féminin</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="control mt-2">
-                        <label class="label">Date de Naissance</label>
-                        <div class="control has-icons-left has-icons-right">
-                            <input class="input" type="date" placeholder="Text input" value="bulma">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-calendar-alt"></i>
-                            </span>
+
+                    <div class="columns is-multiline mt-2">
+                        <div class="column is-4">
+                        <label class="label">Année</label>
+                        <div class="control">
+                            <input id="annee" class="input" type="number" placeholder="1998" min="1700" max="2022">
+                        </div>
+                        </div>
+                        <div class="column is-4">
+                        <label class="label">Mois</label>
+                        <div class="control">
+                            <input id="mois" class="input" type="number" placeholder="08" min="1" max="12">
+                        </div>
+                        </div>
+                        <div class="column is-4">
+                        <label class="label">Jour</label>
+                        <div class="control">
+                            <input id="jour" class="input" type="number" placeholder="02" min="1" max="12">
+                        </div>
                         </div>
                     </div>
-
+                
                     <div class="control mt-2">
                         <label class="label">Catégorie</label>
                         <div class="select">
-                            <select>
-                                <option>Étudiant</option>
-                                <option>Enseignant</option>
-                                <option>Comédien</option>
-                                <option>Personnage</option>
+                            <select id= "categorie">
+                                <option id="etudiant">Étudiant</option>
+                                <option id="enseignant">Enseignant</option>
+                                <option id="comedien">Comédien</option>
+                                <option id="personnage">Personnage</option>
                             </select>
                         </div>
                     </div>
 
-                    <section class="container ml-6">
+                    <section class="section mt-3 has-text-centered ">
                         <!--Introduire le tableau ici-->
-                        <div id='TableauIPPE'>
-                            <table class="table is-bordered is-striped is-narrow is-hoverable mt-6">
-                                <thead>
-                                  <tr>
-                                    <th>Réponse</th>
-                                    <th>Numéro d'événement</th>
-                                  </tr>
-                                </thead>
-                                <tbody id="TabBody">
-                                    <tr>
-                                        <td>Accusé</td>
-                                        <td>123-220115-0015</td>
-                                    </tr>
-                                    <tr>
-                                        <td>interdit</td>
-                                        <td>123-220115-0015</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div id='TableauIPPE' class="container">
+                            <div class="columns is-centered">
+                                <div class="column is-three-quarters">
+                                    <h1 class="title is-4">Réponses - IPPE</h1>
+                                    <table id="table" class="table is-bordered is-hidden
+                                    is-striped is-narrow is-hoverable ml-6">
+                                        <thead>
+                                        <tr>
+                                            <th>Réponse</th>
+                                            <th>Numéro d'événement</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody id="TabBody"></tbody>
+                                    </table>
+                                    <button id="addIppe" class="button is-link" >Ajouter une réponse</button>
+                                </div>
+                            </div>
                         </div>
                     </section>
 
-                    <div class="field is-grouped is-grouped-centered mt-6 ">
+                </div></div>
+                <div class="field is-grouped is-grouped-centered ">
+                    <div class="field is-inline-block-mobile">
                         <div class="control">
-                            <button class="button is-link is-normal">Enregistrer</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-link is-normal">Effacer</button>
-                        </div>
-                        <div class="control">
-                            <button class="button is-link is-normal">Annuler</button>
-                        </div>                        
-                        <div class="control">
-                            <button class="button is-link is-normal">Return</button>
+                            <button id="return" class="button is-link">Retour à la banque</button>
+                            <button id="ajout" type="submit" class="button is-link" style=" width: 100px">Ajouter</button>
+                            <button id="modif" type="submit" class="button is-link is-hidden" style=" width: 100px">Modifier</button>
+                            <button id="delete" class="button is-link is-hidden" style="  width: 100px">Supprimer</button>      
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+
 
     <footer id="pied"></footer>
 </body>

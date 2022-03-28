@@ -21,9 +21,7 @@ app.get('/Acceuil',(req, res) =>{
 });
 
 app.get('/IPPE',(req, res) =>{
-
 	res.sendFile(__dirname + '/public/IPPE/reqIPPE.html');
-
 });
 
 app.get('/IPPEResponse',(req, res) =>{
@@ -32,6 +30,18 @@ app.get('/IPPEResponse',(req, res) =>{
 
 app.get('/Personnes',(req, res) =>{
 	res.sendFile(__dirname + '/public/PersoModif/PersoModif.html');
+});
+
+app.get('/ModifIppe',(req, res) =>{
+	res.sendFile(__dirname + '/public/ModifIPPE/modifIPPE.html');
+});
+
+app.get('/AjoutIppe',(req, res) =>{
+	res.sendFile(__dirname + '/public/AjoutIPPE/ajoutIPPE.html');
+});
+
+app.get('/BiblioPersonne',(req, res) =>{
+	res.sendFile(__dirname + '/public/BiblioPersonne/bibioPersonne.html');
 });
 
 app.listen(PORT, () => {
