@@ -56,13 +56,11 @@ async function CheckPersonnes(numPersonne){
         const annee = document.getElementById("annee");
         const mois = document.getElementById("mois");
         const jour = document.getElementById("jour");
-        //Attribuer les valeurs de la personne dans les champs
-        const ddn = new Date(personne[0].DateNaissance);
-        annee.setAttribute("value",`${ddn.getFullYear()}`);
-        //Rajout de +1, les mois et jours commencent à 0 
-        //slice et le +0 s'assure d'avoir un 0 devant le mois et le jour
-        mois.setAttribute("value",("0"+ (ddn.getMonth() + 1)).slice(-2));
-        jour.setAttribute("value",("0"+ (ddn.getDate() + 1)).slice(-2));
+        //Attribuer les valeurs de la personne dans les champ
+        const ddn = personne[0].DateNaissance.split('-');
+        annee.setAttribute("value",`${ddn[0]}`);
+        mois.setAttribute("value",`${ddn[1]}`);
+        jour.setAttribute("value",`${ddn[2].substring(0,2)}`);
         //Identifier les champs de valeurs de la catégorie de personne
         const etudiant = document.getElementById("etudiant");
         const enseignant = document.getElementById("enseignant");
@@ -121,11 +119,16 @@ function CreateBody(){
     const prenomUn = document.getElementById("prenom1")
     const prenomDeux = document.getElementById("prenom2")
     const sexe = document.getElementById("sexe")
-    const annee = document.getElementById("annee");
-    const mois = document.getElementById("mois");
-    const jour = document.getElementById("jour");
-    //Mettre les valeur dans un String pour le Parse en date
-    const date = `${annee.value}${mois.value}${jour.value}`;
+    let annee = document.getElementById("annee").value;
+    let mois = document.getElementById("mois").value;
+    let jour = document.getElementById("jour").value;
+    //Rajoute un zero pour le format de jour et mois
+    if(jour.length == 1){
+        jour = '0' + jour;
+    }
+    if(mois.length == 1){
+        mois = '0' + mois;
+    }
     //Envoie la valeur null si le prenom 2 n'est pas entré
     const valPrenomDeux = prenomDeux.value === '' ? null : prenomDeux.value;
     //Change la valeur du sexe en binaire
@@ -133,64 +136,128 @@ function CreateBody(){
     //S'assure que les premiere lettre des nom soient majuscules
     const capNom = capitalizeFirstLetter(nomPersonne.value);
     const capPrenom1 = capitalizeFirstLetter(prenomUn.value);
-    const capPrenom2 = capitalizeFirstLetter(valPrenomDeux);
-
-    
-    const body = {
-        TypePersonne : categorie.value,
-        NomFamille : capNom,
-        Prenom1 : capPrenom1,
-        Prenom2 : capPrenom2,
-        Masculin : sexeBinaire,
-        DateNaissance : date
-    };
-    
-    return body;
+    let capPrenom2;
+    if(valPrenomDeux){
+        capPrenom2 = capitalizeFirstLetter(valPrenomDeux);
+    } else{
+        capPrenom2 = valPrenomDeux
+    }
+    //Recuperation des messages d'erreurs
+    const msgNom = document.getElementById('nomError');
+    const msgPrenomUn = document.getElementById('prenom1Error');
+    const msgPrenomDeux = document.getElementById('prenom2Error');
+    const msgJour = document.getElementById('jourError')
+    const msgMois = document.getElementById('moisError')
+    const msgAnnee = document.getElementById('anneeError')
+    //S'assure que les inputs contiennent des caracteres valides (ligne 147-166)
+    let errorTrue = false
+    if (!checkNomInput(capNom)) {
+        msgNom.classList.remove("is-hidden");
+        errorTrue = true
+    } else {
+        msgNom.classList.add("is-hidden");
+    }
+    if (!checkPrenomInput(capPrenom1)) {
+        msgPrenomUn.classList.remove("is-hidden");
+        errorTrue = true
+    } else {
+        msgPrenomUn.classList.add("is-hidden");
+    }
+    if ((!checkPrenomInput(capPrenom2))) {
+        msgPrenomDeux.classList.remove("is-hidden");
+        errorTrue = true
+    } else {
+        msgPrenomDeux.classList.add("is-hidden");
+    }
+    //s'assure que les dates entrees sont conforme
+    if ((!checkJourInput(jour))){
+        msgJour.classList.remove("is-hidden");
+        errorTrue = true
+    } else {
+        msgJour.classList.add("is-hidden");
+    }
+    if ((!checkMoisInput(mois))){
+        msgMois.classList.remove("is-hidden");
+        errorTrue = true
+    } else {
+        msgMois.classList.add("is-hidden");
+    }
+    if ((!checkAnneeInput(annee))){
+        msgAnnee.classList.remove("is-hidden");
+        errorTrue = true
+    } else {
+        msgAnnee.classList.add("is-hidden");
+    }
+    //Test si le jour ne depasse le jour max d'un mois
+    if(formatDateValid(annee,mois,jour) === false){
+        msgJour.classList.remove("is-hidden");
+        return alert('Date non valide')
+    }
+    //Mettre les valeur dans un String pour l'envoie en date
+    const date =`${annee}-${mois}-${jour}`;
+    //Si tout les conditions sont respectées le body est alors créée
+    if (!errorTrue) {
+        const body = {
+            TypePersonne : categorie.value,
+            NomFamille : capNom,
+            Prenom1 : capPrenom1,
+            Prenom2 : capPrenom2,
+            Masculin : sexeBinaire,
+            DateNaissance : date
+        };
+        return body;
+    } else if (errorTrue) {
+        return false
+    }
 }
 //Modification de personne
 async function UpdatePersonne(numPersonne){
     let msg;
     const body = CreateBody();
-    const response = await fetch(`http://localhost:3000/personnes?IdPersonne=${numPersonne}`,{
-        method: 'PUT', 
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
-       });
-    if (response.ok) {
-        msg= await response.json();
-        confirm(msg);
-    } else {
-        alert(msg);
+    if(body){
+        const response = await fetch(`http://localhost:3000/personnes?IdPersonne=${numPersonne}`,{
+            method: 'PUT', 
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body)
+        });
+        if (response.ok) {
+            msg= await response.json();
+            confirm(msg);
+            location.reload()
+        } else {
+            msg= await response.json();
+            alert(msg);
+        }
     }
 }
 //Creation de personne
 async function CreatePersonnes(){
     let msg;
     const body = CreateBody();
-    console.log(body)
-    const response = await fetch('http://localhost:3000/personnes',{
-        method: 'POST', 
-        headers: { 'Content-Type' : 'application/json' },
-        body: JSON.stringify(body)
-       });
-       if (response.ok) {
-        msg= await response.json();
-        confirm(msg.message);
-        //Redirection vers personne pour rechercher l'information
-        //pour pouvoir modifier par la suite avec l'id fournis par l'API
-        location.href = `http://localhost:5000/Personnes?IdPersonne=${msg.IdPersonne[0].IdPersonne}`;
-    } else {
-        alert(msg);
+    if(body){
+        const response = await fetch('http://localhost:3000/personnes',{
+            method: 'POST', 
+            headers: { 'Content-Type' : 'application/json' },
+            body: JSON.stringify(body)
+        });
+        if (response.ok) {
+            msg= await response.json();
+            confirm(msg.message);
+            //Redirection vers personne pour rechercher l'information
+            //pour pouvoir modifier par la suite avec l'id fournis par l'API
+            location.href = `http://localhost:5000/Personnes?IdPersonne=${msg.IdPersonne[0].IdPersonne}`;
+        } else {
+            msg= await response.json();
+            alert(msg);
+        }
     }
 }
 //Suppression de la personne et ses IPPE
 async function DeletePersonne(numPersonne){
     let msg;
-    const body = CreateBody();
     const response = await fetch(`http://localhost:3000/personnes?IdPersonne=${numPersonne}`,{
         method: 'DELETE', 
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(body)
+        headers: { 'Content-Type': 'application/json' }
        });
     if (response.ok) {
         msg= await response.json();
@@ -206,3 +273,54 @@ async function DeletePersonne(numPersonne){
 function capitalizeFirstLetter(str) {
    return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
+
+//Check si l'inputs du nom contient les bons characteres
+function checkNomInput(str){
+    return /^[a-zA-Z\- ÄäÖöÉéÈèÜüÊêÛûÎî]+$/.test(str)
+}
+//Check si l'inputs des Prenom contiennent les bons characteres
+function checkPrenomInput(str){
+    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî]+$/.test(str)
+}
+//Check la validité des jours
+function checkJourInput(str){
+    let strToInt = parseInt(str)
+    if (strToInt > 31 || strToInt < 1){
+        return false
+    }else {
+        return /^\d+$/.test(str);
+    }
+}
+//Check la validité des mois
+function checkMoisInput(str){
+    let strToInt = parseInt(str)
+    if (strToInt > 12 || strToInt < 1){
+        return false
+    }else {
+        return /^\d+$/.test(str);
+    }
+}
+//Check la validité des années
+function checkAnneeInput(str){
+    let strToInt = parseInt(str)
+    if (strToInt > 2020 || strToInt < 1910){
+        return false
+    }else {
+        return /^\d+$/.test(str);
+    }
+}
+
+//Check la validité de la date
+function formatDateValid(annee,mois,jour) {
+    const day = new Date(annee,mois, 0)
+    const splitDate = day.toUTCString().split(' ');
+    const dayMax = parseInt(splitDate[1])
+    jour= parseInt(jour)
+    if(dayMax < jour){
+        return false
+    } else {
+        return true
+    }
+  }
+
+
