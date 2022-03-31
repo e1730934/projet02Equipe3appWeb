@@ -256,7 +256,7 @@ function Accuser(obj){
          </tr>
     </table><br>
     <p><strong>Condition: </strong></p>
-    <p><strong>Avoir comme adress le: </strong> a modifier</p><br>
+    <p><strong>$</p><br>
     <p style="padding-left:10%">a modifier<br>
     Doit garder la paix et avoir bonne conduite.</p>`;
     let printing = document.getElementById("detail");
@@ -494,6 +494,14 @@ function Interdit(obj){
     let printing = document.getElementById("detail");
     printing.innerHTML = affichage;
 }
+
+//-------À COMPLETER -------------
+function condDisplay(ippe,personne){
+   
+}
+
+
+
 function santePersonne(personne){
    let sante = [];
    switch (sante){
