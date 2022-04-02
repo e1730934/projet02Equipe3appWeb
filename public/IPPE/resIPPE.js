@@ -24,8 +24,9 @@ async function Data(){
 	if (api.ok) {
 		let data = await api.json();
 		return data;
-	} else 
-		console.error('ERROR');
+	} else {
+      Negatif();
+   }
    
 }
 async function getNatCrime(idCrime){
@@ -38,31 +39,33 @@ async function getNatCrime(idCrime){
 }
 //Attribut le bon type d'affichage selon le type d'evenement
 function GetFunction(personne, data){
-	switch(data.typeEvenement) {
-	case 'Recherché':
-		Rechercher(data);
-		break;
-	case 'Sous Observation':
-		Observation(data);
-		break;
-	case 'Accusé':
-		Accuser(data);
-		break;
-	case 'Probation':
-		Probation(personne,data);
-		break;
-	case 'Libération Conditionnelle':
-		LibConditionnelle(personne, data);
-		break;
-	case 'Disparu':
-		Disparue(personne, data);
-		break;
-	case 'Interdit':
-		Interdit(data);
-		break;
-	default:
-		Negatif();
-	}
+   if(data){
+      switch(data.typeEvenement) {
+      case 'Recherché':
+         Rechercher(data);
+         break;
+      case 'Sous Observation':
+         Observation(data);
+         break;
+      case 'Accusé':
+         Accuser(personne, data);
+         break;
+      case 'Probation':
+         Probation(personne,data);
+         break;
+      case 'Libération Conditionnelle':
+         LibConditionnelle(personne, data);
+         break;
+      case 'Disparu':
+         Disparue(personne, data);
+         break;
+      case 'Interdit':
+         Interdit(data);
+         break;
+      }
+   } else{
+      Negatif();
+   }
 }
 //Creations des boutons pour l'affichage
 async function Pagination(){
@@ -70,7 +73,6 @@ async function Pagination(){
 	//GetFunction est appelé pour afficher la première page automatiquement.
 	GetFunction(data[0],data[0].IPPE[0]);
 	let datalength = data.length;
-	console.log(data[0].FPS);
 	let divPagination = document.getElementById('pagination');
 
 	//Bouton seulement pour le look (si negatif)
@@ -227,6 +229,7 @@ async function Observation(obj){
 //Affichage si accusé
 async function Accuser(personne, obj){
 	const affichage = `<strong>*** Accusé ***</strong><br><br>
+   
     <table>
          <tr>
             <th>Cour:</th>
@@ -502,7 +505,6 @@ function condDisplay(condition, personne){
 		checkFalse = true;
 		dataCond.push(condition[i].libelle);
 		for(let [key,value] of Object.entries(condition[i])){
-			console.log(Object.entries(condition[i]));
 			if(key !== 'libelle' && value !== null
          && key !== 'idCondition'){
 				checkFalse = false;
@@ -532,16 +534,14 @@ function formatDate(date){
 //S'occupe de l'affichage de l'état de santé
 function santePersonne(personne){
 	let sante = [];
-	switch (personne){
-	case personne.toxicomanie : sante.push('Toxicomane');
-	case personne.desorganise : sante.push('Desorganise');
-	case personne.depressif : sante.push('Depressif');
-	case personne.violent : sante.push('Violent');
-	case personne.suicidaire : sante.push('Suicidaire');
-      break;
-	default : sante.push('Aucun problème santé connue');
-	}
-	return sante;
+   let probKnow = false 
+	if (personne.toxicomanie) {sante.push('Toxicomane'); probKnow = true;};
+	if (personne.desorganise) {sante.push('Desorganise'); probKnow = true;};
+	if (personne.depressif) {sante.push('Depressif'); probKnow = true;};
+	if (personne.violent) {sante.push('Violent'); probKnow = true;};
+	if (personne.suicidaire){ sante.push('Suicidaire'); probKnow = true;};
+	if (probKnow) sante.push('Aucun problème santé connue');
+	return sante.join();
 }
 // retour inconnue si null
 function inconnue(data){

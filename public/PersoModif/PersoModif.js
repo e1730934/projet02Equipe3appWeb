@@ -6,6 +6,7 @@ piedPage();
 document.getElementById("déconnection").addEventListener('click',Deconnection);
 document.getElementById("nom").innerHTML=Matricule;
 document.getElementById("matricule").innerHTML=Nom;
+
 const btnRetour = document.getElementById("return");
 btnRetour.addEventListener('click', ()=>{location.href = 'http://localhost:5000/BiblioPersonne'})
 /*Lors du chargement, cherche si un Id de personne es transmise dans le url.
