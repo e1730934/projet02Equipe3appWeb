@@ -292,7 +292,7 @@ async function CreatePersonnes() {
             confirm(msg.message);
             // Redirection vers personne pour rechercher l'information
             // pour pouvoir modifier par la suite avec l'id fournis par l'API
-            location.href = `http://localhost:5000/Personnes?IdPersonne=${msg.IdPersonne[0]}`;
+            location.href = `http://localhost:5000/personnes?IdPersonne=${msg.IdPersonne[0]}`;
         } else {
             msg = await response.json();
             alert(msg);
@@ -315,11 +315,13 @@ async function DeletePersonne(numPersonne) {
         alert(msg);
     }
 }
+const tableau = document.getElementById('TableauIPPE');
 const btnRetour = document.getElementById('return');
 btnRetour.addEventListener('click', () => { location.href = 'http://localhost:5000/BiblioPersonne'; });
 /* Lors du chargement, cherche si un Id de personne es transmise dans le url.
 Si oui, elle affiche les information de la personne, sinon les champs sont vides. */
 if (param.has('IdPersonne')) {
+    tableau.classList.remove('is-hidden');
     idPersonne = param.get('IdPersonne');
     CheckPersonnes(idPersonne);
     document.getElementById('modif').addEventListener('click', () => { UpdatePersonne(idPersonne); });
