@@ -11,7 +11,7 @@
     <header id="Nav"></header>
     <div class="container mb-4 is-desktop">
         <div class="box">
-            <div class="columns is is-centered">
+            <div class="columns is-centered">
                 <div class="column is-half">
                     <div class="field">
                         <label class="label">Nom de famille</label>
@@ -51,64 +51,70 @@
                         <p id="prenom2Error" class="help is-danger is-hidden">
                             Seulement des lettres sont valides</p>
                     </div>
-                    
-                    <div class="control mt-2">
-                        <label class="label">Sexe</label>
-                        <div class="select">
-                            <select id="sexe">
-                                <option id="masc">Masculin</option>
-                                <option id="fem">Féminin</option>
-                            </select>
+                    <div class="column has-text-centered">
+                        <label class="label">Date de naissance</label>
+                        <div class="columns is-multiline mt-2">
+                            <div class="column is-4">
+                                <label class="label">Année</label>
+                                <div class="control">
+                                    <input id="annee" class="input" type="number" placeholder="1998" min="1700" max="2022">
+                                </div>
+                                <p id="anneeError" class="help is-danger is-hidden">
+                                    *Champ obligatoire : seulement les années valides se trouvent entre 1910 et 2022</p>
+                            </div>
+                            <div class="column is-4">
+                                <label class="label">Mois</label>
+                                <div class="control">
+                                    <input id="mois" class="input" type="number" placeholder="08" min="1" max="12">
+                                </div>
+                                <p id="moisError" class="help is-danger is-hidden">
+                                    *Champ obligatoire : seulement les chiffre entre 1 et 12 sont permit</p>
+                            </div>
+                            <div class="column is-4">
+                                <label class="label">Jour</label>
+                                <div class="control">
+                                    <input id="jour" class="input" type="number" placeholder="02" min="1" max="12">
+                                </div>
+                                <p id="jourError" class="help is-danger is-hidden">
+                                    *Champ obligatoire : seulement les chiffre entre 1 et 31 sont permit</p>
+                            </div>
                         </div>
                     </div>
-
-
                     <div class="columns is-multiline mt-2">
-                        <div class="column is-4">
-                            <label class="label">Année</label>
-                            <div class="control">
-                                <input id="annee" class="input" type="number" placeholder="1998" min="1700" max="2022">
+                        <div class="column is-half has-text-centered">
+                            <div class="control mt-2">
+                                <label class="label">Sexe</label>
+                                <div class="select">
+                                    <select id="sexe">
+                                        <option id="masc">Masculin</option>
+                                        <option id="fem">Féminin</option>
+                                    </select>
+                                </div>
                             </div>
-                            <p id="anneeError" class="help is-danger is-hidden">
-                                *Champ obligatoire : seulement les années valides se trouvent entre 1910 et 2022</p>
                         </div>
-                        <div class="column is-4">
-                            <label class="label">Mois</label>
-                            <div class="control">
-                                <input id="mois" class="input" type="number" placeholder="08" min="1" max="12">
+                            <div class="column is-half has-text-centered">
+                                <label class="label">Catégorie</label>
+                                <div class="select">
+                                    <select id= "categorie">
+                                        <option id="etudiant">Étudiant</option>
+                                        <option id="enseignant">Enseignant</option>
+                                        <option id="comedien">Comédien</option>
+                                        <option id="personnage">Personnage</option>
+                                    </select>
+                                </div>
                             </div>
-                            <p id="moisError" class="help is-danger is-hidden">
-                                *Champ obligatoire : seulement les chiffre entre 1 et 12 sont permit</p>
-                        </div>
-                        <div class="column is-4">
-                            <label class="label">Jour</label>
-                            <div class="control">
-                                <input id="jour" class="input" type="number" placeholder="02" min="1" max="12">
                             </div>
-                            <p id="jourError" class="help is-danger is-hidden">
-                                *Champ obligatoire : seulement les chiffre entre 1 et 31 sont permit</p>
-                        </div>
-                    </div>
-                    <div class="control mt-2">
-                        <label class="label">Catégorie</label>
-                        <div class="select">
-                            <select id= "categorie">
-                                <option id="etudiant">Étudiant</option>
-                                <option id="enseignant">Enseignant</option>
-                                <option id="comedien">Comédien</option>
-                                <option id="personnage">Personnage</option>
-                            </select>
                         </div>
                     </div>
 
                     <section class="section mt-3 has-text-centered ">
                         <!--Introduire le tableau ici-->
                         <div id='TableauIPPE' class="container">
-                            <div class="columns is-centered">
-                                <div class="column is-three-quarters">
+                            <div class="columns is-desktop is-centered">
+                                <div class="column is-desktop is-three-quarters">
                                     <h1 class="title is-4">Réponses - IPPE</h1>
                                     <table id="table" class="table is-bordered is-hidden
-                                    is-striped is-narrow is-hoverable ml-6">
+                                    is-striped is-narrow is-hoverable ml-6 is-centered">
                                         <thead>
                                         <tr>
                                             <th>Réponse</th>

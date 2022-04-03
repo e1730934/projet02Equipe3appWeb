@@ -1,11 +1,11 @@
 {
-  "name": "naviguation",
+  "name": "client_crtp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon app.js ",
-    "lint": "npx eslint *.js",
+    "lint": "eslint --fix --ext .js,.jsx .",
     "fix": "npx eslint *.js --fix",
     "test": "jest --env=jsdom"
   },
