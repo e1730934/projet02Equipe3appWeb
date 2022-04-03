@@ -5,7 +5,12 @@ import {
 connection();
 nav();
 piedPage();
-document.getElementById('déconnection').addEventListener('click', Deconnection);
+document.getElementById('déconnection').addEventListener('click',Deconnection);
+
+
+
+document.getElementById('nom').innerHTML=Matricule;
+document.getElementById('matricule').innerHTML=Nom;
 
 document.getElementById('nom').innerHTML = Matricule;
 document.getElementById('matricule').innerHTML = Nom;
