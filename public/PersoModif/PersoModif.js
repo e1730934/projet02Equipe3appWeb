@@ -292,7 +292,7 @@ async function CreatePersonnes() {
             confirm(msg.message);
             // Redirection vers personne pour rechercher l'information
             // pour pouvoir modifier par la suite avec l'id fournis par l'API
-            location.href = `http://localhost:5000/Personnes?IdPersonne=${msg.IdPersonne[0].IdPersonne}`;
+            location.href = `http://localhost:5000/Personnes?IdPersonne=${msg.IdPersonne[0]}`;
         } else {
             msg = await response.json();
             alert(msg);
