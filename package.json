@@ -1,8 +1,8 @@
 {
-  "name": "crtpclient",
+  "name": "client_crtp",
   "version": "1.0.0",
-  "description": "Client web de l'application CRTP",
-  "main": "app.js",
+  "description": "",
+  "main": "index.js",
   "keywords": [],
   "author": "Étudiants du cours 420-4D1, CM9",
 
@@ -24,7 +24,7 @@
   },
   "scripts": {
       "lint": "npx eslint *.js",
-      "fix": "npx eslint *.js --fix",
+      "fix": "eslint --fix --ext .js,.jsx .",
       "test": "jest --env=jsdom",
       "start": "nodemon app.js "
   }

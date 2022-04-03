@@ -1,8 +1,8 @@
 module.exports = {
     root: true,
     env: {
-        node: true,
         browser: true,
+        node: true,
         jest: true,
     },
     extends: [
