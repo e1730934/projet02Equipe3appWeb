@@ -1,10 +1,16 @@
+import {
+    local3000
+} from './liens.js';
+
+const lienLogin = `${local3000}/login`
+
 async function connexion() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
     const connection = { identifiant: username, motDePasse: password };
 
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch(lienLogin, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(connection),

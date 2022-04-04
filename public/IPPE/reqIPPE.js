@@ -2,6 +2,9 @@
 import {
     nav, piedPage, Matricule, Nom, /* connection, */ Deconnection,
 } from '../commun.js';
+
+const local5000 = 'http://localhost:5000'
+
 // connection()
 nav();
 piedPage();
@@ -117,11 +120,11 @@ submit.addEventListener('click', () => {
     // Gerrance des erreurs
     if (checkMandatoryInput(nom, prenom1, annee, mois, jour)
     && formatDateValid(annee, mois, jour)) {
-        window.location = `http://localhost:5000/IPPEResponse?nomFamille=${nom}&prenom1=${prenom1}&prenom2=${prenom2}&masculin=${sexe}&dateNaissance=${date}`;
+        window.location = `${local5000}/IPPEResponse?nomFamille=${nom}&prenom1=${prenom1}&prenom2=${prenom2}&masculin=${sexe}&dateNaissance=${date}`;
     } else {
         alert('Erreur: des entrées obligatoires ne sont pas remplies ou la date n\'est pas valide');
     }
 });
 cancel.addEventListener('click', () => {
-    window.location.href = 'http://localhost:5000/Acceuil';
+    window.location.href = `${local5000}/Acceuil`;
 });
