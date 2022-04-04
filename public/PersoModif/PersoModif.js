@@ -3,6 +3,9 @@
 import {
     nav, piedPage, /* connection, */ Matricule, Nom, Deconnection,
 } from '../commun.js';
+const local3000 = 'http://localhost:3000'
+const local5000 = 'http://localhost:5000'
+
 // S'occupe du pied de page, de la barre de nav et de l'autorisation (lignes 2 - 8)
 // connection()
 nav();
@@ -68,7 +71,7 @@ function formatDateValid(annee, mois, jour) {
 // S'occupe de l'affichage des champs lors d'une modification de personne
 async function CheckPersonnes(numPersonne) {
     // Cherche l'information de la personne
-    const response = await fetch(`http://localhost:3000/personnes?IdPersonne=${numPersonne}`);
+    const response = await fetch(`${local3000}/personnes?IdPersonne=${numPersonne}`);
     if (response.ok) {
         const personne = await response.json();
         // Pour ne pas afficher null dans le prénom 2
@@ -129,7 +132,7 @@ async function CheckPersonnes(numPersonne) {
         const tabBody = document.getElementById('TabBody');
         // Check si un dossier IPPE est lié à la personne
         // et l'ajoute au tableau
-        const ippe = await fetch(`http://localhost:3000/IppePersonnes?IdPersonne=${numPersonne}`);
+        const ippe = await fetch(`${local3000}/IppePersonnes?IdPersonne=${numPersonne}`);
         if (ippe.ok) {
             const ippeInfo = await ippe.json();
             ippeInfo.forEach((element) => {
@@ -140,7 +143,7 @@ async function CheckPersonnes(numPersonne) {
                         <td>${element.TypeEvenement}</td>
                         <td>${element.NoEvenement}</td>
                         <td>
-                        <button onclick="location.href = 'http://localhost:5000/modifIppe?IdIPPE=${element.IdIPPE[0]}';"
+                        <button onclick="location.href = '${local5000}/modifIppe?IdIPPE=${element.IdIPPE[0]}';"
                         class="is-link">
                             <i class="fas fa-pen"></i>
                         </button>
@@ -155,7 +158,7 @@ async function CheckPersonnes(numPersonne) {
         const btnAjoutIPPE = document.getElementById('addIppe');
         // Ajout de l'évênement de redirection incluant l'id de la personne
         btnAjoutIPPE.addEventListener('click', () => {
-            location.href = `http://localhost:5000/AjoutIPPE?IdPersonne=${idPersonne}`;
+            location.href = `${local5000}/AjoutIPPE?IdPersonne=${idPersonne}`;
         });
     }
 }
@@ -262,7 +265,7 @@ async function UpdatePersonne(numPersonne) {
     let msg;
     const body = CreateBody();
     if (body) {
-        const response = await fetch(`http://localhost:3000/personnes?IdPersonne=${numPersonne}`, {
+        const response = await fetch(`${local3000}/personnes?IdPersonne=${numPersonne}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body),
@@ -282,7 +285,7 @@ async function CreatePersonnes() {
     let msg;
     const body = CreateBody();
     if (body) {
-        const response = await fetch('http://localhost:3000/personnes', {
+        const response = await fetch(`${local3000}/personnes`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(body),
@@ -292,7 +295,7 @@ async function CreatePersonnes() {
             confirm(msg.message);
             // Redirection vers personne pour rechercher l'information
             // pour pouvoir modifier par la suite avec l'id fournis par l'API
-            location.href = `http://localhost:5000/personnes?IdPersonne=${msg.IdPersonne[0]}`;
+            location.href = `${local5000}/personnes?IdPersonne=${msg.IdPersonne[0]}`;
         } else {
             msg = await response.json();
             alert(msg);
@@ -302,14 +305,14 @@ async function CreatePersonnes() {
 // Suppression de la personne et ses IPPE
 async function DeletePersonne(numPersonne) {
     let msg;
-    const response = await fetch(`http://localhost:3000/personnes?IdPersonne=${numPersonne}`, {
+    const response = await fetch(`${local3000}/personnes?IdPersonne=${numPersonne}`, {
         method: 'DELETE',
         headers: { 'Content-Type': 'application/json' },
     });
     if (response.ok) {
         msg = await response.json();
         confirm('La personne à été supprimé de la base de donnée');
-        location.href = 'http://localhost:5000/BiblioPersonne';
+        location.href = `${local5000}/BiblioPersonne`;
     } else {
         msg = await response.json();
         alert(msg);
@@ -317,7 +320,7 @@ async function DeletePersonne(numPersonne) {
 }
 const tableau = document.getElementById('TableauIPPE');
 const btnRetour = document.getElementById('return');
-btnRetour.addEventListener('click', () => { location.href = 'http://localhost:5000/BiblioPersonne'; });
+btnRetour.addEventListener('click', () => { location.href = `${local5000}/BiblioPersonne`; });
 /* Lors du chargement, cherche si un Id de personne es transmise dans le url.
 Si oui, elle affiche les information de la personne, sinon les champs sont vides. */
 if (param.has('IdPersonne')) {

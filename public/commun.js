@@ -1,9 +1,13 @@
+const local3000 = 'http://localhost:3000'
+
+const local5000 = 'http://localhost:5000'
+
 const token = sessionStorage.getItem('token');
 const Matricule = sessionStorage.getItem('Matricule');
 const Nom = sessionStorage.getItem('Nom');
 function connection() {
     if (token === null) {
-        window.location.href = 'http://localhost:5000/';
+        window.location.href = local5000;
     }
 }
 
@@ -20,7 +24,7 @@ function header() {
                                 <div class="column">
                                     <br>
 
-                                    <a id="link" href="http://localhost:5000/Acceuil">
+                                    <a id="link" href="${local5000}/Acceuil">
                                         <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-mobile">
                                             Centre de Renseignement Techniques Policière</p>
                                         <p class="is-size-4 has-text-centered has-text-weight-bold has-text-black is-hidden-tablet">
@@ -44,7 +48,7 @@ function header() {
                         <!--menu qui s'affiche lorseque le boutton est cliqué-->
                         <div id="menu" class="box"
                             style="background-color:#bce2e4; margin-top: -20px; position : relative; display: none;">
-                            <a id="link" href="http://localhost:5000/IPPE">
+                            <a id="link" href="${local5000}/IPPE">
                                 <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IPPE - Recherche de
                                     personnes </p>
                             </a>
@@ -198,7 +202,7 @@ function Deconnection() {
     sessionStorage.removeItem('Matricule');
     sessionStorage.removeItem('Nom');
 
-    window.location.href = 'http://localhost:5000/';
+    window.location.href = local5000;
 }
 export {
     nav,

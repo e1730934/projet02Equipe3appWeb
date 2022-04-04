@@ -3,15 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon app.js ",
-    "lint": "eslint --fix --ext .js,.jsx .",
-    "fix": "npx eslint *.js --fix",
-    "test": "jest --env=jsdom"
-  },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Étudiants du cours 420-4D1, CM9",
+
   "dependencies": {
     "express": "^4.17.3",
     "jest": "^27.5.1",
@@ -27,5 +21,11 @@
   },
   "nodemonConfig": {
     "ext": "js,html,json,css"
+  },
+  "scripts": {
+      "lint": "npx eslint *.js",
+      "fix": "eslint --fix --ext .js,.jsx .",
+      "test": "jest --env=jsdom",
+      "start": "nodemon app.js "
   }
 }
