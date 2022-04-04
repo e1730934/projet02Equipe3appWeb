@@ -22,16 +22,14 @@ Ouvrir: http://localhost:5000/
 
 Pour se connecter en tant qu'étudiant: 
                 {
-                    Identifiant: 1234
-                    mot de passe: etud
-
+                    Identifiant: e1233772
+                    mot de passe: bonjour
                 }
 
 Pour se connecter en tant qu'enseignat: 
                 {
                     Identifiant: 5678
                     mot de passe: prof
-
                 }
 
 Appuyez sur les 3 ligne en haut à droite pour ouvrir le menu
@@ -41,8 +39,17 @@ Entrez les informations suivante:
                     Nom : Ducharme
                     Pronom1 : Benoit
                     Sexe: masculain
-                    Date de Naissance : 31/08/1975
-
+                    Date de Naissance : 1975-08-31
                 }
 Appuyez sur Submit;
+
+Pour la modification, ajout et suppression de personnes:
+
+Allez sur http://localhost:5000/personnes : 
+
+    Vous pouvez désormé ajouter une personne
+
+Allez sur http://localhost:5000/personnes?=5 :
+
+    Vous pouvez désormé modifier ou supprimer une personne
 
