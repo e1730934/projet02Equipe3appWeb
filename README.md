@@ -18,8 +18,10 @@ Cette application servira comme outil de formation au étudiants en technique po
 **Le Srum Master :** David Déchaine
 
 ## Utilisation
-Téléchargez les dépendances : npm i (faire la même chose dans backend)
-Lancez le serveur avec : npm run start(faire la même chose dans backend)
+Téléchargez les dépendances : `npm i` (faire la même chose dans backend)
+
+Lancez le serveur avec : `npm run start`(faire la même chose dans backend(`npm run serve`))
+
 Ouvrir: http://localhost:5000/
 
 Pour se connecter en tant qu'**étudiant**: 
