@@ -24,14 +24,14 @@ Ouvrir: http://localhost:5000/
 
 Pour se connecter en tant qu'**étudiant**: 
                 {
-                    Identifiant: e1233772,
-                    mot de passe: bonjour
+                    Identifiant: `e1233772`,
+                    mot de passe: `bonjour`
                 }
 
 Pour se connecter en tant qu'**enseignant**: 
                 {
-                    Identifiant: prof,
-                    mot de passe: prof
+                    Identifiant: `prof`,
+                    mot de passe: `prof`
                 }
 
 Appuyez sur les 3 ligne en haut à droite pour ouvrir le menu
