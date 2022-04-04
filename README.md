@@ -24,13 +24,13 @@ Ouvrir: http://localhost:5000/
 
 Pour se connecter en tant qu'étudiant: 
                 {
-                    Identifiant: e1233772
+                    Identifiant: e1233772,
                     mot de passe: bonjour
                 }
 
 Pour se connecter en tant qu'enseignat: 
                 {
-                    Identifiant: prof
+                    Identifiant: prof,
                     mot de passe: prof
                 }
 
@@ -38,9 +38,9 @@ Appuyez sur les 3 ligne en haut à droite pour ouvrir le menu
 Appuyez sur IPPE-Recherche de personnes
 Entrez les informations suivante: 
                 {
-                    Nom : Ducharme
-                    Pronom1 : Benoit
-                    Sexe: masculain
+                    Nom : Ducharme,
+                    Pronom1 : Benoit,
+                    Sexe: masculain,
                     Date de Naissance : 1975-08-31
                 }
 Appuyez sur Submit;
