@@ -58,21 +58,21 @@ function nav() {
 
                                 <hr class="dropdown-divider">
 
-                                <a id="link">
+                                <a id="link" href="http://localhost:5000/enseignant/reponse/IBOB">
                                     <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBOB - Recherche
                                         d’objets </p>
                                 </a>
 
                                 <hr class="dropdown-divider">
 
-                                <a id="link">
+                                <a id="link" href="http://localhost:5000/enseignant/reponse/IBAF">
                                     <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBAF - Recherche
                                         d’armes à feu </p>
                                 </a>
 
                                 <hr class="dropdown-divider">
 
-                                <a id="link">
+                                <a id="link" href="http://localhost:5000/enseignant/reponse/IBVA">
                                     <p class="is-size-6 has-text-centered has-text-weight-semibold has-text-black"> IBVA - Recherche de
                                         valeurs </p>
                                 </a>
