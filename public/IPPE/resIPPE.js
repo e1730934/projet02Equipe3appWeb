@@ -2,6 +2,10 @@
 /* eslint-disable no-restricted-syntax */
 import { nav, piedPage, Deconnection } from '../commun.js';
 
+const local3000 = 'http://localhost:3000'
+
+const local5000 = 'http://localhost:5000'
+
 nav();
 piedPage();
 document.getElementById('déconnection').addEventListener('click', Deconnection);
@@ -21,7 +25,7 @@ function GetParam() {
 // --------------Gérance d'affichage-----------------
 // Gère l'affichage des conditions
 async function getNatCrime(idCrime) {
-    const urlNatCrime = new URL(`http://localhost:3000/natcrime?IdNatureCrime=${idCrime}`);
+    const urlNatCrime = new URL(`${local3000}/natcrime?IdNatureCrime=${idCrime}`);
     const response = await fetch(urlNatCrime);
     if (response.ok) {
         const natureCrime = await response.json();
@@ -538,7 +542,7 @@ async function Interdit(obj) {
 // Fetch les datas de la personne
 async function Data() {
     const param = GetParam();
-    const url = new URL(`http://localhost:3000/ippeInfo?nomFamille=${param.nomFamille}&masculin=${param.sexe}&prenom1=${param.prenomUn}&dateNaissance=${param.dateNaissance}&prenom2=${param.prenomDeux}`);
+    const url = new URL(`${local3000}/ippeInfo?nomFamille=${param.nomFamille}&masculin=${param.sexe}&prenom1=${param.prenomUn}&dateNaissance=${param.dateNaissance}&prenom2=${param.prenomDeux}`);
     const api = await fetch(url);
     if (api.ok) {
         const data = await api.json();
