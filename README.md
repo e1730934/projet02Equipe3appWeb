@@ -22,13 +22,13 @@ Téléchargez les dépendances : npm i (faire la même chose dans backend)
 Lancez le serveur avec : npm run start(faire la même chose dans backend)
 Ouvrir: http://localhost:5000/
 
-Pour se connecter en tant qu'étudiant: 
+Pour se connecter en tant qu'**étudiant**: 
                 {
                     Identifiant: e1233772,
                     mot de passe: bonjour
                 }
 
-Pour se connecter en tant qu'enseignat: 
+Pour se connecter en tant qu'**enseignant**: 
                 {
                     Identifiant: prof,
                     mot de passe: prof
