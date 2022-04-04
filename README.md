@@ -47,9 +47,9 @@ Pour la modification, ajout et suppression de personnes:
 
 Allez sur http://localhost:5000/personnes : 
 
-    Vous pouvez désormé ajouter une personne
+    Vous pouvez désormais ajouter une personne
 
 Allez sur http://localhost:5000/personnes?=5 :
 
-    Vous pouvez désormé modifier ou supprimer une personne
+    Vous pouvez désormais modifier ou supprimer une personne
 
