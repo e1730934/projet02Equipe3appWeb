@@ -28,7 +28,7 @@ Pour se connecter en tant qu'étudiant:
 
 Pour se connecter en tant qu'enseignat: 
                 {
-                    Identifiant: 5678
+                    Identifiant: prof
                     mot de passe: prof
                 }
 
