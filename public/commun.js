@@ -1,6 +1,4 @@
-const local3000 = 'http://localhost:3000'
-
-const local5000 = 'http://localhost:5000'
+const local5000 = 'http://localhost:5000';
 
 const token = sessionStorage.getItem('token');
 const Matricule = sessionStorage.getItem('Matricule');

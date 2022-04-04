@@ -2,9 +2,7 @@
 /* eslint-disable no-restricted-syntax */
 import { nav, piedPage, Deconnection } from '../commun.js';
 
-const local3000 = 'http://localhost:3000'
-
-const local5000 = 'http://localhost:5000'
+const local3000 = 'http://localhost:3000';
 
 nav();
 piedPage();

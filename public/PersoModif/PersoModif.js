@@ -3,8 +3,9 @@
 import {
     nav, piedPage, /* connection, */ Matricule, Nom, Deconnection,
 } from '../commun.js';
-const local3000 = 'http://localhost:3000'
-const local5000 = 'http://localhost:5000'
+
+const local3000 = 'http://localhost:3000';
+const local5000 = 'http://localhost:5000';
 
 // S'occupe du pied de page, de la barre de nav et de l'autorisation (lignes 2 - 8)
 // connection()

@@ -3,7 +3,7 @@ import {
     nav, piedPage, Matricule, Nom, /* connection, */ Deconnection,
 } from '../commun.js';
 
-const local5000 = 'http://localhost:5000'
+const local5000 = 'http://localhost:5000';
 
 // connection()
 nav();

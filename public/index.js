@@ -1,8 +1,4 @@
-import {
-    local3000
-} from './liens.js';
-
-const lienLogin = `${local3000}/login`
+const lienLogin = new URL('http://localhost:3000/login');
 
 async function connexion() {
     const username = document.getElementById('username').value;
