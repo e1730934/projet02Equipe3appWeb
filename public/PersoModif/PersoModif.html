@@ -92,60 +92,54 @@
                                 </div>
                             </div>
                         </div>
-                            <div class="column is-half has-text-centered">
-                                <label class="label">Catégorie</label>
-                                <div class="select">
-                                    <select id= "categorie">
-                                        <option id="etudiant">Étudiant</option>
-                                        <option id="enseignant">Enseignant</option>
-                                        <option id="comedien">Comédien</option>
-                                        <option id="personnage">Personnage</option>
-                                    </select>
-                                </div>
-                            </div>
+                        <div class="column is-half has-text-centered">
+                            <label class="label">Catégorie</label>
+                            <div class="select">
+                                <select id= "categorie">
+                                    <option id="etudiant">Étudiant</option>
+                                    <option id="enseignant">Enseignant</option>
+                                    <option id="comedien">Comédien</option>
+                                    <option id="personnage">Personnage</option>
+                                </select>
                             </div>
                         </div>
                     </div>
-
-                    <section class="section mt-3 has-text-centered ">
-                        <!--Introduire le tableau ici-->
-                        <div id='TableauIPPE' class="container is-hidden">
-                            <div class="columns is-desktop is-centered">
-                                <div class="column is-desktop is-three-quarters">
-                                    <h1 class="title is-4">Réponses - IPPE</h1>
-                                    <table id="table" class="table is-bordered is-hidden
-                                    is-striped is-narrow is-hoverable ml-6 is-centered">
-                                        <thead>
-                                        <tr>
-                                            <th>Réponse</th>
-                                            <th>Numéro d'événement</th>
-                                        </tr>
-                                        </thead>
-                                        <tbody id="TabBody"></tbody>
-                                    </table>
-                                    <button id="addIppe" class="button is-link" >Ajouter une réponse</button>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-
                 </div>
             </div>
-            <div class="field is-grouped is-grouped-centered ">
-                <div class="field is-inline-block-mobile">
-                    <div class="control">
-                        <button id="return" class="button is-link">Retour à la banque</button>
-                        <button id="ajout" type="submit" class="button is-link" style=" width: 100px">Ajouter</button>
-                        <button id="modif" type="submit" class="button is-link is-hidden" style=" width: 100px">Modifier</button>
-                        <button id="delete" class="button is-link is-hidden" style="  width: 100px">Supprimer</button>      
+
+            <section class="section mt-3 has-text-centered ">
+                <!--Introduire le tableau ici-->
+                <div id='TableauIPPE' class="container has-text-centered  is-centered is-hidden">
+                    <h1 class="title is-4">Réponses - IPPE</h1>
+                    <div class="columns is-centered">
+                        <div class="column is-narrow">
+                            <table id="table" class="table is-bordered is-hidden
+                            is-striped is-narrow is-hoverable" style="align-content: center;">
+                                <thead>
+                                <tr>
+                                    <th>Réponse</th>
+                                    <th>Numéro d'événement</th>
+                                </tr>
+                                </thead>
+                                <tbody id="TabBody"></tbody>
+                            </table>
+                        </div>
                     </div>
+                    <button id="addIppe" class="button is-link" >Ajouter une réponse</button>
                 </div>
+            </section>
+        </div>
+    </div>
+    <div class="field is-grouped is-grouped-centered ">
+        <div class="field is-inline-block-mobile">
+            <div class="control">
+                <button id="return" class="button is-link">Retour à la banque</button>
+                <button id="ajout" type="submit" class="button is-link" style=" width: 100px">Ajouter</button>
+                <button id="modif" type="submit" class="button is-link is-hidden" style=" width: 100px">Modifier</button>
+                <button id="delete" class="button is-link is-hidden" style="  width: 100px">Supprimer</button>      
             </div>
         </div>
     </div>
-
-
-
     <footer id="pied"></footer>
 </body>
 <script  type="module" src="PersoModif.js"></script>
