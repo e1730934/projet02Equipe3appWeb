@@ -23,7 +23,7 @@
             sessionStorage.setItem('token', data.Etudiant)
             sessionStorage.setItem('Matricule', data.Matricule)
             sessionStorage.setItem('Nom', data.Nom)
-            window.location.href = "./Acceuil/Acceuil.html";
+            window.location.href = "http://localhost:5000/Acceuil";
 
 
       }
