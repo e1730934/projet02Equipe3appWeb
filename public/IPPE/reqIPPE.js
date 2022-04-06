@@ -1,11 +1,10 @@
-/* eslint-disable import/extensions */
 import {
-    nav, piedPage, Matricule, Nom, /* connection, */ Deconnection,
+    nav, piedPage, Matricule, Nom, connection, Deconnection,
 } from '../commun.js';
 
 const local5000 = 'http://localhost:5000';
 
-// connection()
+connection();
 nav();
 piedPage();
 

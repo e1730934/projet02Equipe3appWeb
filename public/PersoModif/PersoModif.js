@@ -1,14 +1,12 @@
-/* eslint-disable import/extensions */
-/* eslint-disable no-restricted-globals */
 import {
-    nav, piedPage, /* connection, */ Matricule, Nom, Deconnection,
+    nav, piedPage, connection, Matricule, Nom, Deconnection,
 } from '../commun.js';
 
 const local3000 = 'http://localhost:3000';
 const local5000 = 'http://localhost:5000';
 
 // S'occupe du pied de page, de la barre de nav et de l'autorisation (lignes 2 - 8)
-// connection()
+connection();
 nav();
 piedPage();
 document.getElementById('déconnection').addEventListener('click', Deconnection);
@@ -296,7 +294,7 @@ async function CreatePersonnes() {
             confirm(msg.message);
             // Redirection vers personne pour rechercher l'information
             // pour pouvoir modifier par la suite avec l'id fournis par l'API
-            location.href = `${local5000}/personnes?IdPersonne=${msg.IdPersonne[0]}`;
+            location.href = `${local5000}/personnes?IdPersonne=${msg.IdPersonne[0].IdPersonne}`;
         } else {
             msg = await response.json();
             alert(msg);

@@ -1,9 +1,9 @@
-/* eslint-disable import/extensions */
-/* eslint-disable no-restricted-syntax */
-import { nav, piedPage, Deconnection } from '../commun.js';
+import {
+    nav, connection, piedPage, Deconnection,
+} from '../commun.js';
 
 const local3000 = 'http://localhost:3000';
-
+connection();
 nav();
 piedPage();
 document.getElementById('déconnection').addEventListener('click', Deconnection);
