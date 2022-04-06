@@ -1,12 +1,12 @@
-import { nav,piedPage,Matricule,Nom,connection,Deconnection } from '../commun.js';
+/* eslint-disable import/extensions */
+import {
+    nav, piedPage, Matricule, Nom, connection, Deconnection,
+} from '../commun.js';
 
-connection()
-nav()
-piedPage()
-document.getElementById("déconnection").addEventListener('click',Deconnection)
+connection();
+nav();
+piedPage();
+document.getElementById('déconnection').addEventListener('click', Deconnection);
 
-
-
-document.getElementById("nom").innerHTML=Matricule
-document.getElementById("matricule").innerHTML=Nom
-
+document.getElementById('nom').innerHTML = Matricule;
+document.getElementById('matricule').innerHTML = Nom;
