@@ -13,7 +13,7 @@ const routes = [
         component: HomeView,
     },
     {
-        path: '/objet/idObjet',
+        path: '/objet/:idObjet',
         name: 'objet',
         component: ObjetView,
     },
