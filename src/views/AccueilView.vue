@@ -1,12 +1,14 @@
 <template>
-    <h1 class="title is-1 has-text-centered">Hello World</h1>
+    <div>
+        <h1 class="title is-1 has-text-centered">CRTP</h1>
+    </div>
 </template>
 
 <script>
 
 // noinspection JSUnusedGlobalSymbols
 export default {
-    name: 'HomeView',
+    name: 'AccueilView',
 };
 </script>
 
