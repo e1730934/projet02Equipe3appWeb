@@ -9,7 +9,7 @@ import ObjetsView from '@/views/ObjetsView.vue';
 import ArmeView from '@/views/ArmeView.vue';
 import ReponseIPPEView from '@/views/ReponseIPPEView.vue';
 import ValeurView from '@/views/ValeurView.vue';
-
+import EtudiantView from '@/views/EtudiantView.vue';
 
 const routes = [
     {
@@ -63,11 +63,11 @@ const routes = [
         name: 'etudiant',
         component: EtudiantView,
     },
-    },
+    {
         component: ValeurView,
         name: 'valeur',
         path: '/valeur/:idValeur',
-    {
+    },
 ];
 
 const router = createRouter({
