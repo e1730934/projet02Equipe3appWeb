@@ -5,6 +5,9 @@
         font-size: 24px; padding-top: 5%;" ><b><u>MODIFICATION D'UNE RÉPONSE ARME À FEU</u></b></h1>
         <br>
         <br>
+          <div class="block has-text-centered has-background-danger">
+              <p><strong class="has-text-white">{{this.message}}</strong></p>
+          </div>
         <div class="box">
             <div class="columns is-centered">
                 <div class="column is-half">
@@ -154,6 +157,7 @@ export default {
         return {
             id: null,
             btnCliquee: null,
+            message: 'null',
             arme: {
                 noSerie: '',
                 marque: '',
@@ -171,16 +175,16 @@ export default {
     },
     methods: {
         handler(event) {
-            // const {
-            //     AA, MM, JJ, sequenceChiffres,
-            // } = this.noEvenement;
-            // const regexJJ = /^([1-9]|[12]\d|3[01])$/;
-            // const regexMM = /^(0[1-9]|1[012])$/;
-            // const regexAA = /^(0[1-9]|[1-9]\d)$/;
-            // const regexSChiffres = /^\d{4}$/;
-            // const validation = regexJJ.test(JJ) && regexMM.test(MM) && regexAA.test(AA)
-            //     && regexSChiffres.test(sequenceChiffres);
-            const validation = true; // TODO : ajouter la validation
+            const {
+                AA, MM, JJ, sequenceChiffres,
+            } = this.noEvenement;
+            // TODO : vérifier que la date est valide + jj>0 <31 etc...
+            const regexJJ = /^[0-3]\d}$/;
+            const regexMM = /^[0-9]{1,2}$/;
+            const regexAA = /^[0-9]{4}$/;
+            const regexSChiffres = /^\d{4}$/;
+            const validation = regexJJ.test(JJ) && regexMM.test(MM) && regexAA.test(AA)
+                && regexSChiffres.test(sequenceChiffres);
             if (validation === true) {
                 const formData = new URLSearchParams(new FormData(event.target));
                 let method;
@@ -194,29 +198,16 @@ export default {
                     .then((res) => res.json())
                     .then((resJson) => {
                         if (resJson.success) {
-                            alert('Opération réussie');
-                            // msgSuccess.classList.remove('is-hidden');
-                            // msgErreurId.classList.add('is-hidden');
-                            // msgErreur.classList.add('is-hidden');
+                            this.message = resJson.message;
                         } else {
-                            alert('Opération échouée');
-                            // msgSuccess.classList.add('is-hidden');
-                            // msgErreurId.classList.add('is-hidden');
-                            // msgErreur.classList.remove('is-hidden');
+                            this.message = resJson.message;
                         }
                     })
-                    .catch(() => {
-                        alert('Opération échouée');
-                        // msgSuccess.classList.add('is-hidden');
-                        // msgErreurId.classList.add('is-hidden');
-                        // msgErreur.classList.remove('is-hidden');
+                    .catch((resJson) => {
+                        this.message = resJson.message;
                     });
             } else {
-                alert('Opération échouée');
-                // msgErreurId.classList.add('is-hidden');
-                // msgSuccess.classList.add('is-hidden');
-                // msgErreur.classList.add('is-hidden');
-                // msgErreurNumEvent.classList.remove('is-hidden');
+                this.message = 'Opération échouée';
             }
         },
         setEvent(msg) {
