@@ -1,6 +1,6 @@
 <template>
     <div class="container mb-4 is-desktop">
-      <form id="formulaireAjouter">
+      <form id="formulaireAjouter" @submit.prevent="handler($event)">
         <h1 class="has-text-black " style="height:135px; text-align:center;
         font-size: 24px; padding-top: 5%;" ><b><u>MODIFICATION D'UNE RÉPONSE ARME À FEU</u></b></h1>
         <br>
@@ -104,10 +104,44 @@
                             </div>
                         </div>
                     </div>
+                    <div class="field">
+                        <input type="submit" class="button has-text-weight-bold is-link"
+                               id="retour" value="Retour">
+                        <input class="button has-text-weight-bold is-primary" type="submit"
+                               id="ajouter" value="Ajouter" @click="setEvent('ajouter')">
+                        <input  type="submit" class="button has-text-weight-bold is-primary"
+                                id="modifier"
+                                value="Modifier" @click="setEvent('modifier')">
+                        <button class="js-modal-trigger button has-text-weight-bold is-danger"
+                                data-target="modal-js-example"
+                                id="suppr">
+                            Supprimer
+                        </button>
+                        <button type="reset" class="button has-text-weight-bold is-warning"
+                                id="annuler" @click="setEvent(null)">Annuler
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
       </form>
+        <div class="modal" id="modal-js-example">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Confirmation de suppression</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    Voulez-vous vraiment supprimer cette entrée?
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button has-text-weight-bold is-danger" id="supprimer">Supprimer
+                    </button>
+                    <button class="button">Retour</button>
+                </footer>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -118,8 +152,9 @@ export default {
     name: 'ArmeView',
     data() {
         return {
+            id: null,
+            btnCliquee: null,
             arme: {
-                id: 0,
                 noSerie: '',
                 marque: '',
                 calibre: '',
@@ -133,6 +168,63 @@ export default {
                 sequenceChiffres: '',
             },
         };
+    },
+    methods: {
+        handler(event) {
+            // const {
+            //     AA, MM, JJ, sequenceChiffres,
+            // } = this.noEvenement;
+            // const regexJJ = /^([1-9]|[12]\d|3[01])$/;
+            // const regexMM = /^(0[1-9]|1[012])$/;
+            // const regexAA = /^(0[1-9]|[1-9]\d)$/;
+            // const regexSChiffres = /^\d{4}$/;
+            // const validation = regexJJ.test(JJ) && regexMM.test(MM) && regexAA.test(AA)
+            //     && regexSChiffres.test(sequenceChiffres);
+            const validation = true; // TODO : ajouter la validation
+            if (validation === true) {
+                const formData = new URLSearchParams(new FormData(event.target));
+                let method;
+                if (this.btnCliquee === 'ajouter') {
+                    method = 'POST';
+                } else if (this.btnCliquee === 'modifier') {
+                    method = 'PUT';
+                }
+                console.log(formData);
+                fetch('http://localhost:3000/armes', { method, body: formData })
+                    .then((res) => res.json())
+                    .then((resJson) => {
+                        if (resJson.success) {
+                            alert('Opération réussie');
+                            // msgSuccess.classList.remove('is-hidden');
+                            // msgErreurId.classList.add('is-hidden');
+                            // msgErreur.classList.add('is-hidden');
+                        } else {
+                            alert('Opération échouée');
+                            // msgSuccess.classList.add('is-hidden');
+                            // msgErreurId.classList.add('is-hidden');
+                            // msgErreur.classList.remove('is-hidden');
+                        }
+                    })
+                    .catch(() => {
+                        alert('Opération échouée');
+                        // msgSuccess.classList.add('is-hidden');
+                        // msgErreurId.classList.add('is-hidden');
+                        // msgErreur.classList.remove('is-hidden');
+                    });
+            } else {
+                alert('Opération échouée');
+                // msgErreurId.classList.add('is-hidden');
+                // msgSuccess.classList.add('is-hidden');
+                // msgErreur.classList.add('is-hidden');
+                // msgErreurNumEvent.classList.remove('is-hidden');
+            }
+        },
+        setEvent(msg) {
+            this.btnCliquee = msg;
+        },
+    },
+    mounted() {
+        this.id = this.$route.params.id;
     },
 };
 </script>

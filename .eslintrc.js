@@ -14,6 +14,7 @@ module.exports = {
         'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
         'no-alert': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+        'linebreak-style': 0,
         indent: ['warn', 4],
         'vuejs-accessibility/label-has-for': [
             'error',

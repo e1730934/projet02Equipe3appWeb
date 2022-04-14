@@ -49,6 +49,7 @@ const routes = [
     },
     {
         path: '/arme',
+        alias: '/arme/:id',
         name: 'armeView',
         component: ArmeView,
     },
