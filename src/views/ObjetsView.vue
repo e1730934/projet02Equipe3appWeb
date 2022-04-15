@@ -30,7 +30,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><a><i class='fas fa-edit'></i>.</a></td>
+                        <td><i class='fas fa-edit'></i></td>
                     </tr>
                 </table>
             </div>
@@ -53,7 +53,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><a><i class='fas fa-edit'></i>.</a></td>
+                        <td><i class='fas fa-edit'></i></td>
                     </tr>
                 </table>
             </div>
@@ -76,7 +76,7 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><a><i class='fas fa-edit'></i>.</a></td>
+                        <td><i class='fas fa-edit'></i></td>
                     </tr>
                 </table>
             </div>
