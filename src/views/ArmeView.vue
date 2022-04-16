@@ -1,14 +1,14 @@
 <template>
-    <div class="container mb-4 is-desktop">
+    <div class="container mb-4 is-desktop" v-if="loaded===true">
       <form id="formulaireAjouter" @submit.prevent="handler($event)">
         <h1 class="has-text-black " style="height:135px; text-align:center;
         font-size: 24px; padding-top: 5%;" ><b><u>MODIFICATION D'UNE RÉPONSE ARME À FEU</u></b></h1>
         <br>
         <br>
-          <div class="block has-text-centered has-background-danger">
+          <div class="block has-text-centered has-background-danger" v-if="errorMessage!== ''">
               <p><strong class="has-text-white">{{ this.errorMessage }}</strong></p>
           </div>
-          <div class="block has-text-centered has-background-success">
+          <div class="block has-text-centered has-background-success" v-if="successMessage!== ''">
               <p><strong class="has-text-white">{{ this.successMessage }}</strong></p>
           </div>
         <div class="box">
@@ -110,21 +110,23 @@
                             </div>
                         </div>
                     </div>
-                    <div class="field">
+                    <div class="buttons">
                         <input type="submit" class="button has-text-weight-bold is-link"
                                id="retour" value="Retour">
-                        <input class="button has-text-weight-bold is-primary" type="submit"
-                               id="ajouter" value="Ajouter" @click="setEvent('ajouter')">
                         <input  type="submit" class="button has-text-weight-bold is-primary"
                                 id="modifier"
-                                value="Modifier" @click="setEvent('modifier')">
-                        <button class="js-modal-trigger button has-text-weight-bold is-danger"
-                                data-target="modal-js-example"
-                                id="suppr">
-                            Supprimer
-                        </button>
+                                value="Modifier" @click="setEvent('modifier')"
+                                v-if="idArme !==-1">
                         <button type="reset" class="button has-text-weight-bold is-warning"
                                 id="annuler" @click="resetVariable">Annuler
+                        </button>
+                        <input class="button has-text-weight-bold is-primary" type="submit"
+                               id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
+                               v-if="idArme===-1">
+                        <button class="js-modal-trigger button has-text-weight-bold is-danger"
+                                data-target="modal-js-example"
+                                id="suppr"
+                                v-if="idArme !==-1">Supprimer
                         </button>
                     </div>
                 </div>
@@ -158,8 +160,9 @@ export default {
     name: 'ArmeView',
     data() {
         return {
-            id: null,
+            idArme: -1,
             btnCliquee: null,
+            loaded: false,
             errorMessage: '',
             successMessage: '',
             arme: {
@@ -219,9 +222,16 @@ export default {
             this.errorMessage = '';
             this.successMessage = '';
         },
+        setId() {
+            console.log(this.$route.params.id);
+            if (this.$route.params.id !== undefined) {
+                this.idArme = this.$route.params.id;
+            }
+            this.loaded = true;
+        },
     },
     mounted() {
-        this.id = this.$route.params.id;
+        this.setId();
     },
 };
 </script>
