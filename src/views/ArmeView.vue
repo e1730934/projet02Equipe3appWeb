@@ -126,7 +126,7 @@
                                id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
                                v-if="idArme===-1">
                         <button class="js-modal-trigger button has-text-weight-bold is-danger"
-                                data-target="modal-js-example"
+                                data-target="modal-js-example" @click.prevent
                                 id="suppr"
                                 v-if="idArme !==-1">Supprimer
                         </button>
@@ -232,25 +232,27 @@ export default {
         },
         getArme() {
             this.setId();
-            fetch(`http://localhost:3000/armes/${this.idArme}`)
-                .then((res) => res.json())
-                .then((resJson) => {
-                    this.arme.noSerie = resJson[0].NoSerie;
-                    this.arme.calibre = resJson[0].Calibre;
-                    this.arme.marque = resJson[0].Marque;
-                    this.arme.typeArme = resJson[0].TypeArme;
-                    const noEvenement = resJson[0].NoEvenement.split('-');
-                    const AAMMJJ = [];
-                    AAMMJJ.push(noEvenement[1].slice(0, 2));
-                    AAMMJJ.push(noEvenement[1].slice(2, 4));
-                    AAMMJJ.push(noEvenement[1].slice(4, 6));
-                    noEvenement[1] = AAMMJJ;
-                    [this.noEvenement.NoCours, [this.noEvenement.AA, this.noEvenement.MM,
-                        this.noEvenement.JJ], this.noEvenement.sequenceChiffres] = noEvenement;
-                })
-                .catch((resJson) => {
-                    this.errorMessage = resJson.message;
-                });
+            if (this.idArme !== -1) {
+                fetch(`http://localhost:3000/armes/${this.idArme}`)
+                    .then((res) => res.json())
+                    .then((resJson) => {
+                        this.arme.noSerie = resJson[0].NoSerie;
+                        this.arme.calibre = resJson[0].Calibre;
+                        this.arme.marque = resJson[0].Marque;
+                        this.arme.typeArme = resJson[0].TypeArme;
+                        const noEvenement = resJson[0].NoEvenement.split('-');
+                        const AAMMJJ = [];
+                        AAMMJJ.push(noEvenement[1].slice(0, 2));
+                        AAMMJJ.push(noEvenement[1].slice(2, 4));
+                        AAMMJJ.push(noEvenement[1].slice(4, 6));
+                        noEvenement[1] = AAMMJJ;
+                        [this.noEvenement.NoCours, [this.noEvenement.AA, this.noEvenement.MM,
+                            this.noEvenement.JJ], this.noEvenement.sequenceChiffres] = noEvenement;
+                    })
+                    .catch((resJson) => {
+                        this.errorMessage = resJson.message;
+                    });
+            }
         },
     },
     mounted() {
