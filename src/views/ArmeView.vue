@@ -2,7 +2,9 @@
     <div class="container mb-4 is-desktop" v-if="loaded===true">
       <form id="formulaireAjouter" @submit.prevent="handler($event)">
         <h1 class="has-text-black " style="height:135px; text-align:center;
-        font-size: 24px; padding-top: 5%;" ><b><u>MODIFICATION D'UNE RÉPONSE ARME À FEU</u></b></h1>
+        font-size: 24px; padding-top: 5%;" ><b>
+            <u v-if="idArme!==-1">MODIFICATION D'UNE RÉPONSE ARME À FEU</u>
+            <u v-else>AJOUT D'UNE RÉPONSE ARME À FEU</u></b></h1>
         <br>
         <br>
           <div class="block has-text-centered has-background-danger" v-if="errorMessage!== ''">
@@ -223,7 +225,6 @@ export default {
             this.successMessage = '';
         },
         setId() {
-            console.log(this.$route.params.id);
             if (this.$route.params.id !== undefined) {
                 this.idArme = this.$route.params.id;
             }
