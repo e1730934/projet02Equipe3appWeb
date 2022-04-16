@@ -6,7 +6,10 @@
         <br>
         <br>
           <div class="block has-text-centered has-background-danger">
-              <p><strong class="has-text-white">{{this.message}}</strong></p>
+              <p><strong class="has-text-white">{{ this.errorMessage }}</strong></p>
+          </div>
+          <div class="block has-text-centered has-background-success">
+              <p><strong class="has-text-white">{{ this.successMessage }}</strong></p>
           </div>
         <div class="box">
             <div class="columns is-centered">
@@ -121,7 +124,7 @@
                             Supprimer
                         </button>
                         <button type="reset" class="button has-text-weight-bold is-warning"
-                                id="annuler" @click="setEvent(null)">Annuler
+                                id="annuler" @click="resetVariable">Annuler
                         </button>
                     </div>
                 </div>
@@ -157,7 +160,8 @@ export default {
         return {
             id: null,
             btnCliquee: null,
-            message: '',
+            errorMessage: '',
+            successMessage: '',
             arme: {
                 noSerie: '',
                 marque: '',
@@ -180,7 +184,7 @@ export default {
             } = this.noEvenement;
             const regexJJ = /^(0[1-9]|1[0-2])$/;
             const regexMM = /^\d{1,2}$/;
-            const regexAA = /^\d{4}$/;
+            const regexAA = /^\d{2}$/;
             const regexSChiffres = /^\d{4}$/;
             if ((regexJJ.test(JJ) && regexMM.test(MM)
                 && regexAA.test(AA) && regexSChiffres.test(sequenceChiffres)) === true) {
@@ -195,20 +199,25 @@ export default {
                     .then((res) => res.json())
                     .then((resJson) => {
                         if (resJson.success) {
-                            this.message = resJson.message;
+                            this.successMessage = resJson.message;
                         } else {
-                            this.message = resJson.message;
+                            this.errorMessage = resJson.message;
                         }
                     })
                     .catch((resJson) => {
-                        this.message = resJson.message;
+                        this.errorMessage = resJson.message;
                     });
             } else {
-                this.message = 'Opération échouée, veuillez vérifier le numéro d\'événement';
+                this.errorMessage = 'Opération échouée, veuillez vérifier le numéro d\'événement';
             }
         },
         setEvent(msg) {
             this.btnCliquee = msg;
+        },
+        resetVariable() {
+            this.btnCliquee = null;
+            this.errorMessage = '';
+            this.successMessage = '';
         },
     },
     mounted() {
