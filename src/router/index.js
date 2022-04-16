@@ -5,11 +5,11 @@ import RequeteIPPEView from '@/views/RequeteIPPEView.vue';
 import PersonnesView from '@/views/PersonnesView.vue';
 import ConditionView from '@/views/ConditionView.vue';
 import PersonneView from '@/views/PersonneView.vue';
-import ObjetsView from '@/views/ObjetsView.vue';
+import ObjetView from '@/views/ObjetsView.vue';
 import ArmeView from '@/views/ArmeView.vue';
 import ReponseIPPEView from '@/views/ReponseIPPEView.vue';
 import ValeurView from '@/views/ValeurView.vue';
-
+import EtudiantView from '@/views/EtudiantView.vue';
 
 const routes = [
     {
@@ -43,16 +43,6 @@ const routes = [
         component: PersonneView,
     },
     {
-        path: '/objets',
-        name: 'objetsView',
-        component: ObjetsView,
-    },
-    {
-        path: '/arme',
-        name: 'armeView',
-        component: ArmeView,
-    },
-    {
         path: '/reponseIPPE',
         name: 'reponseIPPEView',
         component: ReponseIPPEView,
@@ -63,11 +53,21 @@ const routes = [
         name: 'etudiant',
         component: EtudiantView,
     },
-    },
+    {
         component: ValeurView,
         name: 'valeur',
         path: '/valeur/:idValeur',
+    },
     {
+        path: '/objet/:idObjet',
+        name: 'objetView',
+        component: ObjetView,
+    },
+    {
+        path: '/arme/:idArme',
+        name: 'armeView',
+        component: ArmeView,
+    },
 ];
 
 const router = createRouter({
