@@ -157,7 +157,7 @@ export default {
         return {
             id: null,
             btnCliquee: null,
-            message: 'null',
+            message: '',
             arme: {
                 noSerie: '',
                 marque: '',
@@ -178,14 +178,12 @@ export default {
             const {
                 AA, MM, JJ, sequenceChiffres,
             } = this.noEvenement;
-            // TODO : vérifier que la date est valide + jj>0 <31 etc...
-            const regexJJ = /^[0-3]\d}$/;
-            const regexMM = /^[0-9]{1,2}$/;
-            const regexAA = /^[0-9]{4}$/;
+            const regexJJ = /^(0[1-9]|1[0-2])$/;
+            const regexMM = /^\d{1,2}$/;
+            const regexAA = /^\d{4}$/;
             const regexSChiffres = /^\d{4}$/;
-            const validation = regexJJ.test(JJ) && regexMM.test(MM) && regexAA.test(AA)
-                && regexSChiffres.test(sequenceChiffres);
-            if (validation === true) {
+            if ((regexJJ.test(JJ) && regexMM.test(MM)
+                && regexAA.test(AA) && regexSChiffres.test(sequenceChiffres)) === true) {
                 const formData = new URLSearchParams(new FormData(event.target));
                 let method;
                 if (this.btnCliquee === 'ajouter') {
@@ -193,7 +191,6 @@ export default {
                 } else if (this.btnCliquee === 'modifier') {
                     method = 'PUT';
                 }
-                console.log(formData);
                 fetch('http://localhost:3000/armes', { method, body: formData })
                     .then((res) => res.json())
                     .then((resJson) => {
@@ -207,7 +204,7 @@ export default {
                         this.message = resJson.message;
                     });
             } else {
-                this.message = 'Opération échouée';
+                this.message = 'Opération échouée, veuillez vérifier le numéro d\'événement';
             }
         },
         setEvent(msg) {
