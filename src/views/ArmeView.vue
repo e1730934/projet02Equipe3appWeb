@@ -2,11 +2,9 @@
     <div class="container mb-4 is-desktop" v-if="loaded===true">
       <form id="formulaireAjouter" @submit.prevent="handler($event)">
         <h1 class="has-text-black " style="height:135px; text-align:center;
-        font-size: 24px; padding-top: 5%;" ><b>
+        font-size: 24px; padding-top: 5%; padding-bottom:20px" ><b>
             <u v-if="idArme!==-1">MODIFICATION D'UNE RÉPONSE ARME À FEU</u>
             <u v-else>AJOUT D'UNE RÉPONSE ARME À FEU</u></b></h1>
-        <br>
-        <br>
           <div class="block has-text-centered has-background-danger" v-if="errorMessage!== ''">
               <p><strong class="has-text-white">{{ this.errorMessage }}</strong></p>
           </div>
@@ -126,7 +124,7 @@
                                id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
                                v-if="idArme===-1">
                         <button class="js-modal-trigger button has-text-weight-bold is-danger"
-                                data-target="modal-js-example"
+                                data-target="modal-js-example" @click.prevent="showModal = true"
                                 id="suppr"
                                 v-if="idArme !==-1">Supprimer
                         </button>
@@ -135,20 +133,22 @@
             </div>
         </div>
       </form>
-        <div class="modal" id="modal-js-example">
+        <div class="modal is-active" v-show="showModal" @close="showModal = false">
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Confirmation de suppression</p>
-                    <button class="delete" aria-label="close"></button>
+                    <button class="delete" aria-label="close"
+                            @click.prevent="showModal = false"></button>
                 </header>
                 <section class="modal-card-body">
                     Voulez-vous vraiment supprimer cette entrée?
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button has-text-weight-bold is-danger" id="supprimer">Supprimer
+                    <button class="button has-text-weight-bold is-danger" id="supprimer"
+                            @click.prevent="handlerSupprimer">Supprimer
                     </button>
-                    <button class="button">Retour</button>
+                    <button class="button" @click.prevent="showModal = false">Retour</button>
                 </footer>
             </div>
         </div>
@@ -180,6 +180,7 @@ export default {
                 JJ: '',
                 sequenceChiffres: '',
             },
+            showModal: false,
         };
     },
     methods: {
@@ -230,9 +231,48 @@ export default {
             }
             this.loaded = true;
         },
+        getArme() {
+            this.setId();
+            if (this.idArme !== -1) {
+                fetch(`http://localhost:3000/armes/${this.idArme}`)
+                    .then((res) => res.json())
+                    .then((resJson) => {
+                        this.arme.noSerie = resJson[0].NoSerie;
+                        this.arme.calibre = resJson[0].Calibre;
+                        this.arme.marque = resJson[0].Marque;
+                        this.arme.typeArme = resJson[0].TypeArme;
+                        const noEvenement = resJson[0].NoEvenement.split('-');
+                        const AAMMJJ = [];
+                        AAMMJJ.push(noEvenement[1].slice(0, 2));
+                        AAMMJJ.push(noEvenement[1].slice(2, 4));
+                        AAMMJJ.push(noEvenement[1].slice(4, 6));
+                        noEvenement[1] = AAMMJJ;
+                        [this.noEvenement.NoCours, [this.noEvenement.AA, this.noEvenement.MM,
+                            this.noEvenement.JJ], this.noEvenement.sequenceChiffres] = noEvenement;
+                    })
+                    .catch((resJson) => {
+                        this.errorMessage = resJson.message;
+                    });
+            }
+        },
+        handlerSupprimer() {
+            fetch(`http://localhost:3000/armes/${this.idArme}`, { method: 'DELETE' })
+                .then((res) => res.json())
+                .then((resJson) => {
+                    if (resJson.success) {
+                        this.successMessage = resJson.message;
+                    } else {
+                        this.errorMessage = resJson.message;
+                    }
+                })
+                .catch((resJson) => {
+                    this.errorMessage = resJson.message;
+                });
+            this.showModal = false;
+        },
     },
     mounted() {
-        this.setId();
+        this.getArme();
     },
 };
 </script>
