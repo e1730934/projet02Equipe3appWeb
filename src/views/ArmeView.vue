@@ -126,7 +126,7 @@
                                id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
                                v-if="idArme===-1">
                         <button class="js-modal-trigger button has-text-weight-bold is-danger"
-                                data-target="modal-js-example" @click.prevent
+                                data-target="modal-js-example" @click.prevent="showModal = true"
                                 id="suppr"
                                 v-if="idArme !==-1">Supprimer
                         </button>
@@ -135,20 +135,22 @@
             </div>
         </div>
       </form>
-        <div class="modal" id="modal-js-example">
+        <div class="modal is-active" v-show="showModal" @close="showModal = false">
             <div class="modal-background"></div>
             <div class="modal-card">
                 <header class="modal-card-head">
                     <p class="modal-card-title">Confirmation de suppression</p>
-                    <button class="delete" aria-label="close"></button>
+                    <button class="delete" aria-label="close"
+                            @click.prevent="showModal = false"></button>
                 </header>
                 <section class="modal-card-body">
                     Voulez-vous vraiment supprimer cette entrée?
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button has-text-weight-bold is-danger" id="supprimer">Supprimer
+                    <button class="button has-text-weight-bold is-danger" id="supprimer"
+                            @click.prevent="handlerSupprimer">Supprimer
                     </button>
-                    <button class="button">Retour</button>
+                    <button class="button" @click.prevent="showModal = false">Retour</button>
                 </footer>
             </div>
         </div>
@@ -180,6 +182,7 @@ export default {
                 JJ: '',
                 sequenceChiffres: '',
             },
+            showModal: false,
         };
     },
     methods: {
@@ -253,6 +256,21 @@ export default {
                         this.errorMessage = resJson.message;
                     });
             }
+        },
+        handlerSupprimer() {
+            fetch(`http://localhost:3000/armes/${this.idArme}`, { method: 'DELETE' })
+                .then((res) => res.json())
+                .then((resJson) => {
+                    if (resJson.success) {
+                        this.successMessage = resJson.message;
+                    } else {
+                        this.errorMessage = resJson.message;
+                    }
+                })
+                .catch((resJson) => {
+                    this.errorMessage = resJson.message;
+                });
+            this.showModal = false;
         },
     },
     mounted() {
