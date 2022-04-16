@@ -54,19 +54,22 @@ const routes = [
         component: EtudiantView,
     },
     {
-        component: ValeurView,
-        name: 'valeur',
-        path: '/valeur/:idValeur',
-    },
-    {
-        path: '/objet/:idObjet',
-        name: 'objetView',
-        component: ObjetView,
-    },
-    {
-        path: '/arme/:idArme',
+        path: '/arme',
+        alias: '/arme/:id',
         name: 'armeView',
         component: ArmeView,
+    },
+    {
+        path: '/valeur',
+        alias: '/valeur/:idValeur',
+        name: 'valeur',
+        component: ValeurView,
+    },
+    {
+        path: '/objet',
+        alias: '/objet/:idObjet',
+        name: 'objetView',
+        component: ObjetView,
     },
 ];
 

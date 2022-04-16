@@ -1,10 +1,18 @@
 <template>
-    <div class="container mb-4 is-desktop">
-      <form id="formulaireAjouter">
+    <div class="container mb-4 is-desktop" v-if="loaded===true">
+      <form id="formulaireAjouter" @submit.prevent="handler($event)">
         <h1 class="has-text-black " style="height:135px; text-align:center;
-        font-size: 24px; padding-top: 5%;" ><b><u>MODIFICATION D'UNE RÉPONSE ARME À FEU</u></b></h1>
+        font-size: 24px; padding-top: 5%;" ><b>
+            <u v-if="idArme!==-1">MODIFICATION D'UNE RÉPONSE ARME À FEU</u>
+            <u v-else>AJOUT D'UNE RÉPONSE ARME À FEU</u></b></h1>
         <br>
         <br>
+          <div class="block has-text-centered has-background-danger" v-if="errorMessage!== ''">
+              <p><strong class="has-text-white">{{ this.errorMessage }}</strong></p>
+          </div>
+          <div class="block has-text-centered has-background-success" v-if="successMessage!== ''">
+              <p><strong class="has-text-white">{{ this.successMessage }}</strong></p>
+          </div>
         <div class="box">
             <div class="columns is-centered">
                 <div class="column is-half">
@@ -12,7 +20,8 @@
                         <label for="noSerie" class="label">Numéro de série</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="noSerie" class="input" type="text" name="noSerie"
-                            placeholder="Numéro de série" required/>
+                            placeholder="Numéro de série" required
+                            v-model="arme.noSerie"/>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -24,7 +33,8 @@
                         <label for="marque" class="label">Marque</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="marque" class="input" type="text" name="marque"
-                            placeholder="Marque" required/>
+                            placeholder="Marque"
+                            v-model="arme.marque" required/>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -36,7 +46,8 @@
                         <label for="calibre" class="label">Calibre</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="calibre" class="input" type="text" name="calibre"
-                            placeholder="Calibre" required/>
+                            placeholder="Calibre" required
+                            v-model="arme.calibre"/>
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -47,7 +58,8 @@
                     <div class="field">
                         <label for="typeArme" class="label">Type d'arme</label>
                         <div class = "control">
-                            <select id="typeArme" class="select" name="typeArme" required>
+                            <select id="typeArme" class="select" name="typeArme" required
+                                    v-model="arme.typeArme">
                             <option></option>
                             <option>Révolver</option>
                             <option>Pistolet</option>
@@ -56,12 +68,90 @@
                             </select>
                         </div>
                     </div>
-                    <div id="NoEvenement" class="columns is-mobile is-multiline is-centered">
-                   </div>
+                    <label for="NoEvenement" class="label">Numéro d'évenement</label>
+                    <div id="NoEvenement" class="columns is-mobile is-multiline is-centered"
+                         style="padding-top: 10px; padding-left: 10px">
+                        <div class="field has-addons">
+                            <div class="select">
+                                <select id="NoCours" name="NoCours" required
+                                        v-model="noEvenement.NoCours">
+                                    <option value="" disabled selected></option>
+                                    <option id="123">123</option>
+                                    <option id="302">302</option>
+                                    <option id="108">108</option>
+                                </select>
+                            </div>
+                            <div class="control">
+                                <label for="AA">
+                                    <input class="input" type="text" id="AA" name="AA"
+                                           maxlength="2" placeholder="AA"
+                                           v-model="noEvenement.AA">
+                                </label>
+                            </div>
+                            <div class="control">
+                                <label for="MM">
+                                    <input class="input" type="text" id="MM" name="MM"
+                                           maxlength="2" placeholder="MM"
+                                           v-model="noEvenement.MM">
+                                </label>
+                            </div>
+                            <div class="control">
+                                <label for="JJ">
+                                    <input class="input" type="text" id="JJ" name="JJ"
+                                           maxlength="2" placeholder="JJ"
+                                           v-model="noEvenement.JJ">
+                                </label>
+                            </div>
+                            <div class="control">
+                                <label for="sequenceChiffres">
+                                    <input class="input" type="text" id="sequenceChiffres"
+                                           name="sequenceChiffres"
+                                           maxlength="4" placeholder="4 chiffres"
+                                           v-model="noEvenement.sequenceChiffres">
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <input type="submit" class="button has-text-weight-bold is-link"
+                               id="retour" value="Retour">
+                        <input  type="submit" class="button has-text-weight-bold is-primary"
+                                id="modifier"
+                                value="Modifier" @click="setEvent('modifier')"
+                                v-if="idArme !==-1">
+                        <button type="reset" class="button has-text-weight-bold is-warning"
+                                id="annuler" @click="resetVariable">Annuler
+                        </button>
+                        <input class="button has-text-weight-bold is-primary" type="submit"
+                               id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
+                               v-if="idArme===-1">
+                        <button class="js-modal-trigger button has-text-weight-bold is-danger"
+                                data-target="modal-js-example"
+                                id="suppr"
+                                v-if="idArme !==-1">Supprimer
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
       </form>
+        <div class="modal" id="modal-js-example">
+            <div class="modal-background"></div>
+            <div class="modal-card">
+                <header class="modal-card-head">
+                    <p class="modal-card-title">Confirmation de suppression</p>
+                    <button class="delete" aria-label="close"></button>
+                </header>
+                <section class="modal-card-body">
+                    Voulez-vous vraiment supprimer cette entrée?
+                </section>
+                <footer class="modal-card-foot">
+                    <button class="button has-text-weight-bold is-danger" id="supprimer">Supprimer
+                    </button>
+                    <button class="button">Retour</button>
+                </footer>
+            </div>
+        </div>
     </div>
 </template>
 
@@ -70,6 +160,80 @@
 // noinspection JSUnusedGlobalSymbols
 export default {
     name: 'ArmeView',
+    data() {
+        return {
+            idArme: -1,
+            btnCliquee: null,
+            loaded: false,
+            errorMessage: '',
+            successMessage: '',
+            arme: {
+                noSerie: '',
+                marque: '',
+                calibre: '',
+                typeArme: '',
+            },
+            noEvenement: {
+                NoCours: '',
+                AA: '',
+                MM: '',
+                JJ: '',
+                sequenceChiffres: '',
+            },
+        };
+    },
+    methods: {
+        handler(event) {
+            const {
+                AA, MM, JJ, sequenceChiffres,
+            } = this.noEvenement;
+            const regexJJ = /^(0[1-9]|1[0-2])$/;
+            const regexMM = /^\d{1,2}$/;
+            const regexAA = /^\d{2}$/;
+            const regexSChiffres = /^\d{4}$/;
+            if ((regexJJ.test(JJ) && regexMM.test(MM)
+                && regexAA.test(AA) && regexSChiffres.test(sequenceChiffres)) === true) {
+                const formData = new URLSearchParams(new FormData(event.target));
+                let method;
+                if (this.btnCliquee === 'ajouter') {
+                    method = 'POST';
+                } else if (this.btnCliquee === 'modifier') {
+                    method = 'PUT';
+                }
+                fetch('http://localhost:3000/armes', { method, body: formData })
+                    .then((res) => res.json())
+                    .then((resJson) => {
+                        if (resJson.success) {
+                            this.successMessage = resJson.message;
+                        } else {
+                            this.errorMessage = resJson.message;
+                        }
+                    })
+                    .catch((resJson) => {
+                        this.errorMessage = resJson.message;
+                    });
+            } else {
+                this.errorMessage = 'Opération échouée, veuillez vérifier le numéro d\'événement';
+            }
+        },
+        setEvent(msg) {
+            this.btnCliquee = msg;
+        },
+        resetVariable() {
+            this.btnCliquee = null;
+            this.errorMessage = '';
+            this.successMessage = '';
+        },
+        setId() {
+            if (this.$route.params.id !== undefined) {
+                this.idArme = this.$route.params.id;
+            }
+            this.loaded = true;
+        },
+    },
+    mounted() {
+        this.setId();
+    },
 };
 </script>
 
