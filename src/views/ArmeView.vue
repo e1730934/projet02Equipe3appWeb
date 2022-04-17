@@ -15,6 +15,13 @@
             <div class="columns is-centered">
                 <div class="column is-half">
                     <div class="field">
+                        <div v-if="idArme!==-1">
+                            <label for="idArme" class="label is-hidden">idArme</label>
+                            <div class="control">
+                                <input id="idArme" class="input is-hidden" type="number"
+                                       placeholder="idArme" name="idArme" v-model="idArme" readonly>
+                            </div>
+                        </div>
                         <label for="noSerie" class="label">Numéro de série</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="noSerie" class="input" type="text" name="noSerie"
