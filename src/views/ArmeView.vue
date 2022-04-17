@@ -2,7 +2,7 @@
     <div class="container mb-4 is-desktop" v-if="loaded===true">
       <form id="formulaireAjouter" @submit.prevent="handler($event)">
         <h1 class="has-text-black " style="height:135px; text-align:center;
-        font-size: 24px; padding-top: 5%; padding-bottom:20px" ><b>
+        font-size: 24px; padding-top: 5%"><b>
             <u v-if="idArme!==-1">MODIFICATION D'UNE RÉPONSE ARME À FEU</u>
             <u v-else>AJOUT D'UNE RÉPONSE ARME À FEU</u></b></h1>
           <div class="block has-text-centered has-background-danger" v-if="errorMessage!== ''">
@@ -14,6 +14,13 @@
         <div class="box">
             <div class="columns is-centered">
                 <div class="column is-half">
+                    <div class="field" v-if="idArme!==-1">
+                            <label for="idArme" class="label is-hidden">idArme</label>
+                            <div class="control">
+                                <input id="idArme" class="input is-hidden" type="number"
+                                       placeholder="idArme" name="idArme" v-model="idArme" readonly>
+                        </div>
+                    </div>
                     <div class="field">
                         <label for="noSerie" class="label">Numéro de série</label>
                         <div class="control has-icons-left has-icons-right">
@@ -66,6 +73,7 @@
                             </select>
                         </div>
                     </div>
+                    <div class="field" style="padding-bottom: 20px">
                     <label for="NoEvenement" class="label">Numéro d'évenement</label>
                     <div id="NoEvenement" class="columns is-mobile is-multiline is-centered"
                          style="padding-top: 10px; padding-left: 10px">
@@ -110,9 +118,10 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div class="buttons">
                         <input type="submit" class="button has-text-weight-bold is-link"
-                               id="retour" value="Retour">
+                               id="retour" value="Retour" @click.prevent>
                         <input  type="submit" class="button has-text-weight-bold is-primary"
                                 id="modifier"
                                 value="Modifier" @click="setEvent('modifier')"
@@ -188,12 +197,17 @@ export default {
             const {
                 AA, MM, JJ, sequenceChiffres,
             } = this.noEvenement;
-            const regexJJ = /^(0[1-9]|1[0-2])$/;
-            const regexMM = /^\d{1,2}$/;
+            const regexJJ = /^0[1-9]|[12]\d|3[01]$/;
+            const regexMM = /^0[1-9]|1[0-2]$/;
             const regexAA = /^\d{2}$/;
             const regexSChiffres = /^\d{4}$/;
-            if ((regexJJ.test(JJ) && regexMM.test(MM)
-                && regexAA.test(AA) && regexSChiffres.test(sequenceChiffres)) === true) {
+            const validationEvent = (
+                regexJJ.test(JJ)
+                && regexMM.test(MM)
+                && regexAA.test(AA)
+                && regexSChiffres.test(sequenceChiffres)
+            );
+            if (validationEvent === true) {
                 const formData = new URLSearchParams(new FormData(event.target));
                 let method;
                 if (this.btnCliquee === 'ajouter') {
@@ -209,6 +223,15 @@ export default {
                         } else {
                             this.errorMessage = resJson.message;
                         }
+
+                        const sleep = (ms) => new Promise((resolve) => {
+                            setTimeout(resolve, ms);
+                        });
+
+                        sleep(2000).then(() => {
+                            this.successMessage = '';
+                            this.errorMessage = '';
+                        });
                     })
                     .catch((resJson) => {
                         this.errorMessage = resJson.message;
@@ -224,6 +247,7 @@ export default {
             this.btnCliquee = null;
             this.errorMessage = '';
             this.successMessage = '';
+            this.getArme();
         },
         setId() {
             if (this.$route.params.id !== undefined) {
@@ -237,6 +261,7 @@ export default {
                 fetch(`http://localhost:3000/armes/${this.idArme}`)
                     .then((res) => res.json())
                     .then((resJson) => {
+                        this.errorMessage = resJson.message;
                         this.arme.noSerie = resJson[0].NoSerie;
                         this.arme.calibre = resJson[0].Calibre;
                         this.arme.marque = resJson[0].Marque;
@@ -247,11 +272,13 @@ export default {
                         AAMMJJ.push(noEvenement[1].slice(2, 4));
                         AAMMJJ.push(noEvenement[1].slice(4, 6));
                         noEvenement[1] = AAMMJJ;
-                        [this.noEvenement.NoCours, [this.noEvenement.AA, this.noEvenement.MM,
-                            this.noEvenement.JJ], this.noEvenement.sequenceChiffres] = noEvenement;
+                        [this.noEvenement.NoCours,
+                            [this.noEvenement.AA, this.noEvenement.MM,
+                                this.noEvenement.JJ],
+                            this.noEvenement.sequenceChiffres] = noEvenement;
                     })
-                    .catch((resJson) => {
-                        this.errorMessage = resJson.message;
+                    .catch(() => {
+                        this.errorMessage = 'Cette arme n\'est pas répertoriée';
                     });
             }
         },
