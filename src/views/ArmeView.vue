@@ -73,6 +73,7 @@
                             </select>
                         </div>
                     </div>
+                    <div class="field" style="padding-bottom: 20px">
                     <label for="NoEvenement" class="label">Numéro d'évenement</label>
                     <div id="NoEvenement" class="columns is-mobile is-multiline is-centered"
                          style="padding-top: 10px; padding-left: 10px">
@@ -117,9 +118,10 @@
                             </div>
                         </div>
                     </div>
+                    </div>
                     <div class="buttons">
                         <input type="submit" class="button has-text-weight-bold is-link"
-                               id="retour" value="Retour">
+                               id="retour" value="Retour" @click.prevent>
                         <input  type="submit" class="button has-text-weight-bold is-primary"
                                 id="modifier"
                                 value="Modifier" @click="setEvent('modifier')"
@@ -245,6 +247,7 @@ export default {
             this.btnCliquee = null;
             this.errorMessage = '';
             this.successMessage = '';
+            this.getArme();
         },
         setId() {
             if (this.$route.params.id !== undefined) {
@@ -258,6 +261,7 @@ export default {
                 fetch(`http://localhost:3000/armes/${this.idArme}`)
                     .then((res) => res.json())
                     .then((resJson) => {
+                        this.errorMessage = resJson.message;
                         this.arme.noSerie = resJson[0].NoSerie;
                         this.arme.calibre = resJson[0].Calibre;
                         this.arme.marque = resJson[0].Marque;
@@ -268,11 +272,13 @@ export default {
                         AAMMJJ.push(noEvenement[1].slice(2, 4));
                         AAMMJJ.push(noEvenement[1].slice(4, 6));
                         noEvenement[1] = AAMMJJ;
-                        [this.noEvenement.NoCours, [this.noEvenement.AA, this.noEvenement.MM,
-                            this.noEvenement.JJ], this.noEvenement.sequenceChiffres] = noEvenement;
+                        [this.noEvenement.NoCours,
+                            [this.noEvenement.AA, this.noEvenement.MM,
+                                this.noEvenement.JJ],
+                            this.noEvenement.sequenceChiffres] = noEvenement;
                     })
-                    .catch((resJson) => {
-                        this.errorMessage = resJson.message;
+                    .catch(() => {
+                        this.errorMessage = 'Cette arme n\'est pas répertoriée';
                     });
             }
         },
