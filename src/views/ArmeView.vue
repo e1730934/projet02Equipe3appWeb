@@ -188,12 +188,17 @@ export default {
             const {
                 AA, MM, JJ, sequenceChiffres,
             } = this.noEvenement;
-            const regexJJ = /^(0[1-9]|1[0-2])$/;
-            const regexMM = /^\d{1,2}$/;
+            const regexJJ = /^0[1-9]|[12]\d|3[01]$/;
+            const regexMM = /^0[1-9]|1[0-2]$/;
             const regexAA = /^\d{2}$/;
             const regexSChiffres = /^\d{4}$/;
-            if ((regexJJ.test(JJ) && regexMM.test(MM)
-                && regexAA.test(AA) && regexSChiffres.test(sequenceChiffres)) === true) {
+            const validationEvent = (
+                regexJJ.test(JJ)
+                && regexMM.test(MM)
+                && regexAA.test(AA)
+                && regexSChiffres.test(sequenceChiffres)
+            );
+            if (validationEvent === true) {
                 const formData = new URLSearchParams(new FormData(event.target));
                 let method;
                 if (this.btnCliquee === 'ajouter') {
@@ -209,6 +214,15 @@ export default {
                         } else {
                             this.errorMessage = resJson.message;
                         }
+
+                        const sleep = (ms) => new Promise((resolve) => {
+                            setTimeout(resolve, ms);
+                        });
+
+                        sleep(2000).then(() => {
+                            this.successMessage = '';
+                            this.errorMessage = '';
+                        });
                     })
                     .catch((resJson) => {
                         this.errorMessage = resJson.message;
