@@ -2,7 +2,7 @@
     <div class="container mb-4 is-desktop" v-if="loaded===true">
       <form id="formulaireAjouter" @submit.prevent="handler($event)">
         <h1 class="has-text-black " style="height:135px; text-align:center;
-        font-size: 24px; padding-top: 5%; padding-bottom:20px" ><b>
+        font-size: 24px; padding-top: 5%"><b>
             <u v-if="idArme!==-1">MODIFICATION D'UNE RÉPONSE ARME À FEU</u>
             <u v-else>AJOUT D'UNE RÉPONSE ARME À FEU</u></b></h1>
           <div class="block has-text-centered has-background-danger" v-if="errorMessage!== ''">
@@ -14,14 +14,14 @@
         <div class="box">
             <div class="columns is-centered">
                 <div class="column is-half">
-                    <div class="field">
-                        <div v-if="idArme!==-1">
+                    <div class="field" v-if="idArme!==-1">
                             <label for="idArme" class="label is-hidden">idArme</label>
                             <div class="control">
                                 <input id="idArme" class="input is-hidden" type="number"
                                        placeholder="idArme" name="idArme" v-model="idArme" readonly>
-                            </div>
                         </div>
+                    </div>
+                    <div class="field">
                         <label for="noSerie" class="label">Numéro de série</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="noSerie" class="input" type="text" name="noSerie"
