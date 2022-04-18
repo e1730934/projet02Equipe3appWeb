@@ -61,13 +61,13 @@ const routes = [
     },
     {
         path: '/valeur',
-        alias: '/valeur/:idValeur',
-        name: 'valeur',
+        alias: '/valeur/:id',
+        name: 'valeurView',
         component: ValeurView,
     },
     {
         path: '/objet',
-        alias: '/objet/:idObjet',
+        alias: '/objet/:id',
         name: 'objetView',
         component: ObjetView,
     },
