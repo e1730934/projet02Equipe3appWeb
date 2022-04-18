@@ -23,126 +23,152 @@
               <div class="column">
                 <h1 class="title is-6 is-mega-menu-title">
                     Les recherches mise a votre disposition</h1>
-                <a class="navbar-item" >
-                  <div class="navbar-content" id="ippe">
-                    <p>
-                      <strong>IPPE</strong>
-                      <br>
-                      <small>Recherche de personnes</small>
-                    </p>
-                  </div>
-                </a>
-                <a class="navbar-item" >
-                  <div class="navbar-content">
-                    <p>
-                      <strong>FPS</strong>
-                      <br>
-                      <small>Recherche de personnes bertillones</small>
-                    </p>
-                  </div>
-                </a>
-                <a class="navbar-item" >
-                  <div class="navbar-content">
-                    <p>
-                      <strong>IBOB</strong>
-                      <br>
-                      <small>Recherche d'objets</small>
-                    </p>
-                  </div>
-                </a>
-                <a class="navbar-item" >
-                  <div class="navbar-content">
-                    <p>
-                      <strong>IBAF</strong>
-                      <br>
-                      <small>Recherche d'armes a feu</small>
-                    </p>
-                  </div>
-                </a>
-                <a class="navbar-item" >
-                  <div class="navbar-content">
-                    <p>
-                      <strong>IBVA</strong>
-                      <br>
-                      <small>Recherche de valeurs</small>
-                    </p>
-                  </div>
-                </a>
+                <router-link v-bind:to="{ name: 'requeteIPPE'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content" id="ippe">
+                      <p>
+                        <strong>IPPE</strong>
+                        <br>
+                        <small>Recherche de personnes</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
+                 <router-link v-bind:to="{ name: 'personnesView'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content">
+                      <p>
+                        <strong>FPS</strong>
+                        <br>
+                        <small>Recherche de personnes bertillones</small>
+                      </p>
+                    </div>
+                  </a>
+                 </router-link>
+                <router-link v-bind:to="{ name: 'objetView'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content">
+                      <p>
+                        <strong>IBOB</strong>
+                        <br>
+                        <small>Recherche d'objets</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
+                <router-link v-bind:to="{ name: 'armeView'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content">
+                      <p>
+                        <strong>IBAF</strong>
+                        <br>
+                        <small>Recherche d'armes a feu</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
+                <router-link v-bind:to="{ name: 'valeurView'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content">
+                      <p>
+                        <strong>IBVA</strong>
+                        <br>
+                        <small>Recherche de valeurs</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
               </div>
               <div class="column">
                 <h1 class="title is-6 is-mega-menu-title">Autres recherches</h1>
+                <router-link v-bind:to="{ name: 'SAAQView'}">
                 <a class="navbar-item">
-                  <div class="navbar-content">
-                    <p>
-                      <strong>SAAQ</strong>
-                      <br>
-                      <small>Recherche de personnes par plaque d'immatriculation</small>
-                    </p>
-                  </div>
-                </a>
-                <a class="navbar-item" >
-                  <div class="navbar-content">
-                    <p>
-                      <strong>SAAQ</strong>
-                      <br>
-                      <small>Recherche Par nom,prenoms et date de naissance</small>
-                    </p>
-                  </div>
-                </a>
-                <a class="navbar-item" >
-                  <div class="navbar-content">
-                    <p>
-                      <strong>SAAQ</strong>
-                      <br>
-                      <small>Recherche Par numero de dossier (permis de conduire)</small>
-                    </p>
-                  </div>
-                </a>
-                <a class="navbar-item" >
-                  <div class="navbar-content">
-                    <p>
-                      <strong>SAAQ</strong>
-                      <br>
-                      <small>Recherche de vehicule</small>
-                    </p>
-                  </div>
-                </a>
-                <a class="navbar-item" >
-                  <div class="navbar-content">
-                    <p>
-                      <strong>SAAQ</strong>
-                      <br>
-                      <small>Recherche par adresse</small>
-                    </p>
-                  </div>
-                </a>
+                    <div class="navbar-content">
+                      <p>
+                        <strong>SAAQ</strong>
+                        <br>
+                        <small>Recherche de personnes par plaque d'immatriculation</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
+                <router-link v-bind:to="{ name: 'SAAQView'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content">
+                      <p>
+                        <strong>SAAQ</strong>
+                        <br>
+                        <small>Recherche Par nom,prenoms et date de naissance</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
+                <router-link v-bind:to="{ name: 'SAAQView'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content">
+                      <p>
+                        <strong>SAAQ</strong>
+                        <br>
+                        <small>Recherche Par numero de dossier (permis de conduire)</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
+                <router-link v-bind:to="{ name: 'SAAQView'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content">
+                      <p>
+                        <strong>SAAQ</strong>
+                        <br>
+                        <small>Recherche de vehicule</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
+                <router-link v-bind:to="{ name: 'SAAQView'}">
+                  <a class="navbar-item" >
+                    <div class="navbar-content">
+                      <p>
+                        <strong>SAAQ</strong>
+                        <br>
+                        <small>Recherche par adresse</small>
+                      </p>
+                    </div>
+                  </a>
+                </router-link>
               </div>
               <div class="column " id="menuP">
                 <h1 class="title is-6 is-mega-menu-title"  >Menu prof</h1>
-                <a class="navbar-item " id="banqueP" >
-                <strong>Banque de personne</strong>
-                </a>
+                <router-link v-bind:to="{ name: 'personnesView'}">
+                  <a class="navbar-item " id="banqueP" >
+                    <strong>Banque de personne</strong>
+                  </a>
+                </router-link>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <a class="navbar-item " id="accueil">
-    Accueil
-      </a>
+      <router-link v-bind:to="{ name: 'accueil'}">
+        <a class="navbar-item " id="accueil">
+      Accueil
+        </a>
+      </router-link>
     </div>
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="field is-grouped">
           <p class="control">
           </p>
-          <p class="control" id="deco">
-            <a class="button">
-              <span class="icon">
-              <i class="fas fa-sign-out-alt"></i></span>
-              <span>Deconnexion</span>
-            </a>
-          </p>
+          <router-link v-bind:to="{ name: 'accueil'}">
+            <p class="control" id="deco">
+              <a class="button">
+                <span class="icon">
+                <i class="fas fa-sign-out-alt"></i></span>
+                <span>Deconnexion</span>
+              </a>
+            </p>
+          </router-link>
         </div>
       </div>
     </div>
