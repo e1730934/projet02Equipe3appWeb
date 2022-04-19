@@ -4,8 +4,8 @@
             <div class="columns is-centered">
                 <div class="column is-half">
                     <h1>  La personne que vous êtes sur le point de modifier est :
-                        {{personne[0].NomFamille}} {{personne[0].Prenom1}}
-                        {{personne[0].Prenom2}}</h1>
+                        <p class="is-bold">{{personne[0].NomFamille}} {{personne[0].Prenom1}}
+                        {{personne[0].Prenom2}}</p></h1>
                     <br>
                     <label for="numTel" class="label">Numéro de téléphone</label>
                         <div class="control has-icons-left has-icons-right">
@@ -195,31 +195,31 @@
                                 <div>
                                     <input type="checkbox" v-model="toxicomanie" name="toxicomanie"
                                     value="Toxicomanie">
-                                    <label for="toxicomanie">Toxicomanie</label>
+                                    <label for="toxicomanie">   Toxicomanie</label>
                                 </div>
 
                                 <div>
                                     <input type="checkbox" v-model="desorganise" name="desorganise"
                                     value="desorganise">
-                                    <label for="desorganise">Desorganise</label>
+                                    <label for="desorganise">   Desorganise</label>
                                 </div>
 
                                 <div>
                                     <input type="checkbox" v-model="depressif" name="depressif"
                                     value="depressif">
-                                    <label for="depressif">Depressif</label>
+                                    <label for="depressif"> Depressif</label>
                                 </div>
 
                                 <div>
                                     <input type="checkbox" v-model="suicidaire" name="suicidaire"
                                     value="suicidaire">
-                                    <label for="suicidaire">Suicidaire</label>
+                                    <label for="suicidaire">    Suicidaire</label>
                                 </div>
 
                                 <div>
                                     <input type="checkbox" v-model="violent" name="violent"
                                     value="violent">
-                                    <label for="violent">Violent</label>
+                                    <label for="violent">   Violent</label>
                                 </div>
                         </div>
 
@@ -274,6 +274,9 @@
                 <div class="column is-6">
                     <button class="button" v-on:click="updateDescription">Ajouter</button>
                 </div>
+                <p class="has-text-success"
+                    v-if ="envoyé">
+                    *Modification enregistré avec succès</p>
             </div>
         </div>
     </div>
@@ -308,6 +311,7 @@ export default {
             depressif: false,
             suicidaire: false,
             violent: false,
+            envoyé: false,
         };
     },
     computed: {
@@ -356,7 +360,7 @@ export default {
     },
     methods: {
         async GetDescription() {
-            const rep = await fetch(`${svrURL}/personnes/${this.$route.params.IdPersonne}`);
+            const rep = await fetch(`${svrURL}/personnes/${this.$route.params.idPersonne}`);
             if (rep.ok) {
                 this.personne = await rep.json();
 
@@ -436,21 +440,25 @@ export default {
                 Violent: this.violent,
                 Depressif: this.depressif,
             };
-            const response = await fetch(`${svrURL}/personnes/${this.$route.params.IdPersonne}/description`, {
+            const response = await fetch(`${svrURL}/personnes/${this.$route.params.idPersonne}/description`, {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(body),
             });
             if (response.ok) {
-                this.$router.push(`/personne/${this.$route.params.IdPersonne}`);
+                this.envoyé = true;
+                setTimeout(redirect, 5000);
             } else {
                 msg = await response.json();
                 alert(msg);
             }
         },
         retourALaPersonne() {
-            this.$router.push(`/personne/${this.$route.params.IdPersonne}`);
+            this.$router.push(`/personne/${this.$route.params.idPersonne}`);
         },
+        redirect() {
+            this.$router.push(`/personne/${this.$route.params.idPersonne}`);
+        }
     },
     mounted() {
         this.GetDescription();
