@@ -68,9 +68,9 @@
                                 <select id="typeEvenement" class="select"
                                         name="typeEvenement" required
                                         v-model="valeur.typeEvenement">
-                                    <option>***NÉGATIF***</option>
-                                    <option>***VOLÉ***</option>
-                                    <option>***PERDU***</option>
+                                    <option value="Négatif">***NÉGATIF***</option>
+                                    <option value="Volé">***VOLÉ***</option>
+                                    <option value="Perdu">***PERDU***</option>
                                 </select>
                             </div>
                         </div>
