@@ -57,6 +57,89 @@
                         </div>
                     </div>
                     <div id="NoEvenement" class="columns is-mobile is-multiline is-centered">
+                        <div class="column is-2">
+                            <label class="has-text-black" for="NoEvent"><b>Numéro évenement</b>
+                                <span style="color: red">*</span></label><br><br>
+                            <select id="NoEvent" class="select" name="NoEvent" required>
+                                <option></option>
+                                <option>123</option>
+                                <option>302</option>
+                                <option>108</option>
+                            </select>
+                        </div>
+
+                        <div class="column is-1-desktop is-2-mobile">
+                            <label class="has-text-black" for="annee"><b>Année</b>
+                                <span style="color: red">*</span></label><br><br>
+                            <input id="annee" type="text" name="annee" placeholder="Année"
+                                required/>
+                        </div>
+
+                        <div class="column is-1-desktop is-2-mobile">
+                            <label class="has-text-black" for="ddm"><b>Mois</b><span
+                                style="color: red">*</span></label><br><br>
+                            <select id="Mois" class="select" name="mois" required>
+                            <option></option>
+                            <option value="01">01</option>
+                            <option value="02">02</option>
+                            <option value="03">03</option>
+                            <option value="04">04</option>
+                            <option value="05">05</option>
+                            <option value="06">06</option>
+                            <option value="07">07</option>
+                            <option value="08">08</option>
+                            <option value="09">09</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+
+                            </select>
+                        </div>
+                        <div class="column is-1-desktop is-2-mobile">
+                            <label class="has-text-black" for="ddm"><b>Jour</b><span
+                                style="color: red">*</span></label><br><br>
+                            <select id="Jour" class="select" name="jour" required>
+                            <option></option>
+                            <option>01</option>
+                            <option>02</option>
+                            <option>03</option>
+                            <option>04</option>
+                            <option>05</option>
+                            <option>06</option>
+                            <option>07</option>
+                            <option>08</option>
+                            <option>09</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>13</option>
+                            <option>14</option>
+                            <option>15</option>
+                            <option>16</option>
+                            <option>17</option>
+                            <option>18</option>
+                            <option>19</option>
+                            <option>20</option>
+                            <option>21</option>
+                            <option>22</option>
+                            <option>23</option>
+                            <option>24</option>
+                            <option>25</option>
+                            <option>26</option>
+                            <option>27</option>
+                            <option>28</option>
+                            <option>29</option>
+                            <option>30</option>
+                            <option>31</option>
+                            </select>
+                        </div>
+
+                        <div class="column is-2">
+                            <label class="has-text-black" for="NoSeq"><b>Numéro Séquentiel</b>
+                                <span style="color: red">*</span></label><br><br>
+                            <input id="NoSeq" type="text" name="NoSeq"
+                                placeholder="Numéro Séquentiel" required/>
+                        </div>`
                    </div>
                 </div>
             </div>
