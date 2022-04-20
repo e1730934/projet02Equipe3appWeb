@@ -71,7 +71,7 @@
                                     min="1" max="12">
                                 </div>
                                 <p id="jourError" class="help is-danger is-hidden">
-                                    *Champ obligatoire : seulement les chiffrs
+                                    *Champ obligatoire : seulement les chiffres
                                     entre 1 et 31 sont permis</p>
                             </div>
                         </div>
@@ -141,10 +141,38 @@
 </template>
 
 <script>
-
+import { svrURL } from '../constantes';
 // noinspection JSUnusedGlobalSymbols
 export default {
     name: 'PersonneView',
+    data() {
+        return {
+            personne: null,
+            param: this.$route.params.idPersonne,
+            ippe: null,
+        };
+    },
+    mounted() {
+        if (this.param) {
+            this.getPersonne();
+        }
+    },
+    methods: {
+        async getPersonne() {
+            const response = await fetch(`${svrURL}/personnes/${this.param}`);
+            if (response.ok) {
+                console.log('ok');
+                this.personne = await response.json();
+            }
+        },
+        async getIPPE() {
+            const response = await fetch(`${svrURL}/personnes/${this.param}/ippes`);
+            if (response.ok) {
+                console.log('ok');
+                this.ippe = await response.json();
+            }
+        },
+    },
 };
 </script>
 

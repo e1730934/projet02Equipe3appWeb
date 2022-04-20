@@ -37,6 +37,7 @@ const routes = [
     },
     {
         path: '/personne',
+        alias: '/personne/:idPersonne',
         name: 'personneView',
         component: PersonneView,
     },
