@@ -1,31 +1,36 @@
 {
-  "name": "client_crtp",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "nodemon app.js ",
-    "lint": "eslint --fix --ext .js,.jsx .",
-    "fix": "npx eslint *.js --fix",
-    "test": "jest --env=jsdom"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.3",
-    "jest": "^27.5.1",
-    "node-fetch": "^3.2.3",
-    "path": "^0.12.7"
-  },
-  "devDependencies": {
-    "eslint": "^8.2.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.25.2",
-    "eslint-plugin-jest": "^26.1.3",
-    "nodemon": "^2.0.15"
-  },
-  "nodemonConfig": {
-    "ext": "js,html,json,css"
-  }
+    "name": "crtp_client_vue",
+    "version": "0.1.0",
+    "description": "Client web Vue.js de l'application CRTP",
+    "private": true,
+    
+    "dependencies": {
+        "core-js": "^3.8.3",
+        "vue": "^3.2.19",
+        "vue-router": "^4.0.13",
+        "vuex": "^4.0.2"
+    },
+
+    "devDependencies": {
+        "@babel/core": "^7.12.17",
+        "@babel/eslint-parser": "^7.12.17",
+        "@vue/cli-plugin-babel": "~5.0.1",
+        "@vue/cli-plugin-eslint": "~5.0.1",
+        "@vue/cli-plugin-router": "~5.0.1",
+        "@vue/cli-plugin-vuex": "~5.0.1",
+        "@vue/cli-service": "~5.0.1",
+        "@vue/eslint-config-airbnb": "^6.0.0",
+        "eslint": "^7.32.0",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-vue": "^8.0.3",
+        "eslint-plugin-vuejs-accessibility": "^1.1.1"
+    },
+
+    "scripts": {
+        "serve": "vue-cli-service serve",
+        "build": "vue-cli-service build",
+        "lint": "vue-cli-service lint",
+        "fix": "vue-cli-service lint --fix"
+    }
+
 }
