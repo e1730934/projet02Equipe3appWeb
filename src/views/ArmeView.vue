@@ -75,8 +75,7 @@
                     </div>
                     <div class="field" style="padding-bottom: 20px">
                     <label for="NoEvenement" class="label">Numéro d'évenement</label>
-                    <div id="NoEvenement" class="columns is-mobile is-multiline is-centered"
-                         style="padding-top: 10px; padding-left: 10px">
+                    <div id="NoEvenement" class="columns is-mobile is-multiline is-centered">
                         <div class="field has-addons">
                             <div class="select">
                                 <select id="NoCours" name="NoCours" required
@@ -126,17 +125,15 @@
                                 id="modifier"
                                 value="Modifier" @click="setEvent('modifier')"
                                 v-if="idArme !==-1">
-                        <button type="reset" class="button has-text-weight-bold is-warning"
-                                id="annuler" @click="resetVariable">Annuler
-                        </button>
+                        <input type="reset" class="button has-text-weight-bold is-warning"
+                                id="annuler" @click="resetVariable" value="Annuler">
                         <input class="button has-text-weight-bold is-primary" type="submit"
                                id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
                                v-if="idArme===-1">
-                        <button class="js-modal-trigger button has-text-weight-bold is-danger"
+                        <input class="js-modal-trigger button has-text-weight-bold is-danger"
                                 data-target="modal-js-example" @click.prevent="showModal = true"
                                 id="suppr"
-                                v-if="idArme !==-1">Supprimer
-                        </button>
+                                v-if="idArme !==-1" value="Supprimer">
                     </div>
                 </div>
             </div>
@@ -154,10 +151,9 @@
                     Voulez-vous vraiment supprimer cette entrée?
                 </section>
                 <footer class="modal-card-foot">
-                    <button class="button has-text-weight-bold is-danger" id="supprimer"
-                            @click.prevent="handlerSupprimer">Supprimer
-                    </button>
-                    <button class="button" @click.prevent="showModal = false">Retour</button>
+                    <input class="button has-text-weight-bold is-danger" id="supprimer"
+                            @click.prevent="handlerSupprimer" value="Supprimer">
+                    <input class="button" @click.prevent="showModal = false" value="Retour">
                 </footer>
             </div>
         </div>
@@ -374,7 +370,7 @@ html, body {
     .item:hover i,
     .question:hover p,
     .question label:hover,
-    input:hover::placeholder {
+    input:hover::placeholder select:hover::placeholder {
     color: #008bcc;
     }
     .item input:hover, .item select:hover, .item textarea:hover {
