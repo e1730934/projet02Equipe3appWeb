@@ -105,23 +105,34 @@
 
             <section class="section mt-3 has-text-centered ">
                 <!--Introduire le tableau ici-->
-                <div id='TableauIPPE' class="container has-text-centered  is-centered is-hidden">
+                <div id='TableauIPPE' class="container has-text-centered  is-centered">
                     <h1 class="title is-4">Réponses - IPPE</h1>
                     <div class="columns is-centered">
                         <div class="column is-narrow">
-                            <table id="table" class="table is-bordered is-hidden
+                            <table id="table" class="table is-bordered
                             is-striped is-narrow is-hoverable" style="align-content: center;">
                                 <thead>
                                 <tr>
-                                    <th>Réponse</th>
-                                    <th>Numéro d'événement</th>
+                                    <th class="is-info">Événement</th>
+                                    <th class="is-info">Numéro</th>
+                                    <th style="border:none;">
+                                        <i class="fas fa-user-plus"></i></th>
                                 </tr>
                                 </thead>
-                                <tbody id="TabBody"></tbody>
+                        <tbody>
+                        <tr>
+                        <td>Recherché</td>
+                        <td>123-140419-1234</td>
+                        <td style="border:none;">
+                            <i class="fas fa-pen"></i></td>
+                        </tr>
+                        </tbody>
                             </table>
                         </div>
                     </div>
-                    <button id="addIppe" class="button is-link" >Ajouter une réponse</button>
+                    <button class="button is-info" >Enregistrer</button>
+                    <button class="button is-info" >Supprimer</button>
+                    <button class="button is-info" >Annuler</button>
                 </div>
             </section>
         </div>
