@@ -11,6 +11,7 @@ import ReponseIPPEView from '@/views/ReponseIPPEView.vue';
 import ValeurView from '@/views/ValeurView.vue';
 import EtudiantView from '@/views/EtudiantView.vue';
 import SAAQView from '@/views/SAAQView.vue';
+import ArmesView from '@/views/ArmesView.vue';
 
 const routes = [
     {
@@ -70,6 +71,11 @@ const routes = [
         alias: '/objet/:id',
         name: 'objetView',
         component: ObjetView,
+    },
+    {
+        path: '/armes',
+        name: 'armesView',
+        component: ArmesView,
     },
     {
         path: '/SAAQ',

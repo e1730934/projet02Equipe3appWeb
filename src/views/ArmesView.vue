@@ -3,12 +3,11 @@
 </template>
 
 <script>
-
-// noinspection JSUnusedGlobalSymbols
 export default {
-    name: 'ObjetView',
+    name: 'ArmesView',
 };
 </script>
 
 <style scoped>
+
 </style>
