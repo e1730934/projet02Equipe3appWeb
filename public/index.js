@@ -28,9 +28,17 @@ async function connexion() {
     }
 }
 
+<<<<<<< HEAD
+           
+            sessionStorage.setItem('token', data.Etudiant)
+            sessionStorage.setItem('Matricule', data.Matricule)
+            sessionStorage.setItem('Nom', data.Nom)
+            window.location.href = "http://localhost:5000/Acceuil";
+=======
 window.onload = function bouton() {
     const BtnEt = document.getElementById('BtnEtudiant');
     const BtnEn = document.getElementById('BtnEnseignant');
+>>>>>>> 5f3c59f34e629a140882bf431c658567806d2666
 
     BtnEt.addEventListener('click', () => { document.getElementById('id').innerText = 'Identification étudiant'; });
     BtnEn.addEventListener('click', () => { document.getElementById('id').innerText = 'Identification enseignant'; });
