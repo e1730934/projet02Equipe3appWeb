@@ -284,7 +284,7 @@
 
 <script>
 import { svrURL } from '@/constantes';
-import verifieNumTel from '@/validations';
+/* import verifieNumTel from '@/validations';
 import verifieNumPermis from '@/validations';
 import verifieAdresse from '@/validations';
 import verifieVille from '@/validations';
@@ -292,7 +292,7 @@ import verifieCodePostal from '@/validations';
 import verifieTaillePoids from '@/validations';
 import verifieYeuxCheveux from '@/validations';
 import verifieMarques from '@/validations';
-import verifieGiletPantalonAutreVetement from '@/validations';
+import verifieGiletPantalonAutreVetement from '@/validations'; */
 
 export default {
     name: 'DescriptionPersonneView',
@@ -381,23 +381,31 @@ export default {
             // Envoyer null dans le cas d'une chaine vide
             const tel = this.Telephone === undefined ? null : this.Telephone;
             const permis = this.numPermis === '' ? null : this.numPermis;
+            const adresse1 = this.adresse1 === '' ? null : this.adresse1;
+            const adresse2 = this.adresse2 === '' ? null : this.adresse2;
+            const ville = this.ville === '' ? null : this.ville;
+            const province = this.province === '' ? null : this.province;
             const CD = this.codePostal === '' ? null : this.codePostal;
+            const race = this.race === '' ? null : this.race;
             const taille = this.taille === '' ? null : this.taille;
             const poids = this.poids === '' ? null : this.poids;
+            const yeux = this.yeux === '' ? null : this.yeux;
+            const cheveux = this.cheveux === '' ? null : this.cheveux;
+            const marques = this.marques === '' ? null : this.marques;
             console.log(taille);
             const body = {
                 Telephone: tel,
                 NoPermis: permis,
-                AdresseUn: this.adresse1,
-                AdresseDeux: this.adresse2,
-                Ville: this.ville,
-                Province: this.province,
+                AdresseUn: adresse1,
+                AdresseDeux: adresse2,
+                Ville: ville,
+                Province: province,
                 CP: CD,
-                Race: this.race,
+                Race: race,
                 Taille: taille,
                 Poids: poids,
-                Yeux: this.yeux,
-                Cheveux: this.cheveux,
+                Yeux: yeux,
+                Cheveux: cheveux,
                 Marques: this.marques,
                 Gilet: this.gilet,
                 Pantalon: this.pantalon,
@@ -415,7 +423,6 @@ export default {
             });
             if (response.ok) {
                 this.envoyé = true;
-                setTimeout(redirect, 5000);
             } else {
                 msg = await response.json();
                 alert(msg);
@@ -426,7 +433,7 @@ export default {
         },
         redirect() {
             this.$router.push(`/personne/${this.$route.params.idPersonne}`);
-        }
+        },
     },
     mounted() {
         this.GetDescription();
