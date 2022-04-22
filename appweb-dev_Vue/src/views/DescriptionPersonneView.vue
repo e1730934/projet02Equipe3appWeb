@@ -16,7 +16,7 @@
                             </span>
                         </div>
                         <p class="help is-danger" v-if="(numTel !== null && numTel !== '')
-                            && !verifieNumTel">
+                            && !verifieNumTel(this.numTel)">
                             * seul 10 chiffres sont acceptés</p>
 
                     <label for="numPer" class="label">Numéro de permis</label>
@@ -281,6 +281,15 @@
 
 <script>
 import { svrURL } from '@/constantes';
+import verifieNumTel from '@/validations';
+import verifieNumPermis from '@/validations';
+import verifieAdresse from '@/validations';
+import verifieVille from '@/validations';
+import verifieCodePostal from '@/validations';
+import verifieTaillePoids from '@/validations';
+import verifieYeuxCheveux from '@/validations';
+import verifieMarques from '@/validations';
+import verifieGiletPantalonAutreVetement from '@/validations';
 
 export default {
     name: 'DescriptionPersonneView',
@@ -311,48 +320,7 @@ export default {
         };
     },
     computed: {
-        verifieNumTel() {
-            return /^[0-9]{10}$/.test(this.numTel);
-        },
-        verifieNumPermis() {
-            return /^[A-Z]{1}[0-9]{12}$/.test(this.numPermis);
-        },
-        verifieAdresse1() {
-            return /^.{0,50}$/.test(this.adresse1);
-        },
-        verifieAdresse2() {
-            return /^.{0,50}$/.test(this.adresse2);
-        },
-        verifieVille() {
-            return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî-\s]{0,50}$/.test(this.ville);
-        },
-        verifieCodePostal() {
-            return /^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$/.test(this.codePostal);
-        },
-        verifieTaille() {
-            return /^[0-9]{0,3}$/.test(this.taille);
-        },
-        verifiePoids() {
-            return /^[0-9]{0,3}$/.test(this.poids);
-        },
-        verifieYeux() {
-            return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî]{0,15}$/.test(this.yeux);
-        },
-        verifieCheveux() {
-            return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî]{0,15}$/.test(this.cheveux);
-        },
-        verifieMarques() {
-            return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî,-\s]{0,100}$/.test(this.marques);
-        },
-        verifieGilet() {
-            return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî,-\s]{0,50}$/.test(this.gilet);
-        },
-        verifiePantalon() {
-            return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî,-\s]{0,50}$/.test(this.pantalon);
-        },
-        verifieAutreVetement() {
-            return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî,-\s]{0,50}$/.test(this.autreVetement);
-        },
+
     },
     methods: {
         async GetDescription() {
