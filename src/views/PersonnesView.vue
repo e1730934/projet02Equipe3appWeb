@@ -23,11 +23,19 @@
                             <th class="is-info">Prenom1</th>
                             <th class="is-info">Prenom2</th>
                             <th class="is-info">Categorie</th>
-                            <th style="border:none;"><a href='${link}'>
-                                <i class="fas fa-user-plus"></i>.</a></th>
+                            <th style="border:none;">
+                                <i class="fas fa-user-plus"></i></th>
                         </tr>
                         </thead>
                         <tbody id="BanquePersonne">
+                        <tr>
+                        <td>NomFamilleUn</td>
+                        <td>Prénom1Un</td>
+                        <td>Prénom2Un</td>
+                        <td>CategorieUn</td>
+                        <td style="border:none;">
+                            <i class="fas fa-pen"></i></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

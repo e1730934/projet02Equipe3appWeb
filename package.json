@@ -3,6 +3,7 @@
     "version": "0.1.0",
     "description": "Client web Vue.js de l'application CRTP",
     "private": true,
+    
     "dependencies": {
         "core-js": "^3.8.3",
         "vue": "^3.2.19",

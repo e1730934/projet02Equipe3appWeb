@@ -37,6 +37,14 @@ function isDateValide(annee, mois, jour) {
 function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
+// Check si l'inputs du nom contient les bons characteres
+function checkNomInput(str) {
+    return /^[a-zA-Z\- ÄäÖöÉéÈèÜüÊêÛûÎî]+$/.test(str);
+}
+// Check si l'inputs des Prenom contiennent les bons characteres
+function checkPrenomInput(str) {
+    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî]+$/.test(str);
+}
 // Vérifie que le numéro de téléphone est juste 10 chiffres
 function verifieNumTel(str) {
     return /^[0-9]{10}$/.test(str);
@@ -90,4 +98,6 @@ export {
     verifieYeuxCheveux,
     verifieMarques,
     verifieGiletPantalonAutreVetement,
+    checkNomInput,
+    checkPrenomInput,
 };
