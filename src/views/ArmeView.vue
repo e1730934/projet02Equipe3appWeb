@@ -121,7 +121,7 @@
                     <div class="buttons">
                         <input type="submit" class="button has-text-weight-bold is-link"
                                id="retour" value="Retour"
-                               @click.prevent="this.$router.push('armes')">
+                               @click.prevent="this.$router.push('/armes')">
                         <input  type="submit" class="button has-text-weight-bold is-primary"
                                 id="modifier"
                                 value="Modifier" @click="setEvent('modifier')"
