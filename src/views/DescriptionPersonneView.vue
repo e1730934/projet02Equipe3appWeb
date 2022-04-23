@@ -193,7 +193,9 @@
                                     <p class="help is-danger"> {{ ErrorAutreVetement }}</p>
                     </div>
             </div>
-
+                <p class="has-text-success has-text-centered"
+                    v-if ="envoyé">
+                    *Modifications enregistrées avec succès</p>
             <div class="columns">
                 <div class="column is-6 has-text-right">
                     <button class="button " v-on:click="retourALaPersonne">Retour</button>
@@ -201,16 +203,15 @@
                 <div class="column is-6">
                     <button class="button" v-on:click="updateDescription">Ajouter</button>
                 </div>
-                <p class="has-text-success"
-                    v-if ="envoyé">
-                    *Modification enregistré avec succès</p>
             </div>
+
         </div>
     </div>
 </template>
 
 <script>
 import { svrURL } from '@/constantes';
+// importation des vérifications
 import {
     verifieNumTel,
     verifieNumPermis,
@@ -227,8 +228,9 @@ export default {
     name: 'DescriptionPersonneView',
     data() {
         return {
+            // Les informations à ramasser
             personne: null,
-            numTel: null,
+            numTel: '',
             numPermis: null,
             adresse1: null,
             adresse2: null,
@@ -256,52 +258,17 @@ export default {
             ErrorNumPermis: '',
             ErrorAdresse1: '',
             ErrorAdresse2: '',
+            ErrorVille: '',
+            ErrorCodePostal: '',
+            ErrorTaille: '',
+            ErrorPoids: '',
+            ErrorYeux: '',
+            ErrorCheveux: '',
+            ErrorMarques: '',
+            ErrorGilet: '',
+            ErrorPantalon: '',
+            ErrorAutreVetement: '',
         };
-    },
-    computed: {
-        /* computedVerifieNumTel() {
-            return verifieNumTel(this.numTel);
-        },
-        computedVerifieNumPermis() {
-            return verifieNumPermis(this.numPermis);
-        },
-        computedVerifieAdresse1() {
-            return verifieAdresse(this.adresse1);
-        },
-        computedVerifieAdresse2() {
-            return verifieAdresse(this.adresse2);
-        },
-        computedVerifieVille() {
-            return verifieVille(this.ville);
-        },
-        computedVerifieCodePostal() {
-            return verifieCodePostal(this.codePostal);
-        },
-        computedVerifieTaille() {
-            return verifieTaillePoids(this.taille);
-        },
-        computedVerifiePoids() {
-            return verifieTaillePoids(this.poids);
-        },
-        computedVerifieYeux() {
-            return verifieYeuxCheveux(this.yeux);
-        },
-        computedVerifieCheveux() {
-            return verifieYeuxCheveux(this.cheveux);
-        },
-        computedVerifieMarques() {
-            return verifieMarques(this.marques);
-        },
-        computedVerifieGilet() {
-            return verifieGiletPantalonAutreVetement(this.gilet);
-        },
-        computedVerifiePantalon() {
-            return verifieGiletPantalonAutreVetement(this.pantalon);
-        },
-        computedVerifieAutreVetement() {
-            return verifieGiletPantalonAutreVetement(this.autreVetement);
-        }, */
-
     },
     methods: {
         async GetDescription() {
@@ -354,99 +321,95 @@ export default {
         },
         async updateDescription() {
             let msg;
+            if (this.uneErreurEstPresente) {
+                this.uneErreurEstPresente = false;
+            }
 
-            if (!verifieNumTel(this.numTel) && this.numTel !== '') {
-                this.ErrorNumTel += '* seul 10 chiffres sont acceptés';
+            if (!verifieNumTel(this.numTel) && (this.numTel !== null && this.numTel !== '')) {
+                this.ErrorNumTel = '* seul 10 chiffres sont acceptés';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorNumTel = '';
             }
-            if (!verifieNumPermis(this.numPermis) && this.numPermis !== null) {
-                this.ErrorNumPermis += '*Le numéro de permis est invalide. Ex:A123412341234';
+            if (!verifieNumPermis(this.numPermis) && (this.numPermis !== null && this.numPermis !== '')) {
+                this.ErrorNumPermis = '*Le numéro de permis est invalide. Ex:A123412341234';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorNumPermis = '';
             }
-            if (!verifieAdresse(this.adresse1) && this.adresse1 !== null) {
-                this.ErrorAdresse1 += '*Maximum de 50 caracthère';
+            if (!verifieAdresse(this.adresse1) && (this.adresse1 !== null && this.adresse1 !== '')) {
+                this.ErrorAdresse1 = '*Maximum de 50 caracthère';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorAdresse1 = '';
             }
-            if (!verifieAdresse(this.adresse2) && this.adresse2 !== null) {
+            if (!verifieAdresse(this.adresse2) && (this.adresse2 !== null && this.adresse2 !== '')) {
                 this.ErrorAdresse2 += '*Maximum de 50 caracthère';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorAdresse2 = '';
             }
-            if (!verifieVille(this.ville) && this.ville !== null) {
-                this.ErrorVille += '*Maximum de 50 caracthère';
+            if (!verifieVille(this.ville) && (this.ville !== null && this.ville !== '')) {
+                this.ErrorVille = '*Maximum de 50 caracthère';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorVille = '';
             }
-            if (!verifieCodePostal(this.codePostal) && this.codePostal !== null) {
-                this.ErrorVille += '*Entrez un code Postal valide Ex: A1B 2C3';
-                this.uneErreurEstPresente = true;
-            } else {
-                this.ErrorVille = '';
-            }
-            if (!verifieCodePostal(this.codePostal) && this.codePostal !== null) {
-                this.ErrorCodePostal += '*Entrez un code Postal valide Ex: A1B 2C3';
+            if (!verifieCodePostal(this.codePostal) && (this.codePostal !== null && this.codePostal !== '')) {
+                this.ErrorCodePostal = '*Entrez un code Postal valide Ex: A1B 2C3';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorCodePostal = '';
             }
-            if (!verifieTaillePoids(this.taille) && this.taille !== null) {
-                this.ErrorTaille += '*Veuillez entrer 3 chiffres max. Taille en CM';
+            if (!verifieTaillePoids(this.taille) && (this.taille !== null && this.taille !== '')) {
+                this.ErrorTaille = '*Veuillez entrer 3 chiffres max. Taille en CM';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorTaille = '';
             }
-            if (!verifieTaillePoids(this.poids) && this.poids !== null) {
-                this.ErrorPoids += '*Veuillez entrer 3 chiffres max. Poids en KG';
+            if (!verifieTaillePoids(this.poids) && (this.poids !== null && this.poids !== '')) {
+                this.ErrorPoids = '*Veuillez entrer 3 chiffres max. Poids en KG';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorPoids = '';
             }
-            if (!verifieYeuxCheveux(this.yeux) && this.yeux !== null) {
-                this.ErrorYeux += '*Maximum de 15 caracthères. Pas de chiffres ou caracthères spéciaux';
+            if (!verifieYeuxCheveux(this.yeux) && (this.yeux !== null && this.yeux !== '')) {
+                this.ErrorYeux = '*Maximum de 15 caracthères. Pas de chiffres ou caracthères spéciaux';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorYeux = '';
             }
-            if (!verifieYeuxCheveux(this.cheveux) && this.cheveux !== null) {
-                this.ErrorCheveux += '*Maximum de 15 caracthères. Pas de chiffres ou caracthères spéciaux';
+            if (!verifieYeuxCheveux(this.cheveux) && (this.cheveux !== null && this.cheveux !== '')) {
+                this.ErrorCheveux = '*Maximum de 15 caracthères. Pas de chiffres ou caracthères spéciaux';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorCheveux = '';
             }
-            if (!verifieMarques(this.marques) && this.marques !== null) {
-                this.ErrorMarques += '*Maximum de 100 caracthères. Pas de chiffres ou caracthères spéciaux';
+            if (!verifieMarques(this.marques) && (this.marques !== null && this.marques !== '')) {
+                this.ErrorMarques = '*Maximum de 100 caracthères. Pas de chiffres ou caracthères spéciaux';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorMarques = '';
             }
-            if (!verifieGiletPantalonAutreVetement(this.gilet) && this.gilet !== null) {
-                this.ErrorGilet += '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
+            if (!verifieGiletPantalonAutreVetement(this.gilet) && (this.gilet !== null && this.gilet !== '')) {
+                this.ErrorGilet = '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorGilet = '';
             }
-            if (!verifieGiletPantalonAutreVetement(this.pantalon) && this.pantalon !== null) {
-                this.ErrorPantalon += '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
+            if (!verifieGiletPantalonAutreVetement(this.pantalon) && (this.pantalon !== null && this.pantalon !== '')) {
+                this.ErrorPantalon = '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorPantalon = '';
             }
             if (!verifieGiletPantalonAutreVetement(this.autreVetement)
-            && this.autreVetement !== null) {
-                this.ErrorAutreVetement += '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
+            && (this.autreVetement !== null && this.autreVetement !== '')) {
+                this.ErrorAutreVetement = '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
                 this.uneErreurEstPresente = true;
             } else {
                 this.ErrorAutreVetement = '';
             }
-
             if (this.uneErreurEstPresente === true) {
                 this.envoyé = false;
             } else {
@@ -468,7 +431,7 @@ export default {
                 const pantalon = this.pantalon === '' ? null : this.pantalon;
                 const autreVetement = this.autreVetement === '' ? null : this.autreVetement;
 
-                console.log(taille);
+                console.log(yeux);
                 // la const body contient tout ce qui sera envoyé à la base de données.
                 const body = {
                     Telephone: tel,
@@ -493,8 +456,8 @@ export default {
                     Violent: this.violent,
                     Depressif: this.depressif,
                 };
-                const response = await fetch(`${svrURL}/personnes/$
-            {this.$route.params.idPersonne}/description`, {
+                console.log(body);
+                const response = await fetch(`${svrURL}/personnes/${this.$route.params.idPersonne}/description`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(body),
