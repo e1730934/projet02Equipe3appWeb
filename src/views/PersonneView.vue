@@ -116,6 +116,7 @@
                     </div>
                     <div class="has-text-centered">
                         <button class="button is-info is-rounded"
+                        v-if="this.personne !== null"
                         v-on:click="goPersonneDescription">
                             Modification des descriptions
                         </button>
@@ -178,7 +179,7 @@
                     v-if="this.personne !== null"
                     v-on:click="UpdatePersonne" >Enregistrer</button>
                     <button class="button is-info"
-                    v-if="!this.personne !== null"
+                    v-if="this.personne !== null"
                     v-on:click="DeletePersonne">Supprimer</button>
                     <button class="button is-info"
                     v-on:click="retourListePersonnes">Annuler</button>
@@ -318,7 +319,7 @@ export default {
             }
         },
         // Gère les erreurs
-        ErroHandler() {
+        ErrorHandler() {
             // Reset le verificateur d'erreur
             if (this.uneErreurEstPresente) {
                 this.uneErreurEstPresente = false;
@@ -384,7 +385,7 @@ export default {
         },
         // Modification de personne
         async UpdatePersonne() {
-            this.ErroHandler();
+            this.ErrorHandler();
             if (!this.uneErreurEstPresente) {
                 this.jour = this.jour.length === 1 ? `0${this.jour}` : this.jour;
                 this.mois = this.mois.length === 1 ? `0${this.mois}` : this.mois;
@@ -414,7 +415,7 @@ export default {
         },
         // Creation de personne
         async CreatePersonnes() {
-            this.ErroHandler();
+            this.ErrorHandler();
             if (!this.uneErreurEstPresente) {
                 this.jour = this.jour.length === 1 ? `0${this.jour}` : this.jour;
                 this.mois = this.mois.length === 1 ? `0${this.mois}` : this.mois;
