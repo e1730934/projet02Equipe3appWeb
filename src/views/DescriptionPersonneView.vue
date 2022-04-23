@@ -281,10 +281,11 @@ export default {
                 this.adresse1 = this.personne[0].Adresse1;
                 this.adresse2 = this.personne[0].Adresse2;
                 this.ville = this.personne[0].Ville;
+                this.province = this.personne[0].Province;
+        // Faire apparaître "Québec" dans menu déroulant lorseque "QC" dans la base de donnée
                 if (this.personne[0].Province === 'Qc') {
                     this.province = 'Québec';
                 }
-                this.province = this.personne[0].Province;
                 this.codePostal = this.personne[0].CodePostal;
                 this.race = this.personne[0].Race;
                 this.taille = this.personne[0].Taille;
@@ -301,7 +302,7 @@ export default {
                 this.suicidaire = this.personne[0].Suicidaire;
                 this.violent = this.personne[0].Violent;
 
-                // Transformer tous les null en false
+                // Transformer tous les null en false pour les checkbox
                 if (this.toxicomanie === null) {
                     this.toxicomanie = false;
                 }
@@ -324,8 +325,10 @@ export default {
             if (this.uneErreurEstPresente) {
                 this.uneErreurEstPresente = false;
             }
-
+            // Vérification de tous les champs
             if (!verifieNumTel(this.numTel) && (this.numTel !== null && this.numTel !== '')) {
+            // Si il y a une erreur dans la vérification et que le champ n'est ni null ni vide
+                // : Faire apparaître l'erreur
                 this.ErrorNumTel = '* seul 10 chiffres sont acceptés';
                 this.uneErreurEstPresente = true;
             } else {
@@ -431,7 +434,6 @@ export default {
                 const pantalon = this.pantalon === '' ? null : this.pantalon;
                 const autreVetement = this.autreVetement === '' ? null : this.autreVetement;
 
-                console.log(yeux);
                 // la const body contient tout ce qui sera envoyé à la base de données.
                 const body = {
                     Telephone: tel,
@@ -456,7 +458,7 @@ export default {
                     Violent: this.violent,
                     Depressif: this.depressif,
                 };
-                console.log(body);
+                // PUT
                 const response = await fetch(`${svrURL}/personnes/${this.$route.params.idPersonne}/description`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
@@ -464,6 +466,10 @@ export default {
                 });
                 if (response.ok) {
                     this.envoyé = true;
+                    // time out qui redirige vers la page personneView après 2000millisecond
+                    setTimeout(() => {
+                       this.$router.push(`/personne/${this.$route.params.idPersonne}`);
+                    }, 2000);
                 } else {
                     msg = await response.json();
                     alert(msg);
@@ -471,9 +477,6 @@ export default {
             }
         },
         retourALaPersonne() {
-            this.$router.push(`/personne/${this.$route.params.idPersonne}`);
-        },
-        redirect() {
             this.$router.push(`/personne/${this.$route.params.idPersonne}`);
         },
     },
