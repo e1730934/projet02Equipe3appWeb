@@ -38,41 +38,41 @@ function capitalizeFirstLetter(str) {
     return str.charAt(0).toUpperCase() + str.slice(1).toLowerCase();
 }
 // Vérifie que le numéro de téléphone est juste 10 chiffres
-function verifieNumTel(numTel) {
-    return /^[0-9]{10}$/.test(numTel);
+function verifieNumTel(str) {
+    return /^[0-9]{10}$/.test(str);
 }
 // Vérifie que Le numéro de permis est Une lettre suivi de 12 chiffres
-function verifieNumPermis() {
-    return /^[A-Z]{1}[0-9]{12}$/.test(this.numPermis);
+function verifieNumPermis(str) {
+    return /^[A-Z]{1}[0-9]{12}$/.test(str);
 }
 // Vérifie que l'adresse a un maximum de 50 caracthères
-function verifieAdresse() {
-    return /^.{0,50}$/.test(this.adresse1);
+function verifieAdresse(str) {
+    return /^.{0,50}$/.test(str);
 }
 // Vérifie que la ville a un maximum de 50 caracthères
-function verifieVille() {
-    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî-\s]{0,50}$/.test(this.ville);
+function verifieVille(str) {
+    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî-\s]{0,50}$/.test(str);
 }
 // Vérifie que le code postal est une lettre, un chiffre,
 // une lettre, un espace, un chiffre, une lettre, un chiffre
-function verifieCodePostal() {
-    return /^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$/.test(this.codePostal);
+function verifieCodePostal(str) {
+    return /^[A-Z][0-9][A-Z] [0-9][A-Z][0-9]$/.test(str);
 }
 // Vérifie que la taille et le poids ont un maximum de 3 nombres
-function verifieTaillePoids() {
-    return /^[0-9]{0,3}$/.test(this.taille);
+function verifieTaillePoids(str) {
+    return /^[0-9]{0,3}$/.test(str);
 }
 // Vérifie que la couleur des yeux et cheveux ont un maximum de 15 caracthères
-function verifieYeuxCheveux() {
-    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî]{0,15}$/.test(this.yeux);
+function verifieYeuxCheveux(str) {
+    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî]{0,15}$/.test(str);
 }
 // Vérifie que la marque est un maximum de 100 caracthères
-function verifieMarques() {
-    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî,-\s]{0,100}$/.test(this.marques);
+function verifieMarques(str) {
+    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî,-\s]{0,100}$/.test(str);
 }
 // Vérifie que le gilet, le pantalon et les autres vêtements ont un maximum de 50 caracthères
-function verifieGiletPantalonAutreVetement() {
-    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî,-\s]{0,50}$/.test(this.gilet);
+function verifieGiletPantalonAutreVetement(str) {
+    return /^[a-zA-ZÄäÖöÉéÈèÜüÊêÛûÎî,-\s]{0,50}$/.test(str);
 }
 
 export {

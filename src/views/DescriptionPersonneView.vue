@@ -11,58 +11,36 @@
                         <div class="control has-icons-left has-icons-right">
                             <input id = "numTel" class="input" type="text"
                             placeholder="Numéro de télèphone" v-model="numTel">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
                         </div>
-                        <p class="help is-danger" v-if="(numTel !== null && numTel !== '')
-                            && !verifieNumTel(this.numTel)">
-                            * seul 10 chiffres sont acceptés</p>
+                            <p class="help is-danger">{{ ErrorNumTel }}</p>
 
                     <label for="numPer" class="label">Numéro de permis</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id = "numPer" class="input" type="text"
                             placeholder="Numéro de permis" v-model="numPermis">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
                         </div>
-                        <p class="help is-danger" v-if="(numPermis !== null && numPermis !== '')
-                        && !verifieNumPermis">
-                            *Le numéro de permis est invalide. Ex:A123412341234</p>
+                        <p class="help is-danger" > {{ ErrorNumPermis }} </p>
 
                     <label for="adresse1" class="label">Adresse 1</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id = "adresse1" class="input" type="text"
                             placeholder="Adresse 1" v-model="adresse1">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
                         </div>
-                        <p class="help is-danger" v-if="adresse1 !== null && !verifieAdresse1">
-                            *Maximum de 50 caracthère</p>
+                        <p class="help is-danger"> {{ ErrorAdresse1 }} </p>
 
                     <label for="adresse2" class="label">Adresse 2</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id = "adresse2" class="input" type="text"
                             placeholder="Adresse 2" v-model="adresse2">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
                         </div>
-                        <p class="help is-danger" v-if="adresse2 !== null && !verifieAdresse2">
-                            *Maximum de 50 caracthère</p>
+                        <p class="help is-danger"> {{ ErrorAdresse2 }} </p>
 
                     <label for="ville" class="label">Ville</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id = "ville" class="input" type="text"
                             placeholder="ville" v-model="ville">
-                            <span class="icon is-small is-left">
-                                <i class="fas fa-user"></i>
-                            </span>
                         </div>
-                        <p class="help is-danger" v-if="ville !== null && !verifieVille">
-                            *Maximum de 50 caracthère</p>
+                        <p class="help is-danger"> {{ ErrorVille }}</p>
 
                     <div class="columns">
                         <div class="column is-6">
@@ -91,14 +69,8 @@
                                 <div class="control has-icons-left has-icons-right">
                                     <input id = "codePostal" class="input" type="text"
                                     placeholder="codePostal" v-model="codePostal">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
                                 </div>
-                                <p class="help is-danger"
-                                    v-if="(codePostal !== null && codePostal !== '')
-                                    && !verifieCodePostal">
-                                    *Entrez un code Postal valide Ex: A1B 2C3</p>
+                                <p class="help is-danger"> {{ ErrorCodePostal }}</p>
                         </div>
                     </div>
 
@@ -119,26 +91,16 @@
                                 <div class="control has-icons-left has-icons-right">
                                     <input id = "taille" class="input" type="int"
                                     placeholder="Taille" v-model="taille">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
                                 </div>
-                                <p id="taille" class="help is-danger"
-                                v-if="taille !== null && !verifieTaille">
-                                    *Veuillez entrer 3 chiffres max. Taille en CM.</p>
+                                <p id="taille" class="help is-danger"> {{ ErrorTaille }}</p>
                         </div>
                         <div class="column is-4">
                             <label for="poids" class="label">Poids</label>
                                 <div class="control has-icons-left has-icons-right">
                                     <input id = "poids" class="input" type="int"
                                     placeholder="Poids" v-model="poids">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
                                 </div>
-                                <p id="poids" class="help is-danger"
-                                v-if="poids !== null && !verifiePoids">
-                                    *Veuillez entrer 3 chiffres max. Poids en KG.</p>
+                                <p id="poids" class="help is-danger"> {{ ErrorPoids }}</p>
                         </div>
                     </div>
 
@@ -148,27 +110,16 @@
                                 <div class="control has-icons-left has-icons-right">
                                     <input id = "yeux" class="input" type="text"
                                     placeholder="yeux" v-model="yeux">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
                                 </div>
-                                <p class="help is-danger" v-if="yeux !== null && !verifieYeux">
-                                    *Maximum de 15 caracthères. Pas de chiffres ou caracthères
-                                    spéciaux</p>
+                                <p class="help is-danger"> {{ ErrorYeux }}</p>
                         </div>
                         <div class="column is-6">
                             <label for="cheveux" class="label">Cheveux</label>
                                 <div class="control has-icons-left has-icons-right">
                                     <input id = "cheveux" class="input" type="text"
                                     placeholder="cheveux" v-model="cheveux">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
                                 </div>
-                                <p class="help is-danger is-hidden"
-                                v-if="cheveux !== null && !verifieCheveux">
-                                    *Maximum de 15 caracthères. Pas de chiffres ou caracthères
-                                    spéciaux</p>
+                                <p class="help is-danger"> {{ ErrorCheveux }}</p>
                         </div>
                     </div>
 
@@ -178,14 +129,8 @@
                                     <div class="control has-icons-left has-icons-right">
                                         <input id = "marques" class="input" type="text"
                                         placeholder="marques" v-model="marques">
-                                        <span class="icon is-small is-left">
-                                            <i class="fas fa-user"></i>
-                                        </span>
                                     </div>
-                                    <p class="help is-danger"
-                                    v-if="marques !== null && !verifieMarques">
-                                        *Maximum de 100 caracthères. Pas de chiffres ou caracthères
-                                    spéciaux</p>
+                                    <p class="help is-danger"> {{ ErrorMarques }}</p>
                         </div>
                     </div>
 
@@ -228,27 +173,15 @@
                                 <div class="control has-icons-left has-icons-right">
                                     <input id = "gilet" class="input" type="text"
                                     placeholder="Gilet" v-model="gilet">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
                                 </div>
-                                <p id="gilet" class="help is-danger"
-                                v-if ="gilet !== null && !verifieGilet">
-                                    *Maximum de 50 caracthères. Pas de chiffres ou caracthères
-                                    spéciaux</p>
+                                <p id="gilet" class="help is-danger"> {{ ErrorGilet }}</p>
 
                             <label for="pantalon" class="label">Pantalon</label>
                                 <div class="control has-icons-left has-icons-right">
                                     <input id = "pantalon" class="input" type="text"
                                     placeholder="Pantalon" v-model="pantalon">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
                                 </div>
-                                <p id="gilet" class="help is-danger"
-                                v-if ="pantalon !== null && !verifiePantalon">
-                                    *Maximum de 50 caracthères. Pas de chiffres ou caracthères
-                                    spéciaux</p>
+                                <p id="gilet" class="help is-danger"> {{ ErrorPantalon }}</p>
                         </div>
 
                     </div>
@@ -256,14 +189,8 @@
                                 <div class="control has-icons-left has-icons-right">
                                     <input id = "autreVetements" class="input" type="text"
                                     placeholder="autreVetements" v-model="autreVetement">
-                                    <span class="icon is-small is-left">
-                                        <i class="fas fa-user"></i>
-                                    </span>
                                 </div>
-                                    <p class="help is-danger"
-                                    v-if ="autreVetement !== null && !verifieAutreVetement">
-                                    *Maximum de 50 caracthères. Pas de chiffres ou caracthères
-                                    spéciaux</p>
+                                    <p class="help is-danger"> {{ ErrorAutreVetement }}</p>
                     </div>
             </div>
 
@@ -284,15 +211,17 @@
 
 <script>
 import { svrURL } from '@/constantes';
-/* import verifieNumTel from '@/validations';
-import verifieNumPermis from '@/validations';
-import verifieAdresse from '@/validations';
-import verifieVille from '@/validations';
-import verifieCodePostal from '@/validations';
-import verifieTaillePoids from '@/validations';
-import verifieYeuxCheveux from '@/validations';
-import verifieMarques from '@/validations';
-import verifieGiletPantalonAutreVetement from '@/validations'; */
+import {
+    verifieNumTel,
+    verifieNumPermis,
+    verifieAdresse,
+    verifieVille,
+    verifieCodePostal,
+    verifieTaillePoids,
+    verifieYeuxCheveux,
+    verifieMarques,
+    verifieGiletPantalonAutreVetement,
+} from '@/validations';
 
 export default {
     name: 'DescriptionPersonneView',
@@ -321,9 +250,57 @@ export default {
             suicidaire: false,
             violent: false,
             envoyé: false,
+            // Les erreurs
+            uneErreurEstPresente: false,
+            ErrorNumTel: '',
+            ErrorNumPermis: '',
+            ErrorAdresse1: '',
+            ErrorAdresse2: '',
         };
     },
     computed: {
+        /* computedVerifieNumTel() {
+            return verifieNumTel(this.numTel);
+        },
+        computedVerifieNumPermis() {
+            return verifieNumPermis(this.numPermis);
+        },
+        computedVerifieAdresse1() {
+            return verifieAdresse(this.adresse1);
+        },
+        computedVerifieAdresse2() {
+            return verifieAdresse(this.adresse2);
+        },
+        computedVerifieVille() {
+            return verifieVille(this.ville);
+        },
+        computedVerifieCodePostal() {
+            return verifieCodePostal(this.codePostal);
+        },
+        computedVerifieTaille() {
+            return verifieTaillePoids(this.taille);
+        },
+        computedVerifiePoids() {
+            return verifieTaillePoids(this.poids);
+        },
+        computedVerifieYeux() {
+            return verifieYeuxCheveux(this.yeux);
+        },
+        computedVerifieCheveux() {
+            return verifieYeuxCheveux(this.cheveux);
+        },
+        computedVerifieMarques() {
+            return verifieMarques(this.marques);
+        },
+        computedVerifieGilet() {
+            return verifieGiletPantalonAutreVetement(this.gilet);
+        },
+        computedVerifiePantalon() {
+            return verifieGiletPantalonAutreVetement(this.pantalon);
+        },
+        computedVerifieAutreVetement() {
+            return verifieGiletPantalonAutreVetement(this.autreVetement);
+        }, */
 
     },
     methods: {
@@ -378,54 +355,156 @@ export default {
         async updateDescription() {
             let msg;
 
-            // Envoyer null dans le cas d'une chaine vide
-            const tel = this.Telephone === undefined ? null : this.Telephone;
-            const permis = this.numPermis === '' ? null : this.numPermis;
-            const adresse1 = this.adresse1 === '' ? null : this.adresse1;
-            const adresse2 = this.adresse2 === '' ? null : this.adresse2;
-            const ville = this.ville === '' ? null : this.ville;
-            const province = this.province === '' ? null : this.province;
-            const CD = this.codePostal === '' ? null : this.codePostal;
-            const race = this.race === '' ? null : this.race;
-            const taille = this.taille === '' ? null : this.taille;
-            const poids = this.poids === '' ? null : this.poids;
-            const yeux = this.yeux === '' ? null : this.yeux;
-            const cheveux = this.cheveux === '' ? null : this.cheveux;
-            const marques = this.marques === '' ? null : this.marques;
-            console.log(taille);
-            const body = {
-                Telephone: tel,
-                NoPermis: permis,
-                AdresseUn: adresse1,
-                AdresseDeux: adresse2,
-                Ville: ville,
-                Province: province,
-                CP: CD,
-                Race: race,
-                Taille: taille,
-                Poids: poids,
-                Yeux: yeux,
-                Cheveux: cheveux,
-                Marques: this.marques,
-                Gilet: this.gilet,
-                Pantalon: this.pantalon,
-                Autre: this.autreVetement,
-                Toxicomanie: this.toxicomanie,
-                Desorganise: this.desorganise,
-                Suicidaire: this.suicidaire,
-                Violent: this.violent,
-                Depressif: this.depressif,
-            };
-            const response = await fetch(`${svrURL}/personnes/${this.$route.params.idPersonne}/description`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(body),
-            });
-            if (response.ok) {
-                this.envoyé = true;
+            if (!verifieNumTel(this.numTel) && this.numTel !== '') {
+                this.ErrorNumTel += '* seul 10 chiffres sont acceptés';
+                this.uneErreurEstPresente = true;
             } else {
-                msg = await response.json();
-                alert(msg);
+                this.ErrorNumTel = '';
+            }
+            if (!verifieNumPermis(this.numPermis) && this.numPermis !== null) {
+                this.ErrorNumPermis += '*Le numéro de permis est invalide. Ex:A123412341234';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorNumPermis = '';
+            }
+            if (!verifieAdresse(this.adresse1) && this.adresse1 !== null) {
+                this.ErrorAdresse1 += '*Maximum de 50 caracthère';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorAdresse1 = '';
+            }
+            if (!verifieAdresse(this.adresse2) && this.adresse2 !== null) {
+                this.ErrorAdresse2 += '*Maximum de 50 caracthère';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorAdresse2 = '';
+            }
+            if (!verifieVille(this.ville) && this.ville !== null) {
+                this.ErrorVille += '*Maximum de 50 caracthère';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorVille = '';
+            }
+            if (!verifieCodePostal(this.codePostal) && this.codePostal !== null) {
+                this.ErrorVille += '*Entrez un code Postal valide Ex: A1B 2C3';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorVille = '';
+            }
+            if (!verifieCodePostal(this.codePostal) && this.codePostal !== null) {
+                this.ErrorCodePostal += '*Entrez un code Postal valide Ex: A1B 2C3';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorCodePostal = '';
+            }
+            if (!verifieTaillePoids(this.taille) && this.taille !== null) {
+                this.ErrorTaille += '*Veuillez entrer 3 chiffres max. Taille en CM';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorTaille = '';
+            }
+            if (!verifieTaillePoids(this.poids) && this.poids !== null) {
+                this.ErrorPoids += '*Veuillez entrer 3 chiffres max. Poids en KG';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorPoids = '';
+            }
+            if (!verifieYeuxCheveux(this.yeux) && this.yeux !== null) {
+                this.ErrorYeux += '*Maximum de 15 caracthères. Pas de chiffres ou caracthères spéciaux';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorYeux = '';
+            }
+            if (!verifieYeuxCheveux(this.cheveux) && this.cheveux !== null) {
+                this.ErrorCheveux += '*Maximum de 15 caracthères. Pas de chiffres ou caracthères spéciaux';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorCheveux = '';
+            }
+            if (!verifieMarques(this.marques) && this.marques !== null) {
+                this.ErrorMarques += '*Maximum de 100 caracthères. Pas de chiffres ou caracthères spéciaux';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorMarques = '';
+            }
+            if (!verifieGiletPantalonAutreVetement(this.gilet) && this.gilet !== null) {
+                this.ErrorGilet += '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorGilet = '';
+            }
+            if (!verifieGiletPantalonAutreVetement(this.pantalon) && this.pantalon !== null) {
+                this.ErrorPantalon += '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorPantalon = '';
+            }
+            if (!verifieGiletPantalonAutreVetement(this.autreVetement)
+            && this.autreVetement !== null) {
+                this.ErrorAutreVetement += '*Maximum de 50 caracthères. Pas de chiffres ou caracthères spéciaux';
+                this.uneErreurEstPresente = true;
+            } else {
+                this.ErrorAutreVetement = '';
+            }
+
+            if (this.uneErreurEstPresente === true) {
+                this.envoyé = false;
+            } else {
+            // Envoyer null dans le cas d'une chaine vide
+                const tel = this.Telephone === undefined ? null : this.Telephone;
+                const permis = this.numPermis === '' ? null : this.numPermis;
+                const adresse1 = this.adresse1 === '' ? null : this.adresse1;
+                const adresse2 = this.adresse2 === '' ? null : this.adresse2;
+                const ville = this.ville === '' ? null : this.ville;
+                const province = this.province === '' ? null : this.province;
+                const CD = this.codePostal === '' ? null : this.codePostal;
+                const race = this.race === '' ? null : this.race;
+                const taille = this.taille === '' ? null : this.taille;
+                const poids = this.poids === '' ? null : this.poids;
+                const yeux = this.yeux === '' ? null : this.yeux;
+                const cheveux = this.cheveux === '' ? null : this.cheveux;
+                const marques = this.marques === '' ? null : this.marques;
+                const gilet = this.gilet === '' ? null : this.gilet;
+                const pantalon = this.pantalon === '' ? null : this.pantalon;
+                const autreVetement = this.autreVetement === '' ? null : this.autreVetement;
+
+                console.log(taille);
+                // la const body contient tout ce qui sera envoyé à la base de données.
+                const body = {
+                    Telephone: tel,
+                    NoPermis: permis,
+                    AdresseUn: adresse1,
+                    AdresseDeux: adresse2,
+                    Ville: ville,
+                    Province: province,
+                    CP: CD,
+                    Race: race,
+                    Taille: taille,
+                    Poids: poids,
+                    Yeux: yeux,
+                    Cheveux: cheveux,
+                    Marques: marques,
+                    Gilet: gilet,
+                    Pantalon: pantalon,
+                    Autre: autreVetement,
+                    Toxicomanie: this.toxicomanie,
+                    Desorganise: this.desorganise,
+                    Suicidaire: this.suicidaire,
+                    Violent: this.violent,
+                    Depressif: this.depressif,
+                };
+                const response = await fetch(`${svrURL}/personnes/$
+            {this.$route.params.idPersonne}/description`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                });
+                if (response.ok) {
+                    this.envoyé = true;
+                } else {
+                    msg = await response.json();
+                    alert(msg);
+                }
             }
         },
         retourALaPersonne() {
