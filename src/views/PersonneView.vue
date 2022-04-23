@@ -13,7 +13,7 @@
                                 <i class="fas fa-user"></i>
                             </span>
                         </div>
-                        <p id="nomError" class="help is-danger is-hidden">
+                        <p v-if="nomError === true" class="help is-danger">
                             *Champ obligatoire : seulement des lettres et '-' sont valides</p>
                     </div>
 
@@ -27,7 +27,7 @@
                             <i class="fas fa-user"></i>
                             </span>
                         </div>
-                        <p id="prenom1Error" class="help is-danger is-hidden">
+                        <p v-if="prenom1Error === true" class="help is-danger">
                             *Champ obligatoire : seulement des lettres sont valides</p>
                     </div>
 
@@ -41,11 +41,14 @@
                             <i class="fas fa-user"></i>
                             </span>
                         </div>
-                        <p id="prenom2Error" class="help is-danger is-hidden">
+                        <p v-if="prenom2Error === true" class="help is-danger">
                             Seulement des lettres sont valides</p>
                     </div>
                     <div class="column has-text-centered">
                         <label for="dateNaissance" class="label">Date de naissance</label>
+                        <p v-if="dateError === true" class="help is-danger has-text-centered">
+                            Erreur: date invalide.
+                        </p>
                         <div id="dateNaissance" class="columns is-multiline mt-2">
                             <div class="column is-4">
                                 <label for="annee" class="label">Année</label>
@@ -54,7 +57,7 @@
                                     placeholder="1998" min="1910" max="2022"
                                     v-model="annee">
                                 </div>
-                                <p id="anneeError" class="help is-danger is-hidden">
+                                <p v-if="anneeError === true" class="help is-danger">
                                     *Champ obligatoire : seulement les années valides se trouvent
                                     entre 1910 et 2022</p>
                             </div>
@@ -64,7 +67,7 @@
                                     <input id="mois" class="input" type="number" placeholder="08"
                                     min="1" max="12" v-model="mois">
                                 </div>
-                                <p id="moisError" class="help is-danger is-hidden">
+                                <p v-if="moisError === true" class="help is-danger">
                                     *Champ obligatoire : seulement les chiffres
                                     entre 1 et 12 sont permis</p>
                             </div>
@@ -74,7 +77,7 @@
                                     <input id="jour" class="input" type="number" placeholder="02"
                                     min="1" max="12" v-model="jour">
                                 </div>
-                                <p id="jourError" class="help is-danger is-hidden">
+                                <p v-if="jourError === true" class="help is-danger">
                                     *Champ obligatoire : seulement les chiffres
                                     entre 1 et 31 sont permis</p>
                             </div>
@@ -91,6 +94,9 @@
                                     </select>
                                 </div>
                             </div>
+                            <p v-if="genreError === true" class="help is-danger has-text-centered">
+                            *Champ obligatoire.
+                            </p>
                         </div>
                         <div class="column is-half has-text-centered">
                             <label for="categorie" class="label">Catégorie</label>
@@ -102,7 +108,17 @@
                                     <option id="personnage">Personnage</option>
                                 </select>
                             </div>
+                            <p v-if="categorieError === true"
+                            class="help is-danger has-text-centered">
+                            *Champ obligatoire.
+                            </p>
                         </div>
+                    </div>
+                    <div class="has-text-centered">
+                        <button class="button is-info is-rounded"
+                        v-on:click="goPersonneDescription">
+                            Modification des descriptions
+                        </button>
                     </div>
                 </div>
             </div>
@@ -116,41 +132,56 @@
                             <table id="table" class="table is-bordered
                             is-striped is-narrow is-hoverable" style="align-content: center;">
                                 <thead>
-                                <tr>
-                                    <th class="is-info">Événement</th>
-                                    <th class="is-info">Numéro</th>
-                                    <th style="border:none;"
-                                    v-if="this.personne !== null">
-                                        <router-link v-bind:to="{name: 'IPPEView',
-                                        params: {idPersonne: parseInt(this.personne.IdPersonne)}}">
-                                        <i class="fas fa-user-plus"></i>
-                                        </router-link>
-                                    </th>
-                                </tr>
+                                    <tr>
+                                        <th class="is-info">Événement</th>
+                                        <th class="is-info">Numéro</th>
+                                        <th style="border:none;"
+                                        v-if="this.personne !== null">
+                                            <router-link v-bind:to="{name: 'IPPEView',
+                                            params: {idPersonne: this.personne[0].IdPersonne}}">
+                                            <i class="fas fa-user-plus"></i>
+                                            </router-link>
+                                        </th>
+                                    </tr>
                                 </thead>
-                        <tbody v-if="this.ippe !== null && this.personne !== null">
-                            <tr v-for="i in this.ippe"
-                            v-bind:key="i.IdIppe">
-                                <td>{{i.TypeEvenement}}</td>
-                                <td>{{i.NoEvenement}}</td>
-                                <td style="border:none;">
-                                    <router-link v-bind:to="{name: 'modifIPPEView',
-                                    params: {idPersonne: parseInt(this.personne.IdPersonne),
-                                    idIppe: parseInt(i.IdIppe)}}">
-                                        <i class="fas fa-pen"></i>
-                                    </router-link>
-                                </td>
-                            </tr>
-                        </tbody>
+                                <tbody v-if="this.personne === null">
+                                    <tr>
+                                        <td> <br> </td>
+                                        <td> <br> </td>
+                                    </tr>
+                                </tbody>
+                                <tbody v-if="this.ippe !== null && this.personne !== null">
+                                    <tr v-for="i in this.ippe"
+                                    v-bind:key="i.IdIPPE">
+                                        <td>{{i.TypeEvenement}}</td>
+                                        <td>{{i.NoEvenement}}</td>
+                                        <td style="border:none;">
+                                            <router-link v-bind:to="{name: 'modifIPPEView',
+                                            params: {
+                                                idPersonne: this.personne[0].IdPersonne,
+                                                idIppe: i.IdIPPE}}">
+                                                <i class="fas fa-pen"></i>
+                                            </router-link>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
             </section>
                 <div class="buttons is-centered">
-                    <button class="button is-info" >Enregistrer</button>
-                    <button class="button is-info" >Supprimer</button>
-                    <button class="button is-info" >Annuler</button>
+                    <button class="button is-info"
+                    v-if="this.personne === null"
+                    v-on:click="CreatePersonnes" >Enregistrer</button>
+                    <button class="button is-info"
+                    v-if="this.personne !== null"
+                    v-on:click="UpdatePersonne" >Enregistrer</button>
+                    <button class="button is-info"
+                    v-if="!this.personne !== null"
+                    v-on:click="DeletePersonne">Supprimer</button>
+                    <button class="button is-info"
+                    v-on:click="retourListePersonnes">Annuler</button>
                 </div>
         </div>
     </div>
@@ -165,6 +196,8 @@ import {
     isAnneeValide,
     isDateValide,
     capitalizeFirstLetter,
+    checkNomInput,
+    checkPrenomInput,
 } from '../validations';
 // noinspection JSUnusedGlobalSymbols
 export default {
@@ -182,6 +215,18 @@ export default {
             jour: '',
             sexe: '',
             categorie: '',
+            // Les erreurs
+            uneErreurEstPresente: false,
+            prenom1Error: false,
+            nomError: false,
+            prenom2Error: false,
+            anneeError: false,
+            jourError: false,
+            moisError: false,
+            dateError: false,
+            genreError: false,
+            categorieError: false,
+
         };
     },
     mounted() {
@@ -191,29 +236,49 @@ export default {
         }
     },
     computed: {
+        // Rajoute une majuscule au nom de famille
         capitalizeName() {
             return capitalizeFirstLetter(this.nomFamille);
         },
+        // Rajoute une majuscule au prénom un
         capitalizeFirstNameOne() {
             return capitalizeFirstLetter(this.prenomUn);
         },
+        // Rajoute une majuscule au prénom deux
         capitalizeFirstNameDeux() {
             return capitalizeFirstLetter(this.prenomDeux);
         },
+        // Vérifie la validité du nom de famille
+        nomFamilleValid() {
+            return checkNomInput(this.nomFamille);
+        },
+        // Vérifie la validité du prénom un
+        prenomUnValid() {
+            return checkPrenomInput(this.prenomUn);
+        },
+        // Vérifie la validité du prénom deux
+        prenomDeuxValid() {
+            return checkPrenomInput(this.prenomDeux);
+        },
+        // Vérifie si le jour ne dépasse pas le jour maximum du mois
         dateValid() {
             return isDateValide(this.annee, this.mois, this.jour);
         },
+        // Vérifie la validité de l'année
         anneeValid() {
             return isAnneeValide(this.annee);
         },
+        // Vérifie la validité du jour
         jourValid() {
             return isJourValide(this.jour);
         },
+        // Vérifie la validité du mois
         moisValid() {
             return isMoisValide(this.mois);
         },
     },
     methods: {
+        // Sauve les informations de la personne et les places dans les inputs
         async getPersonne() {
             const response = await fetch(`${svrURL}/personnes/${this.paramId}`);
             if (response.ok) {
@@ -229,27 +294,162 @@ export default {
                 this.categorie = this.personne[0].TypePersonne;
             }
         },
+        // Recherche si la personne possède des évênements IPPE
         async getIPPE() {
             const response = await fetch(`${svrURL}/personnes/${this.paramId}/ippes`);
             if (response.ok) {
                 this.ippe = await response.json();
             }
-        }, /*
+        },
+        // Suppression de la personne et ses IPPE
         async DeletePersonne() {
             let msg;
-            const response = await fetch(`${svrURL}/personnes/${this.param}`, {
+            const response = await fetch(`${svrURL}/personnes/${this.paramId}`, {
                 method: 'DELETE',
                 headers: { 'Content-Type': 'application/json' },
             });
             if (response.ok) {
                 msg = await response.json();
-                confirm('La personne à été supprimé de la base de donnée');
-                location.href = `${local5000}/BiblioPersonne`;
+                alert('La personne à été supprimé de la base de donnée');
+                this.retourListePersonnes();
             } else {
                 msg = await response.json();
                 alert(msg);
             }
-        }, */
+        },
+        // Gère les erreurs
+        ErroHandler() {
+            // Reset le verificateur d'erreur
+            if (this.uneErreurEstPresente) {
+                this.uneErreurEstPresente = false;
+            }
+            if (!this.dateValid) {
+                this.dateError = true;
+                this.uneErreurEstPresente = true;
+            } else {
+                this.dateError = false;
+            }
+            if (!this.anneeValid) {
+                this.anneeError = true;
+                this.uneErreurEstPresente = true;
+            } else {
+                this.anneeError = false;
+            }
+            if (!this.jourValid) {
+                this.jourError = true;
+                this.uneErreurEstPresente = true;
+            } else {
+                this.jourError = false;
+            }
+            if (!this.moisValid) {
+                this.moisError = true;
+                this.uneErreurEstPresente = true;
+            } else {
+                this.moisError = false;
+            }
+            if (!this.nomFamilleValid) {
+                this.nomError = true;
+                this.uneErreurEstPresente = true;
+            } else {
+                this.nomError = false;
+            }
+            if (!this.prenomUnValid) {
+                this.prenom1Error = true;
+                this.uneErreurEstPresente = true;
+            } else {
+                this.prenom1Error = false;
+            }
+            if (this.prenomDeux !== '') {
+                if (!this.prenomDeuxValid) {
+                    this.prenom2Error = true;
+                    this.uneErreurEstPresente = true;
+                } else {
+                    this.prenom2Error = false;
+                }
+            } else {
+                this.prenom2Error = false;
+            }
+            if (this.sexe === '') {
+                this.genreError = true;
+                this.uneErreurEstPresente = true;
+            } else {
+                this.genreError = false;
+            }
+            if (this.categorie === '') {
+                this.categorieError = true;
+                this.uneErreurEstPresente = true;
+            } else {
+                this.categorieError = false;
+            }
+        },
+        // Modification de personne
+        async UpdatePersonne() {
+            this.ErroHandler();
+            if (!this.uneErreurEstPresente) {
+                this.jour = this.jour.length === 1 ? `0${this.jour}` : this.jour;
+                this.mois = this.mois.length === 1 ? `0${this.mois}` : this.mois;
+                const date = `${this.annee}-${this.mois}-${this.jour}`;
+                const body = {
+                    TypePersonne: this.categorie,
+                    NomFamille: this.capitalizeName,
+                    Prenom1: this.capitalizeFirstNameOne,
+                    Prenom2: this.capitalizeFirstNameDeux,
+                    Masculin: this.sexe,
+                    DateNaissance: date,
+                };
+
+                const response = await fetch(`${svrURL}/personnes/${this.paramId}`, {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                });
+                if (response.ok) {
+                    alert('personne modifier');
+                    this.retourListePersonnes();
+                } else {
+                    const msg = await response.json();
+                    alert(msg);
+                }
+            }
+        },
+        // Creation de personne
+        async CreatePersonnes() {
+            this.ErroHandler();
+            if (!this.uneErreurEstPresente) {
+                this.jour = this.jour.length === 1 ? `0${this.jour}` : this.jour;
+                this.mois = this.mois.length === 1 ? `0${this.mois}` : this.mois;
+                const date = `${this.annee}-${this.mois}-${this.jour}`;
+                const body = {
+                    TypePersonne: this.categorie,
+                    NomFamille: this.capitalizeName,
+                    Prenom1: this.capitalizeFirstNameOne,
+                    Prenom2: this.capitalizeFirstNameDeux,
+                    Masculin: this.sexe,
+                    DateNaissance: date,
+                };
+
+                const response = await fetch(`${svrURL}/personnes`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(body),
+                });
+                if (response.ok) {
+                    const msg = await response.json();
+                    alert(msg.message);
+                    this.retourListePersonnes();
+                } else {
+                    const errormsg = await response.json();
+                    alert(errormsg);
+                }
+            }
+        },
+        // Retour à la liste de personnes
+        retourListePersonnes() {
+            this.$router.push('/personnes');
+        },
+        goPersonneDescription() {
+            this.$router.push(`/personne/${this.paramId}/description`);
+        },
     },
 };
 </script>
