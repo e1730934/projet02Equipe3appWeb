@@ -51,7 +51,7 @@
                         </div>
                         <div class="field">
                             <label for="typeValeur" class="label">Type de valeur</label>
-                            <div class = "control">
+                            <div class="control">
                                 <select id="typeValeur" class="select" name="typeValeur" required
                                         v-model="valeur.typeValeur">
                                     <option value="" disabled selected></option>
@@ -64,7 +64,7 @@
                         </div>
                         <div class="field">
                             <label for="typeEvenement" class="label">Réponse IBVA</label>
-                            <div class = "control">
+                            <div class="control">
                                 <select id="typeEvenement" class="select"
                                         name="typeEvenement" required
                                         v-model="valeur.typeEvenement">
@@ -76,8 +76,7 @@
                         </div>
                         <div class="field" style="padding-bottom: 20px">
                             <label for="NoEvenement" class="label">Numéro d'évenement</label>
-                            <div id="NoEvenement" class="columns is-mobile is-multiline is-centered"
-                                 style="padding-top: 10px; padding-left: 10px">
+                           <div id="NoEvenement" class="columns is-mobile is-multiline is-centered">
                                 <div class="field has-addons">
                                     <div class="select">
                                         <select id="NoCours" name="NoCours" required
@@ -122,22 +121,21 @@
                         </div>
                         <div class="buttons">
                             <input type="submit" class="button has-text-weight-bold is-link"
-                                   id="retour" value="Retour" @click.prevent>
-                            <input  type="submit" class="button has-text-weight-bold is-primary"
-                                    id="modifier"
-                                    value="Modifier" @click="setEvent('modifier')"
-                                    v-if="idValeur !==-1">
-                            <button type="reset" class="button has-text-weight-bold is-warning"
-                                    id="annuler" @click="resetVariable">Annuler
-                            </button>
+                                   id="retour" value="Retour"
+                                   @click.prevent="this.$router.push('valeurs')">
+                            <input type="submit" class="button has-text-weight-bold is-primary"
+                                   id="modifier"
+                                   value="Modifier" @click="setEvent('modifier')"
+                                   v-if="idValeur !==-1">
+                            <input type="reset" class="button has-text-weight-bold is-warning"
+                                   id="annuler" @click="resetVariable" value="Annuler">
                             <input class="button has-text-weight-bold is-primary" type="submit"
                                    id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
                                    v-if="idValeur===-1">
-                            <button class="js-modal-trigger button has-text-weight-bold is-danger"
-                                    data-target="modal-js-example" @click.prevent="showModal = true"
-                                    id="suppr"
-                                    v-if="idValeur !==-1">Supprimer
-                            </button>
+                            <input class="js-modal-trigger button has-text-weight-bold is-danger"
+                                   data-target="modal-js-example" @click.prevent="showModal = true"
+                                   id="suppr"
+                                   v-if="idValeur !==-1" value="Supprimer">
                         </div>
                     </div>
                 </div>
@@ -196,7 +194,10 @@ export default {
     methods: {
         handler(event) {
             const {
-                AA, MM, JJ, sequenceChiffres,
+                AA,
+                MM,
+                JJ,
+                sequenceChiffres,
             } = this.noEvenement;
             const regexJJ = /^0[1-9]|[12]\d|3[01]$/;
             const regexMM = /^0[1-9]|1[0-2]$/;
@@ -216,7 +217,10 @@ export default {
                 } else if (this.btnCliquee === 'modifier') {
                     method = 'PUT';
                 }
-                fetch('http://localhost:3000/valeurs', { method, body: formData })
+                fetch('http://localhost:3000/valeurs', {
+                    method,
+                    body: formData,
+                })
                     .then((res) => res.json())
                     .then((resJson) => {
                         if (resJson.success) {
@@ -305,4 +309,214 @@ export default {
 </script>
 
 <style scoped>
+html, body {
+    min-height: 100%;
+}
+
+body, div, form, input, select, textarea, label {
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 22px;
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+
+.testbox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: inherit;
+    padding: 20px;
+}
+
+form {
+    width: 100%;
+    padding: 20px;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.banner {
+    position: relative;
+    height: 135px;
+    width: 135px;
+    background-image: url("/public/images/LogoMaisonneuve.jpg");
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    float: left;
+}
+
+.banner::after {
+    content: "";
+    background-color: rgba(0, 0, 0, 0.2);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+input, select, textarea {
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input {
+    width: calc(100% - 10px);
+    padding: 5px;
+}
+
+textarea {
+    width: calc(100% - 12px);
+    padding: 5px;
+}
+
+.item:hover p,
+.item:hover i,
+.question:hover p,
+.question label:hover,
+input:hover::placeholder select:hover::placeholder {
+    color: #008bcc;
+}
+
+.item input:hover, .item select:hover, .item textarea:hover {
+    border: 1px solid transparent;
+    box-shadow: 0 0 3px 0 #008bcc;
+    color: #008bcc;
+}
+
+.item {
+    position: relative;
+    margin: 10px 0;
+}
+
+.item span {
+    color: red;
+}
+
+input[type="date"]::-webkit-inner-spin-button {
+    display: none;
+}
+
+.item i, input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    font-size: 20px;
+    color: #008bcc;
+}
+
+.item i {
+    right: 1%;
+    top: 30px;
+    z-index: 1;
+}
+
+[type="date"]::-webkit-calendar-picker-indicator {
+    right: 1%;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+input[type=radio], input[type=checkbox] {
+    display: none;
+}
+
+label.radio {
+    position: relative;
+    display: inline-block;
+    margin: 5px 20px 15px 0;
+    cursor: pointer;
+}
+
+.question span {
+    margin-left: 30px;
+}
+
+.question-answer label {
+    display: block;
+}
+
+label.radio:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 17px;
+    height: 17px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+}
+
+input[type=radio]:checked + label:before, label.radio:hover:before {
+    border: 2px solid #008bcc;
+}
+
+label.radio:after {
+    content: "";
+    position: absolute;
+    top: 6px;
+    left: 5px;
+    width: 8px;
+    height: 4px;
+    border: 3px solid #008bcc;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+    opacity: 0;
+}
+
+input[type=radio]:checked + label:after {
+    opacity: 1;
+}
+
+.btn-block {
+    margin-top: 10px;
+    text-align: center;
+}
+
+button {
+    width: 130px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #008bcc;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #008bcc;
+}
+
+@media (min-width: 568px) {
+    .name-item, .city-item {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .name-item input, .name-item div {
+        width: calc(50% - 20px);
+    }
+
+    .name-item div input {
+        width: 97%;
+    }
+
+    .name-item div label {
+        display: block;
+        padding-bottom: 5px;
+    }
+}
 </style>
