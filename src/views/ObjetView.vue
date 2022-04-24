@@ -135,17 +135,14 @@
                                 id="modifier"
                                 value="Modifier" @click="setEvent('modifier')"
                                 v-if="idObjet !==-1">
-                        <button type="reset" class="button has-text-weight-bold is-warning"
-                                id="annuler" @click="resetVariable">Annuler
-                        </button>
+                        <input type="reset" class="button has-text-weight-bold is-warning"
+                               id="annuler" @click="resetVariable" value="Annuler">
                         <input class="button has-text-weight-bold is-primary" type="submit"
                                id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
                                v-if="idObjet===-1">
-                        <button class="js-modal-trigger button has-text-weight-bold is-danger"
+                        <input class="js-modal-trigger button has-text-weight-bold is-danger"
                                 data-target="modal-js-example" @click.prevent="showModal = true"
-                                id="suppr"
-                                v-if="idObjet !==-1">Supprimer
-                        </button>
+                                id="suppr" value="Supprimer" v-if="idObjet !==-1">
                     </div>
                 </div>
             </div>
@@ -177,7 +174,7 @@
 
 // noinspection JSUnusedGlobalSymbols
 export default {
-    name: 'ObjetView',
+    name: 'objetView',
     data() {
         return {
             idObjet: -1,
@@ -525,4 +522,3 @@ button:hover {
     }
 }
 </style>
-
