@@ -1,13 +1,7 @@
 {
-<<<<<<< HEAD
     "editor.insertSpaces": true,
     "editor.tabSize": 4,
     "files.eol": "\n",
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true
 }
-=======
-    "editor.tabSize": 4,
-    "files.eol": "\n"
-}
->>>>>>> 8df78d827ebda36e63915abd7e70697a01bb6e56
