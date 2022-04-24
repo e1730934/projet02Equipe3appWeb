@@ -5,13 +5,14 @@ import RequeteIPPEView from '@/views/RequeteIPPEView.vue';
 import PersonnesView from '@/views/PersonnesView.vue';
 import ConditionView from '@/views/ConditionView.vue';
 import PersonneView from '@/views/PersonneView.vue';
-import ObjetView from '@/views/ObjetsView.vue';
+import ObjetView from '@/views/ObjetView.vue';
 import ArmeView from '@/views/ArmeView.vue';
 import ReponseIPPEView from '@/views/ReponseIPPEView.vue';
 import ValeurView from '@/views/ValeurView.vue';
 import EtudiantView from '@/views/EtudiantView.vue';
 import SAAQView from '@/views/SAAQView.vue';
 import ArmesView from '@/views/ArmesView.vue';
+import ObjetsView from '@/views/ObjetsView.vue';
 
 const routes = [
     {
@@ -76,6 +77,11 @@ const routes = [
         path: '/armes',
         name: 'armesView',
         component: ArmesView,
+    },
+    {
+        path: '/objets',
+        name: 'objetsView',
+        component: ObjetsView,
     },
     {
         path: '/SAAQ',
