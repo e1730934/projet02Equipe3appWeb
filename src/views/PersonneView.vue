@@ -171,6 +171,15 @@
                     </div>
                 </div>
             </section>
+                <p class="has-text-success has-text-centered" v-if="PUTenvoyé">
+                        *Modifications enregistrées avec succès
+                </p>
+                <p class="has-text-success has-text-centered" v-if="POSTenvoyé">
+                        *Personne ajoutée avec succès
+                </p>
+                <p class="has-text-success has-text-centered" v-if="DELETEenvoyé">
+                        *Personne supprimée avec succès
+                </p>
                 <div class="buttons is-centered">
                     <button class="button is-info"
                     v-if="this.personne === null"
@@ -227,7 +236,10 @@ export default {
             dateError: false,
             genreError: false,
             categorieError: false,
-
+            // Requête réussi
+            PUTenvoyé: false,
+            POSTenvoyé: false,
+            DELETEenvoyé: false,
         };
     },
     mounted() {
@@ -311,8 +323,10 @@ export default {
             });
             if (response.ok) {
                 msg = await response.json();
-                alert('La personne à été supprimé de la base de donnée');
-                this.retourListePersonnes();
+                this.DELETEenvoyé = true;
+                setTimeout(() => {
+                        this.$router.push('/personnes');
+                }, 2000);
             } else {
                 msg = await response.json();
                 alert(msg);
@@ -405,8 +419,10 @@ export default {
                     body: JSON.stringify(body),
                 });
                 if (response.ok) {
-                    alert('personne modifier');
-                    this.retourListePersonnes();
+                    this.PUTenvoyé = true;
+                    setTimeout(() => {
+                        this.$router.push('/personnes');
+                    }, 2000);
                 } else {
                     const msg = await response.json();
                     alert(msg);
@@ -435,9 +451,10 @@ export default {
                     body: JSON.stringify(body),
                 });
                 if (response.ok) {
-                    const msg = await response.json();
-                    alert(msg.message);
-                    this.retourListePersonnes();
+                    this.POSTenvoyé = true;
+                    setTimeout(() => {
+                        this.$router.push('/personnes');
+                    }, 2000);
                 } else {
                     const errormsg = await response.json();
                     alert(errormsg);

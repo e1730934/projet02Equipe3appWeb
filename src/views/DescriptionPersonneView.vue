@@ -3,9 +3,12 @@
         <div class="box">
             <div class="columns is-centered">
                 <div class="column is-half">
-                    <h1>  La personne que vous êtes sur le point de modifier est :
-                        <p class="is-bold">{{personne[0].NomFamille}} {{personne[0].Prenom1}}
-                        {{personne[0].Prenom2}}</p></h1>
+                    <h1 class="has-text-centered title is-4">
+                            La personne que vous êtes sur le point de modifier est :
+                    </h1>
+                    <h1 class="has-text-centered title is-4">
+                        {{personne[0].NomFamille}} {{personne[0].Prenom1}} {{personne[0].Prenom2}}
+                    </h1>
                     <br>
                     <label for="numTel" class="label">Numéro de téléphone</label>
                         <div class="control has-icons-left has-icons-right">
@@ -136,33 +139,35 @@
 
                     <div class="columns">
                         <div class="column is-6">
-                            <p>Choisir ceux qui s'appliquent:</p>
+                            <p class="subtitle is-6">
+                                Choisir ceux qui s'appliquent:
+                            </p>
                                 <div>
-                                    <input type="checkbox" v-model="toxicomanie" name="toxicomanie"
+                                    <input type="checkbox" v-model="toxicomanie" id="toxicomanie"
                                     value="Toxicomanie">
                                     <label for="toxicomanie">   Toxicomanie</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" v-model="desorganise" name="desorganise"
+                                    <input type="checkbox" v-model="desorganise" id="desorganise"
                                     value="desorganise">
                                     <label for="desorganise">   Desorganise</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" v-model="depressif" name="depressif"
+                                    <input type="checkbox" v-model="depressif" id="depressif"
                                     value="depressif">
                                     <label for="depressif"> Depressif</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" v-model="suicidaire" name="suicidaire"
+                                    <input type="checkbox" v-model="suicidaire" id="suicidaire"
                                     value="suicidaire">
                                     <label for="suicidaire">    Suicidaire</label>
                                 </div>
 
                                 <div>
-                                    <input type="checkbox" v-model="violent" name="violent"
+                                    <input type="checkbox" v-model="violent" id="violent"
                                     value="violent">
                                     <label for="violent">   Violent</label>
                                 </div>
@@ -198,10 +203,12 @@
                     *Modifications enregistrées avec succès</p>
             <div class="columns">
                 <div class="column is-6 has-text-right">
-                    <button class="button " v-on:click="retourALaPersonne">Retour</button>
+                    <button class="button is-info" v-on:click="retourALaPersonne">Retour</button>
                 </div>
                 <div class="column is-6">
-                    <button class="button" v-on:click="updateDescription">Ajouter</button>
+                    <button class="button is-info" v-on:click="updateDescription">
+                        Enregistrer
+                    </button>
                 </div>
             </div>
 
@@ -282,7 +289,7 @@ export default {
                 this.adresse2 = this.personne[0].Adresse2;
                 this.ville = this.personne[0].Ville;
                 this.province = this.personne[0].Province;
-        // Faire apparaître "Québec" dans menu déroulant lorseque "QC" dans la base de donnée
+    // Faire apparaître "Québec" dans menu déroulant lorseque "QC" dans la base de donnée
                 if (this.personne[0].Province === 'Qc') {
                     this.province = 'Québec';
                 }
@@ -468,16 +475,13 @@ export default {
                     this.envoyé = true;
                     // time out qui redirige vers la page personneView après 2000millisecond
                     setTimeout(() => {
-                       this.$router.push(`/personne/${this.$route.params.idPersonne}`);
+                        this.$router.push(`/personne/${this.$route.params.idPersonne}`);
                     }, 2000);
                 } else {
                     msg = await response.json();
                     alert(msg);
                 }
             }
-        },
-        retourALaPersonne() {
-            this.$router.push(`/personne/${this.$route.params.idPersonne}`);
         },
     },
     mounted() {
