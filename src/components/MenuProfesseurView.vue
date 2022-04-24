@@ -45,7 +45,7 @@
                     </div>
                   </a>
                  </router-link>
-                <router-link v-bind:to="{ name: 'objetView'}">
+                <router-link v-bind:to="{ name: 'objetsView'}">
                   <a class="navbar-item" >
                     <div class="navbar-content">
                       <p>
@@ -56,7 +56,7 @@
                     </div>
                   </a>
                 </router-link>
-                <router-link v-bind:to="{ name: 'armeView'}">
+                <router-link v-bind:to="{ name: 'armesView'}">
                   <a class="navbar-item" >
                     <div class="navbar-content">
                       <p>
@@ -67,7 +67,7 @@
                     </div>
                   </a>
                 </router-link>
-                <router-link v-bind:to="{ name: 'valeurView'}">
+                <router-link v-bind:to="{ name: 'valeursView'}">
                   <a class="navbar-item" >
                     <div class="navbar-content">
                       <p>
