@@ -325,7 +325,7 @@ export default {
                 msg = await response.json();
                 this.DELETEenvoyé = true;
                 setTimeout(() => {
-                        this.$router.push('/personnes');
+                    this.$router.push('/personnes');
                 }, 2000);
             } else {
                 msg = await response.json();
