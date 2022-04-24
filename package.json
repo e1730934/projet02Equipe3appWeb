@@ -10,7 +10,6 @@
         "vue-router": "^4.0.13",
         "vuex": "^4.0.2"
     },
-
     "devDependencies": {
         "@babel/core": "^7.12.17",
         "@babel/eslint-parser": "^7.12.17",
@@ -25,12 +24,10 @@
         "eslint-plugin-vue": "^8.0.3",
         "eslint-plugin-vuejs-accessibility": "^1.1.1"
     },
-
     "scripts": {
         "serve": "vue-cli-service serve",
         "build": "vue-cli-service build",
         "lint": "vue-cli-service lint",
         "fix": "vue-cli-service lint --fix"
     }
-
 }
