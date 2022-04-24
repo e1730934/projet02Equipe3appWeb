@@ -289,7 +289,8 @@ export default {
                 this.adresse2 = this.personne[0].Adresse2;
                 this.ville = this.personne[0].Ville;
                 this.province = this.personne[0].Province;
-    // Faire apparaître "Québec" dans menu déroulant lorseque "QC" dans la base de donnée
+                // Faire apparaître "Québec" dans menu
+                // déroulant lorsque "QC" dans la base de donnée
                 if (this.personne[0].Province === 'Qc') {
                     this.province = 'Québec';
                 }
