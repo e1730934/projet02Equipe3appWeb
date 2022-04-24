@@ -20,3 +20,15 @@ npm run build
 ```
 npm run lint
 ```
+
+### Links
+Page de base : 
+http://localhost:8080/
+
+Menu étudiant :
+http://localhost:8080/etudiant
+
+Paga ajout d'une réponse objet, valeurs & armes :
+- http://localhost:8080/objet
+- http://localhost:8080/valeur
+- http://localhost:8080/arme
