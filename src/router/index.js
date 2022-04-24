@@ -12,6 +12,7 @@ import ValeurView from '@/views/ValeurView.vue';
 import EtudiantView from '@/views/EtudiantView.vue';
 import SAAQView from '@/views/SAAQView.vue';
 import ArmesView from '@/views/ArmesView.vue';
+import ValeursView from '@/views/ValeursView.vue';
 
 const routes = [
     {
@@ -76,6 +77,11 @@ const routes = [
         path: '/armes',
         name: 'armesView',
         component: ArmesView,
+    },
+    {
+        path: '/valeurs',
+        name: 'valeursView',
+        component: ValeursView,
     },
     {
         path: '/SAAQ',
