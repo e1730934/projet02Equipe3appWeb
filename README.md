@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Application CRTP
 ## Projet Client - Application Web
 
@@ -81,7 +80,6 @@ Allez sur http://localhost:5000/personnes?=5 :
 
     Vous pouvez désormais modifier ou supprimer une personne
 
->>>>>>> 8df78d827ebda36e63915abd7e70697a01bb6e56
 
 ## Les Routes
 
