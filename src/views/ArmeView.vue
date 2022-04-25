@@ -247,8 +247,8 @@ export default {
             this.getArme();
         },
         setId() {
-            if (this.$route.params.id !== undefined) {
-                this.idArme = this.$route.params.id;
+            if (this.$route.params.idArme !== undefined) {
+                this.idArme = this.$route.params.idArme;
             }
             this.loaded = true;
         },
