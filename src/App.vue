@@ -1,6 +1,6 @@
 <template>
     <div>
-        <MenuProfesseurView v-if="Professeur == true"/>
+        <MenuProfesseurView v-if="Professeur === true"/>
         <HeaderView/>
         <router-view/>
     </div>
