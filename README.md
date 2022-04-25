@@ -83,16 +83,27 @@ Allez sur http://localhost:5000/personnes?=5 :
 
 >>>>>>> 8df78d827ebda36e63915abd7e70697a01bb6e56
 
-## routes
+## Les Routes
 
 Get d’un événement IPPE
+
+
     URL: /personne/{idPersonne}/ippe
 
+
 Ajout/Modification/suppresion dune personne
+
+
     URL: /personne/{idPersonne}
 
+
 Ajout/Modification d’une adresse de personne
+
+
     URL: /adressePersonne/{idPersonne}
 
+
 Ajout/Modification d’une description de personne
+
+
     URL: /descriptionPersonne/{idPersonne}
