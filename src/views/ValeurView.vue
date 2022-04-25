@@ -254,8 +254,8 @@ export default {
             this.getValeur();
         },
         setId() {
-            if (this.$route.params.id !== undefined) {
-                this.idValeur = this.$route.params.id;
+            if (this.$route.params.idValeur !== undefined) {
+                this.idValeur = this.$route.params.idValeur;
             }
             this.loaded = true;
         },

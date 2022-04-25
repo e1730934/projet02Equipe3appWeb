@@ -256,8 +256,8 @@ export default {
             this.getObjet();
         },
         setId() {
-            if (this.$route.params.id !== undefined) {
-                this.idObjet = this.$route.params.id;
+            if (this.$route.params.idObjet !== undefined) {
+                this.idObjet = this.$route.params.idObjet;
             }
             this.loaded = true;
         },
