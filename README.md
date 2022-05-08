@@ -10,6 +10,14 @@ Cette application servira comme outil de formation auz étudiants en Technique p
 - Utiliser un outil de recherche de base de données
 - Se familiariser avec les informations récoltées lors d'une interpellation
 
+## Collaborateurs
+**Ce projet est développé par:**
+* Amzert, Karim - E2069838
+* Cambray, Bastien - E1920614
+* Khendaf, Bilal - E1730934
+* Phung, Truong Sang Mario - E2066576
+
+**PO :** Marc Levasseur.
 
 ## Utilisation
 Installation de toutes les dependances:
