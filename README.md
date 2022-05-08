@@ -1,28 +1,41 @@
-# Application CRTP
-## Projet Client - Application Web
+# Projet CRPQ
+## Application Cliente Web
 
-### Project setup
+Projet de consultation de base de données pour les étudiants de Technique policière.
+
+Dans le cadre du cours de Projet 2 - 4D1, le projet consiste à réaliser à développer une application capable de simuler l'outil d'interrogation de base de données à la disposition d'un agent de l'ordre lors de ses interventions.
+
+## Cadre d'utilisation
+Cette application servira comme outil de formation auz étudiants en Technique policière. Il permettra à l'étudiant de:
+- Utiliser un outil de recherche de base de données
+- Se familiariser avec les informations récoltées lors d'une interpellation
+
+
+## Utilisation
+Installation de toutes les dependances:
 ```
 npm install
 ```
 
-### Compiles and hot-reloads for development
+Détection des erreurs de lint:
+```
+npm run lint
+```
+
+Correction des erreurs de lint:
+```
+npm run fix
+```
+
+Compilation et lancement de l'application en développement:
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
+Compilation de l'application en production:
 ```
 npm run build
 ```
-
-### Lints and fixes files
-```
-npm run lint
-```
-=======
-# Projet_CRPQ_Equipe4
-
 ### Links
 Page de base : 
 http://localhost:8080/
