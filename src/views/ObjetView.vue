@@ -173,6 +173,8 @@
 <script>
 
 // noinspection JSUnusedGlobalSymbols
+import { svrURL } from '@/constantes';
+
 export default {
     name: 'objetView',
     data() {
@@ -221,7 +223,7 @@ export default {
                 } else if (this.btnCliquee === 'modifier') {
                     method = 'PUT';
                 }
-                fetch('http://localhost:3000/objets', { method, body: formData })
+                fetch(`${svrURL}/objets`, { method, body: formData })
                     .then((res) => res.json())
                     .then((resJson) => {
                         if (resJson.success) {
@@ -264,7 +266,7 @@ export default {
         getObjet() {
             this.setId();
             if (this.idObjet !== -1) {
-                fetch(`http://localhost:3000/objets/${this.idObjet}`)
+                fetch(`${svrURL}/objets/${this.idObjet}`)
                     .then((res) => res.json())
                     .then((resJson) => {
                         this.errorMessage = resJson.message;
@@ -289,7 +291,7 @@ export default {
             }
         },
         handlerSupprimer() {
-            fetch(`http://localhost:3000/objets/${this.idObjet}`, { method: 'DELETE' })
+            fetch(`${svrURL}/objets/${this.idObjet}`, { method: 'DELETE' })
                 .then((res) => res.json())
                 .then((resJson) => {
                     if (resJson.success) {
