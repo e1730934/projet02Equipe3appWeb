@@ -166,6 +166,8 @@
 <script>
 
 // noinspection JSUnusedGlobalSymbols
+import { svrURL } from '@/constantes';
+
 export default {
     name: 'ValeurView',
     data() {
@@ -217,7 +219,7 @@ export default {
                 } else if (this.btnCliquee === 'modifier') {
                     method = 'PUT';
                 }
-                fetch('http://localhost:3000/valeurs', {
+                fetch(`${svrURL}/valeurs`, {
                     method,
                     body: formData,
                 })
@@ -262,7 +264,7 @@ export default {
         getValeur() {
             this.setId();
             if (this.idValeur !== -1) {
-                fetch(`http://localhost:3000/valeurs/${this.idValeur}`)
+                fetch(`${svrURL}/valeurs/${this.idValeur}`)
                     .then((res) => res.json())
                     .then((resJson) => {
                         this.errorMessage = resJson.message;
@@ -287,7 +289,7 @@ export default {
             }
         },
         handlerSupprimer() {
-            fetch(`http://localhost:3000/valeurs/${this.idValeur}`, { method: 'DELETE' })
+            fetch(`${svrURL}/valeurs/${this.idValeur}`, { method: 'DELETE' })
                 .then((res) => res.json())
                 .then((resJson) => {
                     if (resJson.success) {

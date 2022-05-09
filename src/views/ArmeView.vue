@@ -164,6 +164,8 @@
 <script>
 
 // noinspection JSUnusedGlobalSymbols
+import { svrURL } from '@/constantes';
+
 export default {
     name: 'ArmeView',
     data() {
@@ -212,7 +214,7 @@ export default {
                 } else if (this.btnCliquee === 'modifier') {
                     method = 'PUT';
                 }
-                fetch('http://localhost:3000/armes', { method, body: formData })
+                fetch(`${svrURL}/armes`, { method, body: formData })
                     .then((res) => res.json())
                     .then((resJson) => {
                         if (resJson.success) {
@@ -255,7 +257,7 @@ export default {
         getArme() {
             this.setId();
             if (this.idArme !== -1) {
-                fetch(`http://localhost:3000/armes/${this.idArme}`)
+                fetch(`${svrURL}/armes/${this.idArme}`)
                     .then((res) => res.json())
                     .then((resJson) => {
                         this.errorMessage = resJson.message;
@@ -280,7 +282,7 @@ export default {
             }
         },
         handlerSupprimer() {
-            fetch(`http://localhost:3000/armes/${this.idArme}`, { method: 'DELETE' })
+            fetch(`${svrURL}/armes/${this.idArme}`, { method: 'DELETE' })
                 .then((res) => res.json())
                 .then((resJson) => {
                     if (resJson.success) {
