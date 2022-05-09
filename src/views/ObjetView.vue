@@ -136,7 +136,7 @@
                                 value="Modifier" @click="setEvent('modifier')"
                                 v-if="idObjet !==-1">
                         <input type="reset" class="button has-text-weight-bold is-warning"
-                               id="annuler" @click.prevent="resetVariable" value="Annuler">
+                               id="annuler" @click="resetVariable" value="Annuler">
                         <input class="button has-text-weight-bold is-primary" type="submit"
                                id="ajouter" value="Ajouter" @click="setEvent('ajouter')"
                                v-if="idObjet===-1">
